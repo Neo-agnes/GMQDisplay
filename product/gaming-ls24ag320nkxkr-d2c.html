@@ -92,21 +92,6 @@
 <script type="text/javascript">
 	var checkActionTimeOut;
 	$(document).ready(function () { 
-		/*
-		$.ajax({
-			 url : "/sec/xhr/member/getSession"
-			,type : "POST"
-			,success : function(data) {
-				var session = JSON.parse(data);
-				if(session.mbrNo != 0){
-					resetLoginTimeOut();
-					$(document).on('click keypress' , 'body' , function(){
-						resetLoginTimeOut();
-					});
-				}
-			}
-		});
-		*/
 		if('0' != 0){
 			resetLoginTimeOut();
 			$(document).on('click keypress' , 'body' , function(){
