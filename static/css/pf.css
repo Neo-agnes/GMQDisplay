@@ -1616,7 +1616,6 @@
     .pf-compare.dc-productList .compare-inner {padding: 11.6667vw 0 3.3333vw 0;}
     .pf-compare.dc-productList .compare-inner .compare-content .slider-prd-compare {overflow-x: auto;padding: 0.5vw 3.3333vw;}
     .pf-compare.dc-productList .compare-inner .compare-content .slider-prd-compare .prd {display: inline-block;}
-    .pf-compare.dc-productList .compare-inner .compare-content .slider-prd-compare .box {border-box;}
     .pf-compare.dc-productList .compare-inner .compare-btns ul li {margin-top: 0;}
     .pf-compare.dc-productList .compare-inner .compare-btns .btn {height: 11.1111vw;border-radius: 5.5556vw;font-size: 3.8889vw;font-weight: 700;}
     .pf-compare.dc-productList .compare-inner .compare-btns .btn-underline{font-size: 3.8889vw;}
@@ -1711,4 +1710,7 @@
 @media all and (max-width: 320px) {
     .pf-container .pf-prd-cardlist .list-product li.item .card-price .price-detail .pic .unit { margin-top: 0.8vw; }
 }
-/* e : 221229 ���ýùķ� */
+
+input:focus {
+    outline: none;
+  }

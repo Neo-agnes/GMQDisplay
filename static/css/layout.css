@@ -26,7 +26,9 @@ html.gnbOpen #wrap:before {
 	z-index: 200;
 	opacity: 1;
 }
-
+input:focus {
+  outline: none;
+}
 /* 헤더 */
 #header { position:relative; width:100%; z-index:210; border-bottom:1px solid #ebebeb; background:#fff;}
 #header .s-inner {max-width:1440px; height: 80px; margin:0 auto; padding:0 24px;display: flex;} /* 2022-05-17 */

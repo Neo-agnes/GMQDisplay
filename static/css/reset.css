@@ -26,6 +26,9 @@ input, button, select, optgroup, textarea {
     font-size: inherit;
     line-height: inherit;
 }
+input:focus {
+    outline: none;
+  }
 ol, ul, li { list-style:none; }
 blockquote, q { quotes:none; }
 blockquote:before, blockquote:after, q:before, q:after { content:none; }

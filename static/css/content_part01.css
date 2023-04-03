@@ -123,6 +123,10 @@
 .secure-pop .inp-box .pop-tArea { font-size:14px; }
 .secure-pop .essential { padding-top: 10px; text-align: left; }
 
+input:focus {
+  outline: none;
+}
+
 .secure-pop .inp-box .error-msg { display: none; }
 .secure-pop .inp-box.error .error-msg { display: block; }
 

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>상품추천</title>
+	<script>
+		function showClothingPage() {
+			document.getElementById("type-selection").style.display = "none";
+			document.getElementById("clothing-selection").style.display = "block";
+		}
+
+		function showShoePage() {
+			document.getElementById("type-selection").style.display = "none";
+			document.getElementById("shoe-selection").style.display = "block";
+		}
+
+		function showBagPage() {
+			document.getElementById("type-selection").style.display = "none";
+			document.getElementById("bag-selection").style.display = "block";
+		}
+
+		function showAccessoryPage() {
+			document.getElementById("type-selection").style.display = "none";
+			document.getElementById("accessory-selection").style.display = "block";
+		}
+
+		function recommendClothing() {
+			var gender = document.getElementById("clothing-gender").value;
+			var size = document.getElementById("clothing-size").value;
+			var color = document.getElementById("clothing-color").value;
+			var product;
+			if (gender == "A") {
+				if (size == "s" || size == "m") {
+					product = "남자 티셔츠";
+				} else {
+					product = "남자상의";
+				}
+			} else {
+				if (size == "s" || size == "m") {
+					product = "여자상의";
+				} else {
+					product = "여자하의";
+				}
+			}
+			alert("AA " + color + " " + product + " B " + size + "!");
+		}
+
+		function recommendShoe() {
+			var gender = document.getElementById("shoe-gender").value;
+			var size = document.getElementById("shoe-size").value;
+			var brand = document.getElementById("shoe-brand").value;
+			var product;
+			if (gender == "A") {
+				if (brand == "nike") {
+					product = "Men's Nike Running Shoes";
+				} else {
+					product = "Men's Adidas Sneakers";
+				}
+			} else {
+				if (brand == "nike") {
+					product = "Women's Nike Training Shoes";
+				} else {
+					product = "Women's Adidas Running Shoes";
+				}
+			}
+			alert("AA pair of " + product + " B " + size + "!");
+		}
+
+		function recommendBag() {
+			var type = document.getElementById("bag-type").value;
+			var color = document.getElementById("bag-color").value;
+			var brand = document.getElementById("bag-brand").value;
+			var product;
+			if (type == "backpack") {
+				product = brand + " Backpack";
+			} else if (type == "tote") {
+				product = brand + " Tote Bag";
+			} else {
+				product = brand + " Shoulder Bag";
+			}
+			alert("AA " + color + " " + product + "!");
+		}
+
+		function recommendAccessory() {
+			var type = document.getElementById("accessory-type").value;
+			var color = document.getElementById("accessory-color").value;
+			var brand = document.getElementById("accessory-brand").value;
+var product;
+if (type == "watch") {
+product = brand + " Watch";
+} else if (type == "sunglasses") {
+product = brand + " Sunglasses";
+} else {
+product = brand + " Hat";
+}
+alert("AA " + color + " " + product + "!");
+}
+</script>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f2f2f2;
+}h1 {
+		text-align: center;
+		color: #333;
+	}
+
+	#type-selection, #clothing-selection, #shoe-selection, #bag-selection, #accessory-selection {
+		max-width: 600px;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 5px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	}
+
+	#clothing-selection, #shoe-selection, #bag-selection, #accessory-selection {
+		display: none;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 10px;
+		color: #666;
+		font-size: 14px;
+	}
+
+	select {
+		padding: 5px;
+		border-radius: 5px;
+		border: none;
+		background-color: #f2f2f2;
+		color: #666;
+		font-size: 14px;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+
+	input[type="text"] {
+		padding: 5px;
+		border-radius: 5px;
+		border: none;
+		background-color: #f2f2f2;
+		color: #666;
+		font-size: 14px;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+
+	input[type="submit"] {
+		background-color: #333;
+		color: #fff;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 16px;
+		margin-top: 20px;
+	}
+
+	input[type="submit"]:hover {
+		background-color: #666;
+	}
+</style>
+</head>
+<body>
+	<h1>Product Recommender</h1>
+	<div id="type-selection">
+		<label for="product-type">Choose a product type:</label>
+		<select id="product-type">
+			<option value="clothing" selected>Clothing</option>
+			<option value="shoe">Shoe</option>
+			<option value="bag">Bag</option>
+			<option value="accessory">Accessory</option>
+		</select>
+		<input type="submit" value="Next" onclick="if(document.getElementById('product-type').value=='clothing'){showClothingPage();}else if(document.getElementById('product-type').value=='shoe'){showShoePage();}else if(document.getElementById('product-type').value=='bag'){showBagPage();}else{showAccessoryPage();}">
+	</div>
+	<div id="clothing-selection">
+		<label for="clothing-gender">Choose a gender:</label>
+		<select id="clothing-gender">
+			<option value="A">Male</option>
+			<option value="feA">FeA</option>
+		</select>
+		<label for="clothing-size">Choose a size:</label>
+<select id="clothing-size">
+<option value="small">Small</option>
+<option value="medium">Medium</option>
+<option value="large">Large</option>
+<option value="x-large">X-Large</option>
+</select>
+<label for="clothing-color">Choose a color:</label>
+<input type="text" id="clothing-color" placeholder="Enter a color">
+<label for="clothing-brand">Choose a brand:</label>
+<select id="clothing-brand">
+<option value="nike">Nike</option>
+<option value="adidas">Adidas</option>
+<option value="puma">Puma</option>
+<option value="under-armour">Under Armour</option>
+<option value="reebok">Reebok</option>
+</select>
+<input type="submit" value="Get Recommendation" onclick="getClothingRecommendation();">
+</div>
+<div id="shoe-selection">
+	<label for="shoe-gender">Choose a gender:</label>
+	<select id="shoe-gender">
+		<option value="A">Male</option>
+		<option value="feA">FeA</option>
+	</select>
+	<label for="shoe-size">Choose a size:</label>
+	<select id="shoe-size">
+		<option value="7">7</option>
+		<option value="7.5">7.5</option>
+		<option value="8">8</option>
+		<option value="8.5">8.5</option>
+		<option value="9">9</option>
+		<option value="9.5">9.5</option>
+		<option value="10">10</option>
+		<option value="10.5">10.5</option>
+		<option value="11">11</option>
+		<option value="11.5">11.5</option>
+		<option value="12">12</option>
+		<option value="12.5">12.5</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+	</select>
+	<label for="shoe-color">Choose a color:</label>
+	<input type="text" id="shoe-color" placeholder="Enter a color">
+	<label for="shoe-brand">Choose a brand:</label>
+	<select id="shoe-brand">
+		<option value="nike">Nike</option>
+		<option value="adidas">Adidas</option>
+		<option value="puma">Puma</option>
+		<option value="under-armour">Under Armour</option>
+		<option value="reebok">Reebok</option>
+	</select>
+	<input type="submit" value="Get Recommendation" onclick="getShoeRecommendation();">
+</div>
+
+<div id="bag-selection">
+	<label for="bag-type">Choose a type:</label>
+	<select id="bag-type">
+		<option value="backpack">Backpack</option>
+		<option value="shoulder-bag">Shoulder Bag</option>
+		<option value="tote-bag">Tote Bag</option>
+		<option value="messenger-bag">Messenger Bag</option>
+	</select>
+	<label for="bag-color">Choose a color:</label>
+	<input type="text" id="bag-color" placeholder="Enter a color">
+	<label for="bag-brand">Choose a brand:</label>
+	<select id="bag-brand">
+	<option value="herschel-supply-co">Herschel Supply Co.</option>
+	<option value="jansport">JanSport</option>
+	<option value="fjallraven">Fjallraven</option>
+	<option value="patagonia">Patagonia</option>
+	<option value="the-north-face">The North Face</option>
+	</select>
+	<input type="submit" value="Get Recommendation" onclick="getBagRecommendation();">
+	</div>
+	<div id="recommendation">
+		<p id="recommendation-text"></p>
+	</div>
+	
+	<script src="recommendation.js"></script>
+</body>
+</html> 
+<script>
+	function getClothingRecommendation() {
+		const size = document.getElementById("clothing-size").value;
+		const color = document.getElementById("clothing-color").value;
+		const brand = document.getElementById("clothing-brand").value;
+
+		// Make an API call to get clothing recommendation based on the selected options
+		// Display the recommendation in the "recommendation-text" paragraph
+		document.getElementById("recommendation-text").innerHTML = `AA ${size} ${color} ${brand} shirt.`;
+	}
+
+	function getShoeRecommendation() {
+		const gender = document.getElementById("shoe-gender").value;
+		const size = document.getElementById("shoe-size").value;
+		const color = document.getElementById("shoe-color").value;
+		const brand = document.getElementById("shoe-brand").value;
+
+		// Make an API call to get shoe recommendation based on the selected options
+		// Display the recommendation in the "recommendation-text" paragraph
+		document.getElementById("recommendation-text").innerHTML = `AA ${gender} ${size} ${color} ${brand} shoe.`;
+	}
+
+	function getBagRecommendation() {
+		const type = document.getElementById("bag-type").value;
+		const color = document.getElementById("bag-color").value;
+		const brand = document.getElementById("bag-brand").value;
+
+		// Make an API call to get bag recommendation based on the selected options
+		// Display the recommendation in the "recommendation-text" paragraph
+		document.getElementById("recommendation-text").innerHTML = `AA ${color} ${brand} ${type}.`;
+	}
+</script>	

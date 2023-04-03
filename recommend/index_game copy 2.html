@@ -41,8 +41,7 @@
 <meta itemprop="keywords" content="">
 
 <link rel="dns-prefetch" href="//images.samsung.com">
-<link rel="preconnect" href="//images.samsung.com">
-<link rel="shortcut icon" href="/static/images/favicon.ico">
+<link rel="preconnect" href="//images.samsung.com"><link rel="shortcut icon" href="/static/_images/favicon.ico">
 <link rel="apple-touch-icon" href="" sizes="">
 
 <link rel="stylesheet" href="/static/css/reset.css">
@@ -193,7 +192,7 @@
 	    if(depth >= 8) digitalData.page.pathIndicator.depth_5 = window.location.href.split("/")[7].toLowerCase();
 	}
 	
-	// set pageName 
+	// set pageName
 	var pageName = siteCode;
 	if(digitalData.page.pathIndicator.depth_2 != "")
 	    pageName += ":" + digitalData.page.pathIndicator.depth_2;
@@ -216,6 +215,7 @@
 	</script>
 	<script async src="//assets.adobedtm.com/c8a575b84bb9/0d8938615268/launch-160c25cdcd93.min.js"></script>
 <!-- e : AA 태깅 -->
+
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -253,6 +253,7 @@ function checkAge(birthDate){
 }
 /* e : 만 나이 구하는 함수 @param birthDate : 생년월일  jiwon0.id 22.05.17 */
 
+
 function chat_open() {
 	fcTrack('click','floating chat:chat bot');
 	var popupX = (window.screen.width / 2) - (356 / 2);
@@ -263,7 +264,6 @@ function chat_open() {
      * 14세 미만 => 'n'
      * 로그인하지 않을경우 => 'u'
      */
-		
     var agepass = null;  
     var birthAge = null;
 	var birthDate = $.cookie("birthDate_1_");
@@ -343,10 +343,7 @@ $.views.helpers({
 	},
 	// 천단위 콤마
 	fn_comma : function(value){
-		var v=(value+'');
-		var reg=/(^[+-]?\d+)(\d{3})/;
-		var n= v.split(",").join("").replace(/^\s*|\s*$/g, '');
-		while(reg.test(n)){n=n.replace(reg, '$1'+','+'$2');}
+		var v=(value+'');var reg=/(^[+-]?\d+)(\d{3})/;var n= v.split(",").join("").replace(/^\s*|\s*$/g, '');while(reg.test(n)){n=n.replace(reg, '$1'+','+'$2');}
 		return n;
 	},
 	fn_length : function(obj){
@@ -730,8 +727,8 @@ $.views.tags('script',{   // 스크립트
                 $("#formRcom").submit();
             }
         </script>
-<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
-                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="VRZKC-5BSTD-4EWS3-R2J59-B8GYB",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"VRZKC-5BSTD-4EWS3-R2J59-B8GYB",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="cookiepresent",n="pwzmevixzesdezbicq2q-f-6b3cee9dd-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"34","ak.cp":"143520","ak.ai":parseInt("293013",10),"ak.ol":"0","ak.cr":7,"ak.ipv":4,"ak.proto":"h2","ak.rid":"219f3184","ak.r":40612,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"125.178.194.0","ak.cport":52211,"ak.gh":"23.201.35.117","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1680348213","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==VMNbXIxWGyAVNS2q6AR9HF7FBi+2Kbjdj5hdUAZsOB+kO/V3eJZYY7UMpJxxgPE6WZK4aW2liZUp7lJDB9aP0fYKLlOQXEOJilNrBApmL1r+aVLD67/hUiJMZB3cgK0QD6Pr+ljTgN8cXWc5p/ou7uWBXx+Wcx6KK8XXYRpvF4kYP3lrUmeBA1pWEloPRn+e861YVkRYUYPErLhgcDaCxcMdRslLs3PYuIX+uZtrkHITQLVVsS7mGiuOZguwdvZAqD2SNNAEYkcJTeou4RxV0oNmbiqU7ji0V4Vr543umdEMX+pqykt3O4DjWOKf08AVQxljy5iDEFB5q/3r7boJmpPEK4vlvFhHz59MRdjnjuVmJnu/Y0aADCBf/Y+LnUY3bygu83kNZh0y4rXx3nLDWB0YlsokEvxK7tjgUm8C33I=","ak.pv":"2904","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"true","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"SJ-fa9a40ef-9de3-4b5b-9894-4718d60ae446","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
+                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="VRZKC-5BSTD-4EWS3-R2J59-B8GYB",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"VRZKC-5BSTD-4EWS3-R2J59-B8GYB",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e="true"=="true"?1:0,t="",n="pwzmevlijmaaqzbh52ba-f-0355f676c-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"34","ak.cp":"143520","ak.ai":parseInt("293013",10),"ak.ol":"0","ak.cr":6,"ak.ipv":4,"ak.proto":"h2","ak.rid":"32b2dad9","ak.r":23481,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"125.178.194.0","ak.cport":62813,"ak.gh":"23.76.153.153","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1680338562","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==j/DTXTA+5DID56N+wJdB6sNSvdH5678HpMC6maI6bHy0lIpeFOvM+nqtzcZoyl0D5U5RZS7A0IJr2jsvIXLXsseOaCV79oV2ZT5c1D+9C8cTJ8+T+8madzDHZLUoi5zKt65cZ7wLQiZXuEzIX1xmeJAz9cMV0QaCv4BYPCI8CfqiUqEgB7gTqfjBmTRhfXlS+2zRLHGHxZjtW+HkEzaFxLYd+kibUBMzzWvsyympEksyxRpKL4lc/BpKPrpaVv/7UXqzVcm9cwA/poYXMxOzAxWcxflhPYhMXHdVxf6dJbh/VGVHHHzTe7/HUb6pa/ryS+I8MtmqH143yzJZvrBT3q9LYgc6YaE4RYiLPnx7hHf48q7+Np5ZmBpSHpXLNo9FtfirdHWazqBJXr9xW9AKjVWHdVGg9RiaIsD2nrilEb4=","ak.pv":"2904","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVX3V74"
@@ -1084,7 +1081,7 @@ $.views.tags('script',{   // 스크립트
 <header id="header" >
 	<div class="s-inner">
 		<a href="/" class="logo">
-					<img src="/static/images/common/logo_samsung_black.svg" alt="삼성" />
+					<img src="/static/_images/common/logo_samsung_black.svg" alt="삼성" />
 				</a>
 			<div class="new-gnb">
             <button type="button" class="gnb-back" data-omni="gnb:back">이전 메뉴 보기</button>
@@ -1357,7 +1354,7 @@ $.views.tags('script',{   // 스크립트
 																			<div class="gnb4depth">
 																					<ul>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:mobile:buds:Recommended buds" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/buds/galaxy-buds-pro/', '_self');" aria-selected="false" data-omni="Product:mobile:buds:Recommended buds" >
 																												추천 버즈</a>
 																										</li>
 																						<li class="">
@@ -1529,7 +1526,7 @@ $.views.tags('script',{   // 스크립트
 																												갤럭시 워치5 시리즈 제품 정보</a>
 																										</li>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:mobile:contents:galaxy-buds2-pro product information" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/buds/galaxy-buds-pro/', '_self');" aria-selected="false" data-omni="Product:mobile:contents:galaxy-buds2-pro product information" >
 																												갤럭시 버즈2 프로 제품 정보</a>
 																										</li>
 																						<li class="">
@@ -2958,27 +2955,27 @@ $.views.tags('script',{   // 스크립트
 																			<div class="gnb4depth">
 																					<ul>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:SmartThings Apps & Services" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/apps/smartthings/', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:SmartThings Apps & Services" >
 																												스마트싱스 앱 & 서비스</a>
 																										</li>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:SmartThings Home Life" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/bespoke/bespokeexperience/', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:SmartThings Home Life" >
 																												스마트싱스 홈 라이프</a>
 																										</li>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:smart telecommuting" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/work-from-home', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:smart telecommuting" >
 																												스마트한 재택근무</a>
 																										</li>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:Create your own custom mood" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/set-the-mood', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:Create your own custom mood" >
 																												나만의 맞춤 무드 만들기</a>
 																										</li>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:Our house energy saving practice" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/think-green-at-home', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:Our house energy saving practice" >
 																												우리 집 에너지 절약 실천</a>
 																										</li>
 																						<li class="">
-																								<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:fun home fitness" >
+																								<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/stay-fit-and-healthy', '_self');" aria-selected="false" data-omni="Product:SmartHome:Recommended content:fun home fitness" >
 																												즐거운 홈 피트니스</a>
 																										</li>
 																						<li class="">
@@ -2991,14 +2988,14 @@ $.views.tags('script',{   // 스크립트
 																	</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:Product:online experience zone:learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:Product:online experience zone:learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/20432f66-6e0d-4b7f-a6c0-7aea116befb3.jpg?$ORIGIN_JPG$" alt="스마트싱스 제품 함께 사면 추가 구매 혜택">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:Product:to enter:learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:Product:to enter:learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -3755,14 +3752,14 @@ $.views.tags('script',{   // 스크립트
 																</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/973a1cee-27f6-4985-8534-a2e881984eba.jpg?$ORIGIN_JPG$" alt="스마트싱스 일상도감 자세히 보기">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -3771,21 +3768,21 @@ $.views.tags('script',{   // 스크립트
 													</div>
 												</li>
 											<li class=" direct">
-													<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="smart things:smart telecommuting" >
+													<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/work-from-home', '_self');" aria-selected="false" data-omni="smart things:smart telecommuting" >
 																	스마트한 재택근무</a>
 															<div class="gnb3depth ">
 														<ul>
 																</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/e0e930b2-0e8e-46b2-804d-ee10782a51e7.jpg?$ORIGIN_JPG$" alt="스마트싱스 일상도감 자세히 보기">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -3794,21 +3791,21 @@ $.views.tags('script',{   // 스크립트
 													</div>
 												</li>
 											<li class=" direct">
-													<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="smart things:Create your own custom mood" >
+													<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/set-the-mood', '_self');" aria-selected="false" data-omni="smart things:Create your own custom mood" >
 																	나만의 맞춤 무드 만들기</a>
 															<div class="gnb3depth ">
 														<ul>
 																</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/e8f01d2e-53eb-4a73-84a6-8d5d491acb5f.jpg?$ORIGIN_JPG$" alt="스마트싱스 제품 함께 사면 추가 구매 혜택">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -3817,21 +3814,21 @@ $.views.tags('script',{   // 스크립트
 													</div>
 												</li>
 											<li class=" direct">
-													<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="smart things:Our house energy saving practice" >
+													<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/think-green-at-home', '_self');" aria-selected="false" data-omni="smart things:Our house energy saving practice" >
 																	우리 집 에너지 절약 실천</a>
 															<div class="gnb3depth ">
 														<ul>
 																</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/79021ed2-be54-426e-890a-5bc62b174c1b.jpg?$ORIGIN_JPG$" alt="스마트싱스 제품 함께 사면 추가 구매 혜택">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -3840,21 +3837,21 @@ $.views.tags('script',{   // 스크립트
 													</div>
 												</li>
 											<li class=" direct">
-													<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="smart things:fun home fitness" >
+													<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/smartthings/stay-fit-and-healthy', '_self');" aria-selected="false" data-omni="smart things:fun home fitness" >
 																	즐거운 홈 피트니스</a>
 															<div class="gnb3depth ">
 														<ul>
 																</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/cc58bfd2-903b-447c-9502-ff6c6a9a0ac2.jpg?$ORIGIN_JPG$" alt="스마트싱스 일상도감 자세히 보기">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -3870,14 +3867,14 @@ $.views.tags('script',{   // 스크립트
 																</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/8d742592-d9cc-45e6-8c38-e2b24e123512.jpg?$ORIGIN_JPG$" alt="스마트싱스 일상도감 자세히 보기">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -3891,11 +3888,11 @@ $.views.tags('script',{   // 스크립트
 													<div class="gnb3depth ">
 														<ul>
 																<li class="">
-																			<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="smart things:Apps & Products:SmartThings Apps & Services" >
+																			<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/apps/smartthings/', '_self');" aria-selected="false" data-omni="smart things:Apps & Products:SmartThings Apps & Services" >
 																							스마트싱스 앱 & 서비스</a>
 																					</li>
 																	<li class="">
-																			<a href="javascript:;" onclick="openCtaLink('', '_self');" aria-selected="false" data-omni="smart things:Apps & Products:SmartThings Home Life" >
+																			<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/bespoke/bespokeexperience/', '_self');" aria-selected="false" data-omni="smart things:Apps & Products:SmartThings Home Life" >
 																							스마트싱스 홈 라이프</a>
 																					</li>
 																	<li class="">
@@ -3909,14 +3906,14 @@ $.views.tags('script',{   // 스크립트
 																	</ul>
 														<!-- 2dep banner -->
 														<div class="gnbBanner type2">
-																<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more">
+																<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more">
 																<div class="img">
 																	<img src="//images.samsung.com/kdp/display/gnb/b67117cf-f5f3-4617-9613-7b5776893e18.jpg?$ORIGIN_JPG$" alt="스마트싱스 일상도감 자세히 보기">
 																	</div>
 																<p class="txt">스마트싱스 제품 함께 사면 추가 구매 혜택</p>
 																</a>
 																<div class="link-box flex--center">
-																	<a href="javascript:;" onclick="openCtaLink('', '_self');" data-omni="feature image:smart things::learn more" class="link">
+																	<a href="javascript:;" onclick="openCtaLink('https://www.samsung.com/event/dothesmartthings/?anc=banner01', '_self');" data-omni="feature image:smart things::learn more" class="link">
 																		<span>구매하기</span>
 																		</a>
 																	</div>
@@ -4609,7 +4606,7 @@ function appToastCClose(){
 //현재 페이지 앱 열기
 function appOpen(){
 	var locationUrl = window.location.href;
-	var appUrl = ('https://secandroidprd.page.link/?link=' + locationUrl + '&apn=com.samsung.sec.android.prd&afl=https://apps.samsung.com/appquery/appDetail.as?appId=com.samsung.sec.android.prd');
+	var appUrl = ('https:/androidprd.page.link/?link=' + locationUrl + '&apn=com.samsung.sec.android.prd&afl=https://apps.samsung.com/appquery/appDetail.as?appId=com.samsung.sec.android.prd');
 	appToastIClose();
 	window.open(appUrl);
 }
@@ -5476,7 +5473,7 @@ var setSlide = {
 						갤럭시에서 비스포크까지 <br>나에게 딱 맞는 삼성제품이 알고싶다면?
 					</p>
 					<h1>MY 삼성제품 추천받기</h1>
-				</section>
+				<tion>
 			</article>
 
 			<article class="copmpo-rcmd-area">
@@ -5515,7 +5512,6 @@ var setSlide = {
 							</button>
 							</div>
 
-							<ol id="selTags"><li id="selTag_1"><strong>#1 라이프스테이지</strong>결혼을 앞둔 신혼부부</li></ol>
 						<!-- 옵션영역 -->
                         <div id="divStep"></div>
 
@@ -5746,7 +5742,7 @@ wcs_do();
 						<li><a href="https://www.samsung.com/smartphones/galaxy-s/" data-omni="product_smartphones">스마트폰</a></li>
 						<li><a href="https://www.samsung.com/tablets/galaxy-tabs/" data-omni="product_tablets">태블릿</a></li>
 						<li><a href="https://www.samsung.com/watches/galaxy-watch-active/" data-omni="product_watches">워치</a></li>
-						<li><a href="" data-omni="product_buds">버즈</a></li>
+						<li><a href="https://www.samsung.com/buds/galaxy-buds-pro/" data-omni="product_buds">버즈</a></li>
 						<li><a href="https://www.samsung.com/pc/galaxybook/" data-omni="product_tablets">갤럭시북</a></li>
 						<li><a href="https://www.samsung.com/monitors/gaming-monitors/" data-omni="product_monitors">모니터</a></li>
 						<li><a href="https://www.samsung.com/printers/laser-multifunction/" data-omni="product_printers">프린터</a></li>
@@ -5842,9 +5838,9 @@ wcs_do();
 						<li>
 							<h3><a href="javascript:;">윤리&준법경영</a></h3>
 							<ul>
-								<li><a href="https://sec-audit.com/common/businessPrinciple/viewBusinessPrincMain.do?_menuId=AVyA0fTVACzV4mS0&amp;_menuF=true&amp;s_gbn=PA100001" data-omni="ethics and law_principle" class="link-outlink" title="새창으로 열림" target="_blank">경영원칙</a></li>
-								<li><a href="https://sec-audit.com/common/wrongReport/init.do?_menuId=AVyAoCSlAADV4mQ3&amp;_menuF=true&amp;s_gbn=PA100002" data-omni="ethics and law_wrong report" class="link-outlink" title="새창으로 열림" target="_blank">부정제보</a></li>
-								<li><a href="https://sec-compliance.net/gcc/gcc.do?method=gccReport&langCd=ko_KR" data-omni="ethics and law_GCC" class="link-outlink" title="새창으로 열림" target="_blank">법위반제보</a></li>
+								<li><a href="https:/-audit.com/common/businessPrinciple/viewBusinessPrincMain.do?_menuId=AVyA0fTVACzV4mS0&amp;_menuF=true&amp;s_gbn=PA100001" data-omni="ethics and law_principle" class="link-outlink" title="새창으로 열림" target="_blank">경영원칙</a></li>
+								<li><a href="https:/-audit.com/common/wrongReport/init.do?_menuId=AVyAoCSlAADV4mQ3&amp;_menuF=true&amp;s_gbn=PA100002" data-omni="ethics and law_wrong report" class="link-outlink" title="새창으로 열림" target="_blank">부정제보</a></li>
+								<li><a href="https:/-compliance.net/gcc/gcc.do?method=gccReport&langCd=ko_KR" data-omni="ethics and law_GCC" class="link-outlink" title="새창으로 열림" target="_blank">법위반제보</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -5913,13 +5909,13 @@ wcs_do();
 				<p class="copyright">Copyright &copy; 1995-2023 Samsung. All Rights Reserved.</p>
 				<div class="mark-box">
 					<a href="javascript;" title="웹접근성 우수사이트 인증서 : 새창으로 열기" class="btn-mark btn-wa" data-popup-target="popupWA" data-omni="local logo_wa" >
-						<img class="pc-ver" src="https://www.samsung.com/static/images/common/icon-footer-wa.svg" alt="웹접근성 우수사이트">
-                        <img class="mo-ver" src="/static/images/common/icon-footer-wa-mo.jpg" alt="웹접근성 우수사이트">
+						<img class="pc-ver" src="https://www.samsung.com/static/_images/common/icon-footer-wa.svg" alt="웹접근성 우수사이트">
+                        <img class="mo-ver" src="/static/_images/common/icon-footer-wa-mo.jpg" alt="웹접근성 우수사이트">
 							웹접근성 우수사이트
 					</a>
 					<a href="javascript:openPrivacy();" 
 						title="개인정보 보호 우수사이트 인증서 : 새창으로 열기" class="btn-mark btn-eprivacy" data-omni="local logo_eprivacy">
-						<img src="https://www.samsung.com/static/images/common/icon-footer-eprivacy.svg" alt="개인정보보호 우수사이트">
+						<img src="https://www.samsung.com/static/_images/common/icon-footer-eprivacy.svg" alt="개인정보보호 우수사이트">
 							개인정보보호 우수사이트
 					</a>
 				</div>
@@ -6022,8 +6018,8 @@ wcs_do();
 <!-- s : 웹접근성 우수사이트 인증서  -->
 <div class="layer-pop layer-default" id="popupWA" tabindex="0" data-popup-layer="popupWA" data-focus="popupWA">
 	<div class="layer-content">
-		<img class="pc-ver" src="/static/images/common/WA-2022.jpg" alt="웹접근성 우수사이트 인증서">
-        <img class="mo-ver" src="/static/images/common/WA-2022-mo.jpg" alt="웹접근성 우수사이트 인증서">
+		<img class="pc-ver" src="/static/_images/common/WA-2022.jpg" alt="웹접근성 우수사이트 인증서">
+        <img class="mo-ver" src="/static/_images/common/WA-2022-mo.jpg" alt="웹접근성 우수사이트 인증서">
 	</div>
 	<button type="button" class="pop-close" data-focus-next="popupWA">팝업닫기</button>
 </div>

@@ -203,6 +203,10 @@
 .wrap-component .component-contents .slick-slider .component-text.txt-mid-center .box-btns > ul > li, 
 .wrap-component .component-contents .slick-slider .component-text.txt-btm-center .box-btns > ul > li {display: inline-block; float: none; vertical-align: top;}
 
+input:focus {
+  outline: none;
+}
+
 /* common popup */
 .popup-comp-wrap {display: none; top: 50%;}
 .layer-pop .popup-component-contents {max-height: calc(100vh - 86px);}

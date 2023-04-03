@@ -24,6 +24,10 @@
 .multi-order-tbl .cart-multi.cart-tr { width:100%; }
 .multi-order-tbl .cart-multi.cart-tr:not(.top-item) .cart-td { padding-top:0; }
 
+input:focus {
+  outline: none;
+}
+
 /* 품절 */
 .cart-area .p-soldout > div:not(.cart-sns) { opacity:.3; }
 .cart-area .p-soldout > .cart-count, .cart-area .p-soldout > .chk-form-hidden.cart-check { opacity:1; }

@@ -14,7 +14,9 @@
 .common-terms .terms-wrap > .terms-box { margin-top: 36px; }
 
 .app-login-device-box .app-login-box { margin-top: 36px; } /*2021-03-30*/
-
+input:focus {
+  outline: none;
+}
 /*2021-03-31*/
 .app-login-device-box  { margin-top: 20px; padding: 40px 12px; max-width: 100%; }/* 22-01-26 App used device info */
 .app-login-device-box .res-tit1 {font-size:20px;text-align:left;color: #000;font-weight: bold;line-height: 1.3;word-break: keep-all;}

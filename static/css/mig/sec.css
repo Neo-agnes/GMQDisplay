@@ -5,7 +5,9 @@
 @font-face { font-family: 'SamsungOneKorean'; src: url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-400.eot'); src: url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-400.eot?#iefix') format("embedded-opentype"), url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-400.woff2') format("woff2"), url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-400.woff') format("woff"), url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-400.ttf') format("truetype"); font-weight: normal; font-style: normal }
 @font-face { font-family: 'SamsungOneKorean'; src: url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-700.eot'); src: url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-700.eot?#iefix') format("embedded-opentype"), url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-700.woff2') format("woff2"), url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-700.woff') format("woff"), url('https://www.samsung.com/sec/static/etc/designs/smg/sec/font/SamsungOneKorean-700.ttf') format("truetype"); font-weight: bold; font-style: normal }
 body, textarea, input, select, textarea, button { font-family: 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial; }
-
+input:focus {
+    outline: none;
+  }
 /* header */
 /*.gb-gnb a.s-btn-link[data-omni="support"] .s-svg:after { background: none !important; }
 .gb-gnb__drop-mobile { background-color: #f2f2f2 }

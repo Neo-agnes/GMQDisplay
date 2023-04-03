@@ -1,30 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <label for="animal-select">동물 선택:</label>
-<select id="animal-select" name="animals">
-  <option value="mammals">포유류</option>
-  <option value="birds">조류</option>
-  <option value="reptiles">파충류</option>
-  <option value="fish">어류</option>
-</select>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>다중 조건 상품 추천</title>
+  </head>
+  <body>
+    <h1>어떤 조건으로 상품을 찾으시나요?</h1>
+    <form>
+      <label for="category">1. 카테고리</label>
+      <select id="category">
+        <option value="">-- 선택 --</option>
+        <option value="electronics">전자제품</option>
+        <option value="fashion">패션</option>
+        <option value="beauty">뷰티</option>
+        <option value="home">가정용품</option>
+      </select>
+      <br><br>
+      <div id="second-condition" style="display:none;">
+        <label for="condition2">2. 다른 조건</label>
+        <select id="condition2">
+          <option value="">-- 선택 --</option>
+          <option value="brand">브랜드</option>
+          <option value="price-range">가격대</option>
+          <option value="size">사이즈</option>
+          <option value="color">색상</option>
+        </select>
+        <br><br>
+      </div>
+      <div id="third-condition" style="display:none;">
+        <label for="condition3">3. 다른 조건</label>
+        <select id="condition3">
+          <option value="">-- 선택 --</option>
+          <option value="brand">브랜드</option>
+          <option value="price-range">가격대</option>
+          <option value="size">사이즈</option>
+          <option value="color">색상</option>
+        </select>
+        <br><br>
+      </div>
+      <div id="result" style="display:none;">
+        <h2>추천 상품</h2>
+        <p id="recommendation"></p>
+      </div>
+      <button type="submit" id="submit-button" style="display:none;">추천 상품 찾기</button>
+    </form>
 
-<button onclick="saveAnimal()">선택 완료</button>
+    <script>
+      const category = document.querySelector('#category');
+      const secondCondition = document.querySelector('#second-condition');
+      const condition2 = document.querySelector('#condition2');
+      const thirdCondition = document.querySelector('#third-condition');
+      const condition3 = document.querySelector('#condition3');
+      const submitButton = document.querySelector('#submit-button');
+      const recommendation = document.querySelector('#recommendation');
+    
+      category.addEventListener('change', () => {
+        secondCondition.style.display = 'block';
+        submitButton.style.display = 'none';
+        recommendation.innerHTML = '';
+      });
+    
+      condition2.addEventListener('change', () => {
+        if (condition2.value !== '') {
+          thirdCondition.style.display ='block';
+          submitButton.style.display = 'none';
+          recommendation.innerHTML = '';
+        } else {
+      thirdCondition.style.display = 'none';
+      submitButton.style.display = 'none';
+      recommendation.innerHTML = '';
+    }
+  });
+  condition3.addEventListener('change', () => {
+    if (condition3.value !== '') {
+      submitButton.style.display = 'block';
+      recommendation.innerHTML = '';
+    } else {
+      submitButton.style.display = 'none';
+      recommendation.innerHTML = '';
+    }
+  });
 
-<script>
-  function saveAnimal() {
-    var animalSelect = document.getElementById("animal-select");
-    var animalValue = animalSelect.value;
-    localStorage.setItem("animal", animalValue);
-    window.location.href = "second-page.html";
-  }
+  submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    let selectedCategory = category.value;
+    let selectedCondition2 = condition2.value;
+    let selectedCondition3 = condition3.value;
+
+    // 상품 추천 로직 구현
+    let recommendedItem = '';
+    if (selectedCategory === 'electronics') {
+      if (selectedCondition2 === 'brand' && selectedCondition3 === 'price-range') {
+        recommendedItem = 'Apple MacBook Pro';
+      } else if (selectedCondition2 === 'price-range' && selectedCondition3 === 'size') {
+        recommendedItem = 'Samsung Galaxy S21';
+      } else {
+        recommendedItem = '상품이 없습니다.';
+      }
+    } else if (selectedCategory === 'fashion') {
+      if (selectedCondition2 === 'brand' && selectedCondition3 === 'price-range') {
+        recommendedItem = 'Gucci Belt';
+      } else if (selectedCondition2 === 'price-range' && selectedCondition3 === 'size') {
+        recommendedItem = 'Adidas Sneakers';
+      } else {
+        recommendedItem = '상품이 없습니다.';
+      }
+    } else if (selectedCategory === 'beauty') {
+      if (selectedCondition2 === 'brand' && selectedCondition3 === 'price-range') {
+        recommendedItem = 'La Mer Moisturizing Cream';
+      } else if (selectedCondition2 === 'price-range' && selectedCondition3 === 'size') {
+        recommendedItem = 'MAC Lipstick';
+      } else {
+        recommendedItem = '상품이 없습니다.';
+      }
+    } else if (selectedCategory === 'home') {
+      if (selectedCondition2 === 'brand' && selectedCondition3 === 'price-range') {
+        recommendedItem = 'Dyson Vacuum Cleaner';
+      } else if (selectedCondition2 === 'price-range' && selectedCondition3 === 'size') {
+        recommendedItem = 'IKEA Sofa';
+      } else {
+        recommendedItem = '상품이 없습니다.';
+      }
+    }
+
+    recommendation.innerHTML = recommendedItem;
+  });
 </script>
-
 </body>
 </html>

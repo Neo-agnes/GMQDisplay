@@ -6603,3 +6603,7 @@ input[type="radio"].mbs-input__radio.radio-type ~ label { font-size: 14px; }
 @media (max-width: 360px){
     .mbs .color-blue{ font-size:12px; } /* 200916 추가 */
 }
+
+input:focus {
+  outline: none;
+}
