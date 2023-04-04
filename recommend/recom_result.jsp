@@ -5431,7 +5431,7 @@ try {
 												, thirdPartyYn
 												, isLogin, membershipYn){console.log("멤버십 적립포인트 보이기 여부(B2C)(필요)");
 		
-		//적립 예정 포인트 or 삼성전자 멤버십 가입하기
+		//적립 예정 포인트 or GMQDisplay 멤버십 가입하기
 		//(한달살기) 특정 SKU 멤버십 포인트 미노출 처리
 		if(!(
 				mdlCode === 'NT950QDB-KC58T' || mdlCode === 'NT950QDB-KC58F' || mdlCode === 'NT950XDB-KC58O' || mdlCode === 'NT950XDB-KC58F' || 
@@ -6832,7 +6832,7 @@ try {
 	    			if(stGbCd !== '80' && prd.membershipUseExcptYn == 'N' && (prd.carePlusType == null || typeof prd.carePlusType == "undefined" || prd.carePlusType == "N" || prd.carePlusType == "CP") ){
 	    				if(prd.thirdPartyYn == 'N'){
 			    			if (isLogin && prd.membershipYn != 'Y') {
-			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 가입하기</button>';	
+			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 가입하기</button>';	
 			    			} else {			    			
 			    				html += '      <span class="expect">적립 예정 포인트</span>';
 			        			html += '      <strong class="point">' + fnComma(prd.membershipPoint) + 'P ~</strong>';
@@ -6898,7 +6898,7 @@ try {
 
         			if(stGbCd !== '80'){
     	    			if (isLogin && prd.membershipYn != 'Y') {
-    	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 연동하기</button>';	
+    	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 연동하기</button>';	
     	    			} else {	    				
     	    				html += '      <span class="expect">적립 예정 포인트</span>';
     	        			html += '      <strong class="point">' + fnComma(prd.membershipPoint) + 'P ~</strong>';
@@ -7001,7 +7001,7 @@ try {
 	    			if(stGbCd !== '80' && prd.membershipUseExcptYn == 'N' && (prd.carePlusType == null || typeof prd.carePlusType == "undefined" || prd.carePlusType == "N" || prd.carePlusType == "CP") ){
 	    				if(prd.thirdPartyYn == 'N'){
 			    			if (isLogin && prd.membershipYn != 'Y') {
-			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 가입하기</button>';	
+			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 가입하기</button>';	
 			    			} else {			    			
 			    				html += '      <span class="expect">적립 예정 포인트</span>';
 			        			html += '      <strong class="point">' + fnComma(prd.membershipPoint) + 'P</strong>';
@@ -7035,7 +7035,7 @@ try {
 
     			if(stGbCd !== '80'){
 	    			if (isLogin && prd.membershipYn != 'Y') {
-	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 연동하기</button>';	
+	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 연동하기</button>';	
 	    			} else {	    				
 	    				html += '      <span class="expect">적립 예정 포인트</span>';
 	        			html += '      <strong class="point">' + fnComma(prd.membershipPoint) + 'P</strong>';
@@ -7145,7 +7145,7 @@ try {
     			if(stGbCd !== '80' && svmnUseYn != 'N'){ 
     				if( stId =='266' || stId =='206' ){ // 210416 복지몰 이지만 ST_ID값이 266 인 사이트는 멤버십 관련 항목 안보게 함 정재동   -->  B2B2C에서 포인트 노출  
     					if (isLogin && prd.membershipYn != 'Y') {
-		    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 연동하기</button>';	
+		    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 연동하기</button>';	
 		    			} else {		    				
 		    				html += '      <span class="expect">적립 예정 포인트</span>';
 		        			html += '      <strong class="point">' + fnComma(prd.membershipPoint) + 'P</strong>';
@@ -7234,7 +7234,7 @@ try {
 	    			if(stGbCd !== '80' && prd.membershipUseExcptYn == 'N' && (prd.carePlusType == null || typeof prd.carePlusType == "undefined" || prd.carePlusType == "N" || prd.carePlusType == "CP") ){
 	    				if(prd.thirdPartyYn == 'N'){
 			    			if (isLogin && prd.membershipYn != 'Y') {
-			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 가입하기</button>';	
+			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 가입하기</button>';	
 			    			} else {			    			
 			    				html += '      <span class="expect">적립 예정 포인트</span>';
 			        			html += '      <span class="point">' + fnComma(prd.membershipPoint) + 'P ~</span>';
@@ -7304,7 +7304,7 @@ try {
 
         			if(stGbCd !== '80'){
     	    			if (isLogin && prd.membershipYn != 'Y') {
-    	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 연동하기</button>';	
+    	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 연동하기</button>';	
     	    			} else {	    				
     	    				html += '      <span class="expect">적립 예정 포인트</span>';
     	        			html += '      <span class="point">' + fnComma(prd.membershipPoint) + 'P ~</span>';
@@ -7414,7 +7414,7 @@ try {
 	    			if(stGbCd !== '80' && prd.membershipUseExcptYn == 'N' && (prd.carePlusType == null || typeof prd.carePlusType == "undefined" || prd.carePlusType == "N" || prd.carePlusType == "CP") ){
 	    				if(prd.thirdPartyYn == 'N'){
 			    			if (isLogin && prd.membershipYn != 'Y') {
-			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 가입하기</button>';	
+			    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 가입하기</button>';	
 			    			} else {			    			
 			    				html += '      <span class="expect">적립 예정 포인트</span>';
 			        			html += '      <span class="point">' + fnComma(prd.membershipPoint) + 'P</span>';
@@ -7447,7 +7447,7 @@ try {
 
     			if(stGbCd !== '80'){
 	    			if (isLogin && prd.membershipYn != 'Y') {
-	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 연동하기</button>';	
+	    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 연동하기</button>';	
 	    			} else {	    				
 	    				html += '      <span class="expect">적립 예정 포인트</span>';
 	        			html += '      <span class="point">' + fnComma(prd.membershipPoint) + 'P</span>';
@@ -7564,7 +7564,7 @@ try {
     			if(stGbCd !== '80' && svmnUseYn != 'N'){ 
     				if( stId =='266' || stId =='206' ){ // 210416 복지몰 이지만 ST_ID값이 266 인 사이트는 멤버십 관련 항목 안보게 함 정재동   -->  B2B2C에서 포인트 노출  
     					if (isLogin && prd.membershipYn != 'Y') {
-		    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">삼성전자 멤버십 연동하기</button>';	
+		    				html += '      <button type="button" class="btn-underline" onclick="goMembershipJoin()" data-omni="membership sign up">GMQDisplay 멤버십 연동하기</button>';	
 		    			} else {		    				
 		    				html += '      <span class="expect">적립 예정 포인트</span>';
 		        			html += '      <span class="point">' + fnComma(prd.membershipPoint) + 'P</span>';
@@ -8290,7 +8290,7 @@ wcs_do();
 						<li><a href="https://www.samsung.com../Samsung-Care-Plus/IM/" data-omni="faq_samsung care plus IM">Samsung Care+ (모바일/PC)</a></li>
 						<li><a href="https://www.samsung.com../Samsung-Care-Plus/CE/" data-omni="faq_samsung care plus CE">Samsung Care+ (가전/TV)</a></li>
 						<li><a href="../samsungstore/main/" data-omni="plaza_main">삼성스토어</a></li>
-						<li><a href="https://www.samsung.com../membership/membershipMain/" data-omni="faq_membership">삼성전자 멤버십</a></li>
+						<li><a href="https://www.samsung.com../membership/membershipMain/" data-omni="faq_membership">GMQDisplay 멤버십</a></li>
 						<li><a href="../md-inv/" data-omni="faq_md_innovation">MD 비즈니스 협력제안</a></li>
 						<li><a href="https://www.secbuy.com/irj/portal/alluser?ume.logon.locale=ko&NavigationTarget=OBN%3A//BOTechnicalName%3DMainBannerOBN/BOSystemAlias%3DEPE_OBN/Operation%3Dnew_biz" class="link-outlink" title="새창으로 열림" target="_blank" data-omni="faq_secbuy">비즈니스 협력제안</a></li>
 						<li><a href="https://r1.community.samsung.com/t5/Korea/ct-p/kr" class="link-outlink" title="새창으로 열림" target="_blank" data-omni="faq_community">삼성멤버스 커뮤니티</a></li>
@@ -8357,7 +8357,7 @@ wcs_do();
 		<div class="footer-inner">
 			<div class="info-detail">
 				<p>
-					<span>삼성전자 주식회사 대표이사 : 한종희</span>
+					<span>GMQDisplay 주식회사 대표이사 : 한종희</span>
 					<span class="mo-inline">사업자등록번호 : 124-81-00998</span>
 					<span class="comp-wrap"><a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1248100998&apv_perm_no=" class="comp" title="새창 열림" target="_blank">사업자 정보확인</a></span>
 					<span>통신판매업 신고 : 2000-경기수원-0515</span>
@@ -8373,7 +8373,7 @@ wcs_do();
 				<p>본 사이트에서 판매되는 상품 중에는 등록된 개별 판매자가 판매하는 상품이 포함되어 있습니다. </p>
 					<!-- s : 22-12-21 소비자분쟁해결기준 CTA -->
 					<div class="dis-resol">
-						<p>개별 판매자 판매 상품의 경우 삼성전자(주)는 통신판매중개업자로서 통신판매의 당사자가 아니므로, 개별 판매자가 등록한 상품, 거래정보 및 거래 등에 대해 책임을 지지 않습니다.</p>
+						<p>개별 판매자 판매 상품의 경우 GMQDisplay(주)는 통신판매중개업자로서 통신판매의 당사자가 아니므로, 개별 판매자가 등록한 상품, 거래정보 및 거래 등에 대해 책임을 지지 않습니다.</p>
 						<a href="../dispute-resolution/" class="comp" title="새창 열림" target="_blank">소비자분쟁해결기준</a>
 					</div>
 					<!-- e : 22-12-21 소비자분쟁해결기준 CTA -->
@@ -8418,8 +8418,8 @@ wcs_do();
 					<button class="droplist-button" aria-haspopup="listbox" aria-labelledby="dropServiceClauseTitle dropServiceClauseBtn" id="dropServiceClauseBtn" title="서비스별 이용약관">이용약관<span class="blind">하위 메뉴 있음</span></button>
 					<ul class="droplist" tabindex="-1" aria-labelledby="dropServiceClauseTitle" aria-activedescendant="optServiceClause01">
 						<!--aria-activedescendant에 선택된 li의 id 삽입 -->
-						<li id="optServiceClause02" class="droplist-item" data-omni="footer:terms_legal"><a href="https://account.samsung.com/membership/etc/specialTC.do?fileName=samsungkorea.html" target="_blank" title="새 창으로 열림">삼성전자 대표사이트 이용약관</a></li>
-						<li id="optServiceClause03" class="droplist-item" data-omni="footer:terms_conditions"><a href="../membership/terms/">삼성전자멤버십 이용약관</a></li>
+						<li id="optServiceClause02" class="droplist-item" data-omni="footer:terms_legal"><a href="https://account.samsung.com/membership/etc/specialTC.do?fileName=samsungkorea.html" target="_blank" title="새 창으로 열림">GMQDisplay 대표사이트 이용약관</a></li>
+						<li id="optServiceClause03" class="droplist-item" data-omni="footer:terms_conditions"><a href="../membership/terms/">GMQDisplay멤버십 이용약관</a></li>
 						<li id="optServiceClause04" class="droplist-item" data-omni="footer:terms_contents"><a href="https://account.samsung.com/membership/policy/terms" target="_blank" title="새 창으로 열림">Samsung 서비스 이용약관</a></li>
 					</ul>
 				</div>
@@ -8430,7 +8430,7 @@ wcs_do();
 						<!--aria-activedescendant에 선택된 li의 id 삽입-->
 						<li id="optServicePrivate02" class="droplist-item"><a href="../info/privacy/01">삼성닷컴 개인정보처리방침</a></li>
 						<li id="optServicePrivate03" class="droplist-item"><a href="../info/privacy/02">삼성닷컴 이벤트 개인정보처리방침</a></li>
-						<li id="optServicePrivate04" class="droplist-item"><a href="../info/privacy/03">삼성전자멤버십 개인정보처리방침</a></li>
+						<li id="optServicePrivate04" class="droplist-item"><a href="../info/privacy/03">GMQDisplay멤버십 개인정보처리방침</a></li>
 						<li id="optServicePrivate05" class="droplist-item"><a href="../info/privacy/04">멤버십블루 개인정보처리방침</a></li>
 						<li id="optServicePrivate06" class="droplist-item"><a href="../info/privacy/05">경력채용 개인정보처리방침</a></li>
 					</ul>
@@ -8440,7 +8440,7 @@ wcs_do();
 			<div class="link-box">
 				<div class="sns-btn">
 					<div class="wrap-sns">
-						<span class="tit">삼성전자의 다양한 소식을 만나보세요!</span>
+						<span class="tit">GMQDisplay의 다양한 소식을 만나보세요!</span>
 						<ul>
 							<li><a href="//www.facebook.com/SamsungKorea" class="btn-fb" title="새창 열림" target="_blank" data-omni="follow:facebook"><span class="blind">facebook</span></a></li>
 							<li><a href="//www.youtube.com/c/samsungkorea" class="btn-yt" title="새창 열림" target="_blank" data-omni="follow:youtube"><span class="blind">youtube</span></a></li>
@@ -8482,7 +8482,7 @@ wcs_do();
 	</div>
 	<div class="layer-content">
 		<div class="etc-divWrap">
-			<p>삼성전자 및 삼성전자 임직원은 당사가 공식적으로 요청하지 않았음에도 불구하고 여러분께서 일방적으로 당사에 제출하는 아이디어나 제안 등을 수령하거나 검토하지 않습니다.</p>
+			<p>GMQDisplay 및 GMQDisplay 임직원은 당사가 공식적으로 요청하지 않았음에도 불구하고 여러분께서 일방적으로 당사에 제출하는 아이디어나 제안 등을 수령하거나 검토하지 않습니다.</p>
 
 			<p>이는 제출하신 내용이 당사 내부적으로 개발한 제품, 기술, 서비스와 유사할 경우 발생할 수 있는 오해와 분쟁을 방지하고 나아가 여러분의 창의적인 아이디어를 적극 보호하기 위함입니다.</p>
 
