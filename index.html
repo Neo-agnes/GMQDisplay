@@ -503,8 +503,6 @@ logger("prd");
 			htmlMoLoginBefore += '<li class="mob-onlyMenu-stoConsult">';
 			htmlMoLoginBefore += '<a href="/customer/myDigitalReservationSearch/" data-omni=\'store reservation\'>매장상담예약신청 조회</a></li>';
 			htmlMoLoginBefore += '<li class="mob-onlyMenu-cpnZone">';
-			htmlMoLoginBefore += '<a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/member/indexLogin/?returnUrl=/mypage/coupon/indexMyCoupon/\');return false;" data-omni=\'login\'>쿠폰존</a></li>';
-			htmlMoLoginBefore += '';
 			htmlMoLoginBefore += '<li class="mob-onlyMenu-benefit">';
 			htmlMoLoginBefore += '<a href="/eventList/benefitzone/" data-omni=\'event\'>GMQD 회원 혜택</a></li>';
 			htmlMoLoginBefore += '';
@@ -521,7 +519,6 @@ logger("prd");
 			htmlLoginBefore += '';
 			htmlLoginBefore += '<dt><a href="/mypage/order/indexDeliveryList/" data-omni=\'orders\'>주문/배송조회</a></dt>';
 			htmlLoginBefore += '<dt><a href="/customer/myDigitalReservationSearch/" data-omni=\'store reservation\'>매장상담 예약 신청 조회</a></dt>';
-			htmlLoginBefore += '<dt><a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/member/indexLogin/?returnUrl=/mypage/coupon/indexMyCoupon/\');return false;" data-omni=\'login\'>쿠폰존</a></dt>';
 			htmlLoginBefore += '';
 			htmlLoginBefore += '<dt><a href="/eventList/benefitzone/" data-omni=\'event\'>GMQD 회원 혜택</a></dt>';
 			htmlLoginBefore += '';
@@ -567,7 +564,6 @@ logger("prd");
 			htmlLoginAfter += '<dd><a href="/mypage/info/indexMyDeviceList/" data-omni=\'my divice\'>나의 제품 관리</a></dd>';
 			htmlLoginAfter += '<dd><a href="/mypage/review/indexMyReview/" data-omni=\'my comment\'>상품평 작성 : <span class="cmt-num writableCnt"></span> 건</a></dd>';
 			htmlLoginAfter += '<dd><a href="/mypage/order/indexDeliveryList/" data-omni=\'orders\'>주문/배송 조회</a></dd>';
-			htmlLoginAfter += '<dd><a href="/mypage/coupon/indexMyCoupon/" data-omni=\'coupon zone\'>쿠폰존</a></dd>';
 			htmlLoginAfter += '';
 			htmlLoginAfter += '<dd><a href="/eventList/benefitzone/" data-omni=\'event\'>GMQD 회원 혜택</a></dd>';
 			htmlLoginAfter += '';
@@ -629,6 +625,7 @@ logger("prd");
 	}
 </script>
 <input type="hidden" id="loginYn" value="" />
+<!-- 헤더시작 -->
 <header id="header">
 	<div class="s-inner">
 		<a href="index.html" class="logo">
@@ -1098,8 +1095,21 @@ logger("prd");
 					</a>
 					<div class="s-gnbSubWrap textSubWrap loginMenu" id="login-menu" style="display: none;">
 					<div class="gnbSubRound loginBefore"><div>
-						<dl><dt>
-							<a href="#" onclick="NetFunnel_Action({action_id:'b2c_gnb_login'},'/member/indexLogin/?returnUrl=/monitors/gaming-monitors/');return false;" data-omni="login" aria-selected="false">로그인</a></dt><dt><a href="" onclick="NetFunnel_Action({action_id:'b2c_gnb_login'},'/member/signUp/?returnUrl=/monitors/gaming-monitors/');return false;" data-omni="sign up" aria-selected="false">회원가입</a></dt><dt><a href="/mypage/order/indexDeliveryList/" data-omni="orders" aria-selected="false">주문/배송조회</a></dt><dt><a href="/customer/myDigitalReservationSearch/" data-omni="store reservation" aria-selected="false">매장상담 예약 신청 조회</a></dt><dt><a href="" onclick="NetFunnel_Action({action_id:'b2c_gnb_login'},'/member/indexLogin/?returnUrl=/mypage/coupon/indexMyCoupon/');return false;" data-omni="login" aria-selected="false">쿠폰존</a></dt>
+						<dl>
+							<dt>
+							<a href="#" onclick="NetFunnel_Action({action_id:'b2c_gnb_login'},'/member/indexLogin/?returnUrl=/monitors/gaming-monitors/');
+								return false;" data-omni="login" aria-selected="false">로그인</a>
+								</dt>
+								<dt>
+									<a href="#" onclick="NetFunnel_Action({action_id:'b2c_gnb_login'},'/member/signUp/?returnUrl=/monitors/gaming-monitors/');
+									return false;" data-omni="sign up" aria-selected="false">회원가입</a>
+									</dt>
+									<dt>
+										<a href="#" data-omni="orders" aria-selected="false">주문/배송조회</a>
+									</dt>
+									<dt>
+										<a href="#" data-omni="store reservation" aria-selected="false">주문제작 상담예약 신청 조회</a>
+									</dt>
 							<dt>
 								<a href="#" data-omni="event" aria-selected="false">GMQD 회원 혜택</a></dt>
 						</dl>
@@ -1107,7 +1117,7 @@ logger("prd");
 				</div>
 				</li>
 				<li>
-					<a href="javascript:void(0);" class="link-m-nav" data-omni="gnb:open" role="button">
+					<a href="#" class="link-m-nav" data-omni="gnb:open" role="button">
 						<i class="icon ico-large ico-nav">전체메뉴</i>
 					</a>
 				</li>
@@ -1144,164 +1154,6 @@ logger("prd");
 	    <button type='button' class='pop-btn-close' onclick="writableCommentSetC()">팝업닫기</button>
     </div>
 </div>
-<!-- e : 상품평 작성 유도 팝업 -->
-<script>
-var userAgent=navigator.userAgent.toUpperCase();
-if(userAgent.indexOf("SECAPP")>-1||userAgent.indexOf("SECTEST")>-1){
-	$("#header").hide();
-	$(".string-banner-wrap").hide();
-}
-
-//앱설치 유도 토스트 팝업 AA 태깅
-function appToastPopupTag(obj) {
-	if(obj !== undefined) {
-		tpTrack('click', $(obj).attr('data-omni'));	
-	}
-}
-
-function setCookieA(name, value, exp){
-	var date = new Date();
-	date.setTime(date.getTime()+exp*24*60*60*1000);
-	document.cookie=name+'='+value+';expires='+date.toUTCString()+';path=/';
-}
-
-function getCookieA(key){
-	var result = null;
-	var cookie = document.cookie.split(';');
-	cookie.some(function (item) {
-		//공백 제거
-		item = item.replace(' ', '');
-		var dic = item.split('=');
-		if (key === dic[0]){
-			result = dic[1];
-			return true;
-		}
-	});
-	return result;
-}
-
-function doLogout(){
-	try{
-		if( window.secapp !== undefined && navigator.userAgent.toUpperCase().indexOf("SECAPP") > -1 ){
-			window.secapp.logout();
-			var eventParam = {
-					eventName : "App_logout"
-					, attrModel : {
-						service_id: 'SDC'
-					}
-			};
-			window.secapp.customEvent(JSON.stringify(eventParam));
-		} else {
-			adbrix.logout();
-		}
-	} catch (exception){
-		
-	}
-	location.href = "/member/logout/";
-}
-
-function writableCommentM(){
-	writableCommentSetC();
-	location.href = '/mypage/review/indexMyReview/';
-	
-}
-function writableCommentSetC(){
-	var wcpc = $("#chknotsee").is(":checked");
-	setCookieA("commentPopYN","N",wcpc ? 7 : 1);
-	closeLayer("popupInduceReview");
-	setCookieA("commentPC","N",1);
-}
-
-var commentCheck="N";
-
-function commentCheckAdd(){
-	if(commentCheck == "Y"){
-		var commentStr = "<li class='menu05' aria-hidden=''><a href='/mypage/review/indexMyReview/'>상품평 쓰기</a></li>";	
-		$("#floatingSticky").find(".menuGift").after(commentStr);
-	}else{
-		$("#floatingSticky").find(".menu05").remove();
-	}
-}
-
-function writableComment(){
-	var commentPopYN = getCookieA("commentPopYN");
-	var locationUrl = window.location.href;
-	
-	$.ajax({
-		 url : "/xhr/review/loadWritableMyCommentList"
-		,type : "POST"
-		,success : function(data) {
-			$(".review-produck-list").find("div").remove();
-			$("#floatingSticky").find(".menu05").remove();
-			var CpCondition = (commentPopYN !="N" && "N" == "N"
-					&&(locationUrl=="https://dev-www.samsung.com/" || locationUrl == "https://stg-www.samsung.com/" || locationUrl == "https://www.samsung.com/"));
-			
-			if(data.resultYN=="N"){
-				appToast();
-				
-			}else if(data.resultYN=="Y"){
-				commentCheck = "Y";
-								
-				$.each(data.cmntList, function(index, result){
-					
-					var str = "";
-					
-					str = "<div>";
-					str += "<div class='prd-box'>";
-					str += "<div class='prd-img'>";
-					str += "<img src='"+ result.imgPath + "'alt=''>";
-					str += "</div>";
-					str += "<div class='prd-title'>";
-					str += "<strong class='prd-name'>"+ result.goodsNm +"</strong>";
-					str += "<span class='prd-number'>" + result.mdlCode + "</span>";
-					str += "</div>";
-					str += "</div>";
-					//s : 5점 상품평 10개 미만인 경우 해당 영역 미출력 
-					if(result.commentCnt >= 10){
-						str += "<div class='review-number'>";
-						str += "<p><span>" + result.commentCnt + "명</span>의 고객이 이 상품에<br>평균 <span class='star'>별점 5점</span>을 줬어요!</p>";
-						str += "</div>";
-					}
-					//e : 5점 상품평 10개 미만인 경우 해당 영역 미출력
-					str += "</div>";
-					
-					$(".layer-induce-review .review-product-list").append(str);
-				});
-
-				// slick slide
-				$(".layer-induce-review .review-product-list").slick(setSlide);
-
-				CpCondition ? setTimeout(openLayer("popupInduceReview"),500) : appToast() ;
-				var commentCheckIt = setInterval(function(){
-					if($("#floatingSticky").find(".menu05").length){
-						clearInterval(commentCheckIt);				
-					}else{
-						commentCheckAdd();
-					}
-				},1000);
-			}
-		}
-	});
-} 
-
-writableComment();
-
-var setSlide = {
-	    accessibility: true,
-	    slidesToShow: 1,
-	    slidesToScroll: 1,
-	    dots: true,
-	    adaptiveHeight: true,
-	    infinite: true,
-	    fade: true,
-	    centerMode: true,
-	    arrows: true,
-	    prevArrow: '<button type="button" class="slick-prev"><span>이전</span></button>',
-	    nextArrow: '<button type="button" class="slick-next"><span>다음</span></button>'  
-	};
-</script><!-- e : 머리글 영역 -->
-
-
 	<!-- s : 통합검색 -->
 	<script type="text/javascript">
 	var searchInputManager = {
@@ -1545,8 +1397,7 @@ var setSlide = {
 		
 		setRecommendKeywordCallback: function() {
 			var that = searchInputManager;
-			//$('#unifiedInputSearch').attr('placeholder', that.recommendKeyword); // 20200917 삭제
-			$('.inp-placeholder').text(that.recommendKeyword); // 20200917 추가
+			$('.inp-placeholder').text(that.recommendKeyword);
 		},
 		
 		getPopularKeyword: function() {
@@ -1635,8 +1486,7 @@ var setSlide = {
 						} else {
 							$('.unified-search-layer.type-auto').hide();
 							if ( keyword == '' ) {
-								//$('#unifiedInputSearch').attr('placeholder', searchInputManager.recommendKeyword); // 20200917 삭제
-								$('.inp-placeholder').text(that.recommendKeyword); // 20200917 추가
+								$('.inp-placeholder').text(that.recommendKeyword);
 								$('.unified-search-layer.type-keyword').show();
 							}
 						}
@@ -1745,31 +1595,6 @@ var setSlide = {
 	}
 	var entityMap = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;', '`': '&#x60;', '=': '&#x3D;' };
 	
-	/* s: APP용 함수 */
-	function isSecApp() {
-		/* 20230104 변경*/
-		if(device.isApp != true){
-			if(window.secapp == undefined && window.secapppopup == undefined){
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	function once(func) {
-		var flag
-		  , result;
-		
-		return function() {
-			if ( flag ) {
-				return result;
-			}
-			flag = true;
-			return result = func.apply(this);
-		}
-	}
-	
-	/* s : 20200917 수정 */
 	var searchLinkforApp = once(function() {
 		var that = searchInputManager;
 		
@@ -1778,123 +1603,6 @@ var setSlide = {
 		that.getPopularKeyword();
 		
 	});
-	
-	function searchOpenforApp() { // 20200917 추가
-		searchLinkforApp();
-		headerSearch.eventListener.uinifiedSearchOpen();
-	}
-	
-	/* e: APP용 함수 */
-	
-	/* s : 닷컴 웹 검색시 챗봇 검색 연계 구현  jiwon0.id 22.04.26 */
-	function chat_open4(chatbotKeyword) {
-		var isMobile = false; // 모바일 여부
-		var filter = "win16|win32|win64|mac|macintel"; // PC 환경
-		
-		// 모바일,태블릿 / PC 환경 구분 
-		if(navigator.platform){
-			isMobile = filter.indexOf(navigator.platform.toLowerCase()) < 0
-		}
-		
-		if(!isMobile){
-			var birthAge = null;
-			var birthDate = $.cookie("birthDate_1_");
-			
-			if(birthDate != 0 && birthDate != null){
-				birthAge = checkAge(birthDate); 
-			}
-			
-			if(birthAge >= 14 || birthAge == 0 || birthAge == null) {
-				var agepass = checkAgepass(birthAge);
-				fcTrack('click','floating chat:chat online');
-				
-				var keyword = encodeURIComponent(chatbotKeyword);
-				var popupX = (window.screen.width / 2) - (356 / 2);
-			    var popupY = (window.screen.height / 2) - (750 / 2);
-				
-			    window.open('/chatbot/?keyword='+ keyword+'&agepass='+agepass, '_chatbot4', 'status=no, height=750, width=356, left=' + popupX + ', top=' + popupY + ', screenX=' + popupX + ', screenY= ' + popupY);
-			}
-		}
-	}
-	/* e : 닷컴 웹 검색시 챗봇 검색 연계 구현  jiwon0.id 22.04.26 */
-	
-	/* s : 만 나이 구하는 함수 @param birthDate : 생년월일  jiwon0.id 22.05.17 */
-	function checkAge(birthDate){
-		const today = new Date(); //현재날짜
-		birthDate = (birthDate + "")
-	
-		var age = today.getFullYear() - Number(birthDate.slice(0,4)); 	//나이
-		var mon = (today.getMonth()+1) - Number(birthDate.slice(4,6));	//월
-		//생일 안지났으면 -1
-		if(mon < 0 || (mon === 0 && today.getDate() < Number(birthDate.slice(6,8)))) {
-			age = age -1; 
-		}
-		return age;
-	}
-	/* e : 만 나이 구하는 함수 @param birthDate : 생년월일  jiwon0.id 22.05.17 */
-	
-	 /* s : 만 나이별로 agepass 구분값 설정 함수 @param birthAge : 만나이   14세 이상 : 'y'   로그인하지 않을경우 : 'u'   jiwon0.id 22.06.09 */
-	function checkAgepass(birthAge){
-    	var agepass = null;  
-
-   	    if( birthAge == 0 || birthAge == null ) {
-   	            agepass = "u";
-   	    } else if(birthAge >= 14) {
-   	            agepass = "y";
-   	    }
-   	    
-   	    return agepass
-     }
-	/* e : 만 나이별로 agepass 구분값 설정 함수  jiwon0.id 22.06.09 */
-	
-	$(document).ready(function() {
-		var that = searchInputManager;
-		
-		$('#link-search').on('click', function() {
-			that.setRecommendKeyword();
-			that.drawSearchHistory();
-			that.getPopularKeyword();
-		});
-		
-		$('#unifiedInputSearch').on('keyup', function(e) {
-			var $target = $(e.target)
-			  , keyword = $target.val().replace(/\\/gi, '');
-			$target.val(keyword);
-			
-			that.getSearchInputAutoComplete(keyword);
-		});
-		
-		$('#unifiedInputSearch').on('click', function() { //20210324 추가
-			$('.inp-placeholder').hide();
-		}); 
-		
-		/* s : 닷컴 웹 검색시 챗봇 검색 연계 구현  jiwon0.id 22.04.26 */
-		$('.chatbot-search').off('click').on('click', function() { 
-			let chatbotKeyword;
-			if($(this).attr('id') == 'unifiedSearchButton'){
-				chatbotKeyword =  $("#unifiedInputSearch").val();
-			}else if($(this).attr('id') == 'inputSearchButton'){
-				chatbotKeyword =  $("#inputSearch").val();
-			}
-			
-			if($(this).attr('id') == 'unifiedSearchButton'){
-				if(chatbotKeyword == null || chatbotKeyword == ""){
-					chatbotKeyword = that.recommendKeyword;
-					chat_open4(chatbotKeyword);
-				} else{
-					chat_open4(chatbotKeyword);
-				}
-			} else{
-				if(chatbotKeyword != null && chatbotKeyword != "") {
-					chat_open4(chatbotKeyword);
-				}
-			}
-		});
-		/* e : 닷컴 웹 검색시 챗봇 검색 연계 구현  jiwon0.id 22.04.26 */
-		
-	});
-	
-	
 </script>
 <!-- s : 통합검색 -->
 <div class="unified-search-input-wrap">
@@ -1913,7 +1621,6 @@ var setSlide = {
 	<div class="unified-search-layer type-keyword" style="display:none">
 		<div class="unified-search-layer-inner">
 			
-			<!-- 20200618 감싸는 태그 unified-search-layer-inner 추가 -->
 			<div class="layer-cont">
 				<div class="cont-inner box-recent" id="searchkeywordRecent" role="tabpanel">
 					<strong class="tit">최근 검색어</strong>
@@ -1928,19 +1635,18 @@ var setSlide = {
 					<div class="etc" id="makeTime"><p class="date"></p></div>
 				</div>
 			</div> 
-		</div><!-- 20200618 감싸는 태그 unified-search-layer-inner의 닫는 태그 추가 -->
-		<button type="button" class="btn-close-search"><span class="blind">검색 레이어 닫기</span></button><!-- 20200618 닫는 태그 추가--><!-- 20200622 button type 변경-->
+		</div>
+		<button type="button" class="btn-close-search">
+			<span class="blind">검색 레이어 닫기</span>
+		</button>
 	</div>
-	<!-- e : 검색레이어 : 최근, 인기-->
-
-	<!-- s : 검색레이어 : 자동 완성-->
 	<div class="unified-search-layer type-auto" style="display:none">
-		<div class="unified-search-layer-inner"><!-- 20200618 감싸는 태그 unified-search-layer-inner 추가 -->
+		<div class="unified-search-layer-inner">
 			<div class="layer-cont" id="searchAuto">
 				<ul class="list">
 				</ul>
 			</div>
-		</div><!-- 20200618 감싸는 태그 unified-search-layer-inner의 닫는 태그 추가 -->
+		</div>
 		<button type="button" class="btn-close-search"><span class="blind">검색 레이어 닫기</span></button><!-- 20200618 닫는 태그 추가--><!-- 20200622 button type 변경-->
 	</div>
 	<!-- e : 검색레이어 : 자동 완성-->

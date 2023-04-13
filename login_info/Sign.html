@@ -14,7 +14,7 @@
     <!-- Place favicon.ico in the root directory -->
     <link href="./G5/css/plugInAll.css" rel="stylesheet" type="text/css" />
     <link href="./G5/css/icon_fonts/style.css" rel="stylesheet" type="text/css" />
-        <link href="./G5/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="./G5/css/all.css" rel="stylesheet" type="text/css" />
 
     <link href="./G5/css/loading.css" rel="stylesheet" type="text/css" />
     <link href="./G5/css/select2.css" rel="stylesheet" type="text/css" />
@@ -38,7 +38,6 @@
     <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
 
     <script type="text/javascript">
-        //处理Cross-Frame Scripting问题
         if (top.location != self.location) {
             top.location = self.location;
         }
@@ -58,10 +57,10 @@
             <aside class="container">
                 <h1 class="logo">
                     <a href="https://www.GMQDisplay.com/ko-kr">
-                        <img class="hidden-xs" src="" alt="GMQDisplay" />
+                        <img class="hidden-xs" src="../../static/images/login_logo.png" alt="GMQDisplay" />
                     </a>
                     <a href="https://www.GMQDisplay.com/ko-kr">
-                        <img class="visible-xs" src="" alt="GMQDisplay" />
+                        <img class="visible-xs" src="../../static/images/login_logo.png" alt="GMQDisplay" />
                     </a>
                 </h1>
             </aside>
@@ -71,7 +70,6 @@
 
     </header>
     <!-- 헤더의 끝 -->
-
     <style type="text/css">.visible {
         display: block;
     }
@@ -100,9 +98,6 @@
     }
 </style>
 <div class="block log_in ">
-
-   
-
         <div class="com_container   v_align_top bg_white log_content">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
@@ -122,30 +117,21 @@
                                     <div>개인회원 </div>
                                 </label>
                             </div>
-
                         </div>
-
-                        <div class="sub_line"></div>
                         <div class="form_wrap" id="PersonalBlock">
                             <div class="row">
                                 <div class="col-sm-3 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                        <div class="form_item_text_warn">
-                                            이름은 필수 기재사항입니다 .
-                                        </div>
+                                        <div class="form_item_text_warn">이름은 필수 기재사항입니다 .</div>
                                         <div class="form_item_text_default" data-itemtextdefault="">
-                                            <!-- default顯示的文字 -->
                                         </div>
                                         <input type="text" placeholder="*이름 " name="firstname" class="com_input">
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                        <div class="form_item_text_warn">
-                                            성은 필수 기재사항입니다 .
-                                        </div>
+                                        <div class="form_item_text_warn">성은 필수 기재사항입니다 .</div>
                                         <div class="form_item_text_default" data-itemtextdefault="">
-                                            <!-- default顯示的文字 -->
                                         </div>
                                         <input type="text" placeholder="*성" name="lastname" class="com_input">
                                     </div>
@@ -159,13 +145,10 @@
                                 <input type="text" placeholder="* 이메일 주소" name="email" class="com_input" onkeyup="this.value=this.value.toLowerCase()">
                             </div>
                             
-                            <!-- 3 column (1:1:1)-->
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="password">
-                                        <div class="form_item_text_warn">
-                                            오류
-                                        </div>
+                                        <div class="form_item_text_warn">오류</div>
                                         <div class="form_item_text_default" data-itemtextdefault=""></div>
                                         <input id="pwd" type="password" placeholder="* 비밀번호 입력" name="password" class="com_input">
                                     </div>
@@ -173,7 +156,6 @@
                                 <div class="col-sm-6 col-xs-12">
                                 </div>
                             </div>
-                            <!-- 3 column (1:1:1)-->
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="comfirm_password">
@@ -222,41 +204,26 @@
                                         </label>
                                   </div>
                             </div>
-                            
-
                             <div class="text-right">
                                 <a href="javascript:;" style="text-decoration: none;" class="form_clear_btn com_btn f_purple mobile_full com_btn_mg">초기화</a>
                                 <button class="form_btn com_btn bg_purple mobile_full com_btn_mg">제출</button>
                             </div>
-
                         </div>
-
                     </form>
-                          
-                    
-                       
-                  
                     <form id="SignByBusiness" name="SignByBusiness"  action="GMQDisplaySignByBusiness.html">
                     <div class="form_wrap hidden hiddenblock" id="BusinessBlock">
                         <div class="row">
                             <div class="col-sm-3 col-xs-12">
                                 <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                    <div class="form_item_text_warn">
-                                        이름은 필수 기재사항입니다 .
-                                    </div>
-                                    <div class="form_item_text_default" data-itemtextdefault="">
-                                        <!-- default顯示的文字 -->
-                                    </div>
+                                    <div class="form_item_text_warn">이름은 필수 기재사항입니다 .</div>
+                                    <div class="form_item_text_default" data-itemtextdefault=""></div>
                                     <input type="text" placeholder="*이름 " name="firstname" class="com_input">
                                 </div>
                             </div>
                             <div class="col-sm-3 col-xs-12">
                                 <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                    <div class="form_item_text_warn">
-                                        성은 필수 기재사항입니다 .
-                                    </div>
+                                    <div class="form_item_text_warn">성은 필수 기재사항입니다.</div>
                                     <div class="form_item_text_default" data-itemtextdefault="">
-                                        <!-- default顯示的文字 -->
                                     </div>
                                     <input type="text" placeholder="*성" name="lastname" class="com_input">
                                 </div>
@@ -285,8 +252,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pure_text list_rules">
-                            비밀번호는 다음과 같아야합니다
+                        <div class="pure_text list_rules">비밀번호는 다음과 같아야합니다
                             <br>
                             <ul class="pw_rule">
                                 <li class="rule_1">최소 8자 이상이어야 합니다</li>

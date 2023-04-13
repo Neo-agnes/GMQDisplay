@@ -11,7 +11,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <link rel="apple-touch-icon" href="" />
-    <!-- Place favicon.ico in the root directory -->
+
     <link href="./G5/css/plugInAll.css" rel="stylesheet" type="text/css" />
     <link href="./G5/css/icon_fonts/style.css" rel="stylesheet" type="text/css" />
         <link href="./G5/css/all.css" rel="stylesheet" type="text/css" />
@@ -24,7 +24,7 @@
     <script src="./G5/js/modernizr.js"></script>
     <script src="./G5/js/jquery-3.5.1.min.js"></script>
     <script src="./G5/js/plugInAll.js"></script>
-    <!--<![endif]-->
+
     <script src="./G5/js/all.js"></script>
     <script src="./G5/js/common.js"></script>
     <script src="./G5/js/select2.js"></script>
@@ -34,11 +34,12 @@
     <script src="./G5/js/b2c-cookieConsent.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="https://accounts.google.com/gsi/client"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     
     <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
 
     <script type="text/javascript">
-        //处理Cross-Frame Scripting问题
+
         if (top.location != self.location) {
             top.location = self.location;
         }
@@ -53,20 +54,20 @@
 
         <div id="topCookie" data-search-url="/ICDS/Views/Shared/TopCookie.html"></div>
         <div id="bottomCookie" data-search-url="/ICDS/Views/Shared/bottomCookie.html"></div>
-        <!-- 第二列 -->
+
         <aside class="line-2">
             <aside class="container">
                 <h1 class="logo">
-                    <a href="https://www.GMQDisplay.com/ko-kr">
-                        <img class="hidden-xs" src="" alt="GMQDisplay" />
+                    <a href="#">
+                        <img class="hidden-xs" src="../../static/images/login_logo.png" alt="GMQDisplay" />
                     </a>
-                    <a href="https://www.GMQDisplay.com/ko-kr">
-                        <img class="visible-xs" src="" alt="GMQDisplay" />
+                    <a href="#">
+                        <img class="visible-xs" src="../../static/images/login_logo.png" alt="GMQDisplay" />
                     </a>
                 </h1>
             </aside>
         </aside>
-        <!-- ./第二列 -->
+
         <input id="cookiedomain" style="display:none" value="GMQDisplay.com" />
 
     </header>
@@ -272,7 +273,7 @@
             <div class="col-sm-7 col-xs-12 log_left">
                 <div class="top_area">
                     <div class="login_title">GMQDisplay 회원 로그인</div>
-                    <form id="AccountLogin" name="AccountLogin" action="" width="400">
+                    <form id="AccountLogin" name="AccountLogin" action="../index.html" width="400">
                         <div class="form_item">
                             <div class="err_meg">유효한 이메일 주소를 입력하세요.</div>
                                 <input type="text" name="userName" id="userName" value="" placeholder="이메일을 입력하세요" class="input_style"
@@ -284,14 +285,12 @@
                                    data-theme="a" oninput="validateComments(this)">
                         </div>
                         <button class="btn_small" id="login">로그인</button>
-
-
+                        <button class="btn_small" id="Back">돌아가기</button>
                         
-                        
-                                <a href="./Help/ForgotPassWord%EF%B9%96system_id=G5&amp;function=Login&amp;lang=ko-kr&amp;return_url=https%EF%B9%95%EA%A4%B7%EA%A4%B7www.GMQDisplay.com%EA%A4%B7ko-kr%EA%A4%B7index.login.html" class="text_btn">비밀번호를 잊으셨나요?</a>
+                        <a href="./Help/ForgotPassWord.html" class="text_btn">비밀번호를 잊으셨나요?</a>
                         <span id="msg" style="display: none; color: #F00; font-size: 12px;"></span>
                         <input type="hidden" id="systemid" name="systemid" value="G5" />
-                        <input type="hidden" id="returnurl" name="returnurl" value="https://www.GMQDisplay.com/ko-kr/index.login.html" />
+                        <input type="hidden" id="returnurl" name="returnurl" value="" />
                         <input type="hidden" id="response_type" name="response_type" value="" />
                         <input type="hidden" id="lang" name="lang" value="ko-kr" />
                         <input type="hidden" id="lineid" name="lineid" value="" />
@@ -306,8 +305,7 @@
                             <div class="pop_wrap">
                                 <div class="pop_content_wrap">
                                     <div class="block_title f_black pop_fix_item text-left">계정보안을 위해 다음과 같이 더 강력한 비밀번호로 바꿀 것을 권장합니다.</div>
-                                    <div class="pure_text list_rules">
-                                        비밀번호는 다음과 같아야합니다
+                                    <div class="pure_text list_rules">비밀번호는 다음과 같아야합니다
                                         <br>
                                         <ul id="pw_rule">
                                             <li class="rule_1">최소 8자 이상이어야 합니다</li>
@@ -332,11 +330,30 @@
 
 
                     <div class="form_item" id="google" style="text-align: center;">
-                        <button class="btn_login google">Login with Google</button>
+                        <button class="btn_login google">구글 로그인</button>
                     </div>
                     <div class="form_item" id="fblogin" style="text-align: center;">
-                        <button class="btn_login Kakao">Login with kakao</button>
+                        <button class="btn_login Kakao"><a href="javascript:kakaoLogin();">카카오 로그인</a></button>
                     </div>
+                    <script>
+                        window.Kakao.init('377d591217a34f51476e1596c6830486');
+                        
+                        function KakaoLogin() {
+                            window.Kakao.Auth.login({
+                                scope:'profile_nickname, account_email, gender',
+                                success: function(authObj) {
+                                    console.log(authObj);
+                                    window.Kakao.API.request({
+                                        url:'/v2/user/me',
+                                        success: res => {
+                                            const kakao_account = res.kakao_account;
+                                            console.log(kakao_account)
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    </script>
                 </div>
             </div>
             <div class="col-sm-5 col-xs-12 log_right">
@@ -344,9 +361,7 @@
                     <div class="title">
                         GMQDisplay 회원 가입
                     </div>
-                    <div class="">
-                        회원가입하여 제품을 등록하고, GMQDisplay 신제품 출시, 프로모션 및 GMQDisplay 제품에 대한 지원 및 서비스를 가장 먼저 받으세요. 
-                    </div>
+                    <div class="">회원가입하여 제품을 등록하고, GMQDisplay 신제품 출시, 프로모션 및 GMQDisplay 제품에 대한 지원 및 서비스를 가장 먼저 받으세요.</div>
                     <a href="./Sign.html" class="btn_small">회원가입</a>
                 </div>
                 <div class="bottom_area">
@@ -365,16 +380,13 @@
                         </li>
                     </ul>
                     <ul>
-                        <li class="icon"><span class="icon-sales"></span></li>
+                        <li class="icon">
+                            <span class="icon-sales"></span>
+                        </li>
                         <li>
                             <div class="sub_title">판매 후 지원<br/>제품에 문제가 있는 경우 당사에 문의하십시오.</div>
-
                         </li>
-                    </ul>
-
-
-
-                    
+                    </ul> 
                 </div>
             </div>
         </div>
@@ -397,7 +409,6 @@
                                     계정
                                 </div>
                                 <div class="form_item_text_default" data-itemtextdefault="">
-                                    <!-- default顯示的文字 -->
                                 </div>
                                 <input type="text" placeholder="*이메일을 입력하세요" name="GMQDisplayid" class="com_input">
                             </div>
@@ -1096,23 +1107,12 @@
 
     });
 
-
-    //用戶登陸
     $("#AccountLogin").submit(function (e) {
-
-        //var email = $("input[name='userName']");
-
-        //if (!checkEmail(email[0].value)) {
-        //    var email_wrap = email.parent(".form_item");
-        //    email_wrap.addClass("invalid");
-        //    e.preventDefault();
-        //    return;
-        //}
         e.preventDefault();
-        $('#login').attr("disabled", "disabled"); //设置变灰按钮
+        $('#login').attr("disabled", "disabled");
         $('#login').css('background-color', '#ccc');
         $.ajax({
-            url: "/ICDS/Home/Login",
+            url: "#",
             type: "Post",
             data: $("#AccountLogin").serialize(),
             dataType: "json",
@@ -1213,8 +1213,6 @@
     }
 
     function Post(URL) {
-        //创建form表单
-
         if (URL.indexOf("?") > 0) {
             var purl = URL.substring(0, URL.indexOf("?") + 1);
             var parames = URL.substring(URL.indexOf("?") + 1);
@@ -1224,11 +1222,9 @@
             var temp_form = document.createElement("form");
             
             temp_form.action = purl;
-            //如需打开新窗口，form的target属性要设置为'_blank'
             temp_form.target = "_self";
             temp_form.method = "post";
             temp_form.style.display = "none";
-            //添加参数
             //for (var item in PARAMTERS) {
             var opt = document.createElement("textarea");
             opt.name = name;
@@ -1236,14 +1232,12 @@
             temp_form.appendChild(opt);
             //}
             document.body.appendChild(temp_form);
-            //提交数据
             temp_form.submit();
         }
         else {
             var temp_form = document.createElement("form");
             
             temp_form.action = URL;
-            //如需打开新窗口，form的target属性要设置为'_blank'
             temp_form.target = "_self";
             temp_form.method = "post";
             temp_form.style.display = "none";
@@ -1305,11 +1299,6 @@
 
     });
 
-    function getAccessToken(authCode) {
-  var clientId = '377d591217a34f51476e1596c6830486'; // 앱 등록 시 발급받은 클라이언트 ID
-  var clientSecret = '377d591217a34f51476e1596c6830486'; // 앱 등록 시 발급받은 클라이언트 시크릿
-  var redirectUri = '377d591217a34f51476e1596c6830486'; // 앱 등록 시 등록한 리다이렉트 URI
-
   $.ajax({
     type: 'POST',
     url: 'https://kauth.kakao.com/oauth/token',
@@ -1330,10 +1319,7 @@
     error: function(error) {
       console.log(error);
     }
-  });
-}
-
-
+  })
 
     function login(code) {
         alert(code);
