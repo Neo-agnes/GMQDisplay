@@ -862,7 +862,7 @@ logger("prd");
 								</div>
 							</li>
 						<li class="">
-								<a href="./recommend/index_game.html" aria-selected="false">추천·맞춤케어</a>
+								<a href="./recommend/index_game.html" aria-selected="false">맞춤케어</a>
 										<div class="gnb2depth">
 									<div class="inner">
 										<ul class="list">
@@ -1726,15 +1726,15 @@ logger("prd");
 			<link rel="stylesheet" href="./static/css/mig/page.css" type="text/css"><link rel="stylesheet" href="./static/css/mig/sec.css" type="text/css"><div id="content"><!-- s : Feature full-bleed -->
 
 
-<div class="wrap-component feature-full-bleed pt-none pb-none w1680px      ">
-	<div class="component-contents  pt-none pb-none txt-mid-left txtm-top-center  "  style="background-color:#FFFFFF" data-cptnm="pcd:motinors:gaming_monitors_kv">
+<div class="wrap-component feature-full-bleed pt-none pb-none w1680px">
+	<div class="component-contents pt-none pb-none txt-mid-left txtm-top-center"  style="background-color:#FFFFFF" data-cptnm="pcd:motinors:gaming_monitors_kv">
 		<div class="component-text">
 			<div class="component-text-inner">
 				<div class="box-title">
-					<h2 class="sub above mo-ver " style="color:#ffffff">현실을 뛰어넘은 새로운 세계</h2>
-					<h2 class="sub above pc-ver " style="color:#ffffff">현실을 뛰어넘은 새로운 세계</h2>
-					<h3 class="title mo-ver pcd" style="color:#ffffff">오디세이 OLED G8</h3>
-					<h3 class="title pc-ver pcd" style="color:#ffffff">오디세이 OLED G8</h3>
+					<h2 class="sub above mo-ver " style="color:#ffffff">내가 원하는 나만의 모니터 스타일 라이프</h2>
+					<h2 class="sub above pc-ver " style="color:#ffffff">내가 원하는 나만의 모니터 스타일 라이프</h2>
+					<h3 class="title mo-ver pcd" style="color:#ffffff">맞춤케어 서비스</h3>
+					<h3 class="title pc-ver pcd" style="color:#ffffff">맞춤케어 서비스</h3>
 
 				</div>
 
@@ -1743,7 +1743,7 @@ logger("prd");
 						<!-- s : 나열형  CTA -->
 						<li>
 							<button type="button" class="btn-round btn-wht" title="더 알아보기"
-								data-omni="pcd:motinors:gaming_monitors_kv:odyssey ark monitor kv:learn_more" onclick="openCtaLink('https://www.samsung.com/monitors/gaming-monitors/odyssey-oled-g8/','_blank')">더 알아보기</button>
+								data-omni="pcd:motinors:gaming_monitors_kv:odyssey ark monitor kv:learn_more" onclick="openCtaLink('./monitors/gaming-monitors/odyssey-oled-g8/','_blank')">더 알아보기</button>
 						</li>
 					</ul>
 				</div>
@@ -1753,7 +1753,7 @@ logger("prd");
 		<div class="visual-area ">
 			<!-- s : visual type : image -->
 			<img src="https://images.samsung.com/kdp/cms_contents/217411/493e4b8e-66ce-4288-8563-1dff4a8bae13.png?$ORIGIN_JPG$" alt="우주 배경에 GMQDisplay 오디세이 Ark 제품이 놓여있는 이미지입니다. 제품 화면에는 우주복을 입은 사람이 떠있고 이미지의 가운데에는 '눈앞에 펼쳐지는 압도적 게이밍 세상', '오디세이 Ark' 라고 쓰여있습니다." class="obj-m ">
-			<img src="https://images.samsung.com/kdp/cms_contents/217411/e14ba49f-658b-4b65-ada5-2da153acb45e.png?$ORIGIN_JPG$" alt="우주 배경에 GMQDisplay 오디세이 Ark 제품이 놓여있는 이미지입니다. 제품 화면에는 우주복을 입은 사람이 떠있고 이미지의 가운데에는 '눈앞에 펼쳐지는 압도적 게이밍 세상', '오디세이 Ark' 라고 쓰여있습니다." >
+			<img src="./static/images/mainBG.jpeg" alt="', '" >
 
         </div>
 	</div>
@@ -3565,7 +3565,8 @@ function emojiEasteregg(dataCptnm){
 </script><!-- s : compo Script -->
 
 <!-- e : compo Script --> 
-</div><!-- 레이어 팝업 모음 -------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+</div>
+<!-- 레이어 팝업 모음 -------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- s : 공통 팝업(alert)  -->
 <div class="layer-pop layer-default alert" id="commonAlert" tabindex="0" data-popup-layer="commonAlert" data-focus="commonAlert">
     <div class="layer-header blind"><h2></h2></div>
@@ -3612,7 +3613,7 @@ function emojiEasteregg(dataCptnm){
 
 		<!-- 플로팅 메뉴 -->
 		<!-- s : 220615 웹 접근성 수정 : css 삽입 -->
-<style>/* s : num_5 */
+<style>
 .floating-sticky .menu-list .menu01 a {
 	display: none;
 }
@@ -3631,10 +3632,7 @@ function emojiEasteregg(dataCptnm){
 .floating-sticky .menu-list .on .menu03 a {
 	display: flex;
 }
-/* e : num_5 */
 </style>
-<!-- e : 220615 수정 -->
-    
 	<div id="floatingSticky" class="floating-sticky">
 		<div class="menu-list">
 			<div class="inner">
@@ -3695,8 +3693,6 @@ function emojiEasteregg(dataCptnm){
 			$("#floatingSticky").find(".menuAr").remove();
 		}
 	</script>
-	<!-- //플로팅 메뉴 -->
-		<!-- s : 바닥글 영역 - b2c -->
 		<script type="text/javascript">
 	function showSafety() {
 		$(".dropDown-content .subDesc").hide();
