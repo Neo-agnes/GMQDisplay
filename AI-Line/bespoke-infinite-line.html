@@ -5090,12 +5090,34 @@ var setSlide = {
 .bspk-wrap b {font-size:inherit;}
 
 /* style - top */
+/* 메인배너 */
 .bspk-top {width:100%; text-align:center;}
-.bspk-top__tit {width:100%; height:44.7917vw; padding-top:32.4479vw; background:url(https://images.samsung.com/kdp/static/mkt/bespoke-intro/bg_top.jpg) no-repeat top center / 100% auto;}
-.bspk-top__tit__heading {width:30.2604vw; height:2.4479vw; margin:0 auto; background:url(https://images.samsung.com/kdp/static/mkt/bespoke-intro/logo_txt_v2.png) no-repeat top center / 100% auto; opacity:0; -webkit-animation:-fadeIn 3s 0.5s forwards; animation:-fadeIn 3s 0.5s forwards;}
+.bspk-top__tit {
+	width:100%; 
+	height:44.7917vw; 
+	padding-top:32.4479vw; 
+	background:url(../static/images/bespoke/bg_top.jpg) no-repeat top center / 100% auto;}
+.bspk-top__tit__heading {
+	width:30.2604vw; 
+	height:2.4479vw; 
+	margin:0 auto; 
+	background:url(../static/images/bespoke/logo_txt_v2.png) no-repeat top center / 100% auto; 
+	opacity:0; 
+	-webkit-animation:-fadeIn 3s 0.5s forwards; 
+	animation:-fadeIn 3s 0.5s forwards;
+}
 .bspk-top__tit__subtxt {display:block; margin-top:1.0417vw; color:#B88872; font-size:1.5625vw; opacity:0; -webkit-animation:-fadeIn 1.5s 1.5s forwards; animation:-fadeIn 1.5s 1.5s forwards;}
 .bspk-top__desc {display:-webkit-box;display:-ms-flexbox;display:flex; position:relative; -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column;}
-.bspk-top__desc::before {content:""; display:block; width:100%; height:24.5833vw; background:rgb(0,0,0); background:-webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(85,69,46,1))); background:-o-linear-gradient(bottom, rgba(0,0,0,1) 0%, rgba(85,69,46,1) 100%); background:linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(85,69,46,1) 100%);}
+.bspk-top__desc::before {
+	content:""; 
+	display:block; 
+	width:100%; 
+	height:24.5833vw; 
+	background:rgb(0,0,0); 
+	background:-webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgb(0, 0, 0))); 
+	background:-o-linear-gradient(bottom, rgba(0,0,0,1) 0%, rgb(0, 0, 0) 100%); 
+	background:linear-gradient(0deg, rgba(0,0,0,1) 0%, rgb(0, 0, 0) 100%);
+}
 [class*=bspk-top__desc__line] {position:absolute; left:50%; width:1px; z-index:1; height:0; background:#B88872; -webkit-transform:translateX(-50%); -ms-transform:translateX(-50%); transform:translateX(-50%);}
 .bspk-top__desc__line-top {top:-5.2083vw; opacity:0;}
 .bspk-top__desc__line-bottom {top:16.2500vw; background-color:#715040; opacity:0;}
@@ -5283,14 +5305,40 @@ var setSlide = {
 
 
     /* style - intro */
-    .bspk-intro {position:relative; width:100%; padding:33.3333vw 3.3333vw 0;}
-    .bspk-intro__box {max-width:100%;}
-    .bspk-intro__box + .bspk-intro__box {margin-top:27.7778vw;}
-    .bspk-intro__box__pic {height:111.1111vw;}
-    .bspk-intro__box__tit {top:75.0000vw; left:8.3333vw; font-size:7.2222vw;}
-    .bspk-intro__box__tit .unit + .unit {margin-top:3.3333vw;}
-    .bspk-intro__box__tit__line {top:20.8333vw; left:-4.1667vw; opacity:0;}
-    .bspk-intro__box__desc {margin-left:8.3333vw; padding-top:6.9444vw; font-size:3.6111vw; line-height:1.8em; opacity:0;}
+    .bspk-intro {
+			position:relative; 
+			width:100%; 
+			padding:33.3333vw 3.3333vw 0;
+		}
+    .bspk-intro__box {
+			max-width:100%;
+		}
+    .bspk-intro__box + .bspk-intro__box {
+			margin-top:27.7778vw;
+		}
+    .bspk-intro__box__pic {
+			height:111.1111vw;
+		}
+    .bspk-intro__box__tit {
+			top:75.0000vw; 
+			left:8.3333vw; 
+			font-size:7.2222vw;
+		}
+    .bspk-intro__box__tit .unit + .unit {
+			margin-top:3.3333vw;
+		}
+    .bspk-intro__box__tit__line {
+			top:20.8333vw; 
+			left:-4.1667vw; 
+			opacity:0;
+		}
+    .bspk-intro__box__desc {
+			margin-left:8.3333vw; 
+			padding-top:6.9444vw; 
+			font-size:3.6111vw; 
+			line-height:1.8em; 
+			opacity:0;
+		}
     
 
     .-design .bspk-intro__box__pic .item:nth-child(1) .pic {background-image:url(https://images.samsung.com/kdp/static/mkt/bespoke-intro/mo_bg_intro01_01.jpg);}
@@ -5496,7 +5544,7 @@ var setSlide = {
 <div class="bspk-wrap">
     <section class="bspk-top">
         <div class="bspk-top__tit">
-            <h2 class="bspk-top__tit__heading"><span class="offscreen">BESPOKE Infinite Line</span></h2>
+            <h2 class="bspk-top__tit__heading"><span class="offscreen">맞춤형 모니터 제작소</span></h2>
             <span class="bspk-top__tit__subtxt">무한히 변치 않는 나만의 가치</span>
         </div>
         <div class="bspk-top__desc">
