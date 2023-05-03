@@ -33,20 +33,19 @@ input:focus {
 #header { position:relative; width:100%; z-index:210; border-bottom:1px solid #ebebeb; background:#fff;}
 #header .s-inner {max-width:1440px; height: 80px; margin:0 auto; padding:0 24px;display: flex;} /* 2022-05-17 */
 #header .s-inner:after { display:block; content:""; clear:both; }
-/* 2021-10-22 KDP-7066 */
-#header .logo { position:relative; float:left; height: 100%; margin-right:50px;white-space: nowrap;
-flex:none;}  /* 2022-05-17 */
-#header .logo img { height: 16px; vertical-align: middle;}
+#header .logo { position:relative; float:left; height: 100%; margin-right:10px;white-space: nowrap;
+flex:none;}
+#header .logo img { height: 28px; vertical-align: middle;}
 
 #header .logo:after { content: ""; display: inline-block; height: 100%; vertical-align: middle;}
 #header .logo.wht {display: none;}
-#header .logo.familyLogo img { height: 22px; } /* 20201024 패밀리넷 로고 */
+#header .logo.familyLogo img { height: 22px; }
 #header .logoCollabo span {display:inline-block; vertical-align: middle;}
 #header .logoCollabo .firstLogo img {height: auto; max-height: 30px; }
 #header .logoCollabo .crossIcon {width:1px;height:28px;margin:0 15px;background-color:#000;}
 #header .logoCollabo.wht .crossIcon {background-color:#fff;}
 #header .logoCollabo.blk .crossIcon {background-color:#000;}
-#header .gnb > .gnb1depth{display: flex;} /* 2022-05-17 */
+#header .gnb > .gnb1depth{display: flex;}
 
 #header .link-dpz{position:relative;margin-right:20px;z-index:1;}
 #header .icon-dpz{position: relative; display: inline-block; z-index:2; vertical-align: middle;}/*211025*/
