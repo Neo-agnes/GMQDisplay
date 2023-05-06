@@ -12,7 +12,6 @@
 <meta name="date" content="">
 <meta name="sitecode" content="sec">
 
-
 <meta name="twitter:card" content="">
 <meta name="twitter:site" content="">
 <meta name="twitter:creator" content="">
@@ -63,31 +62,31 @@
 <link rel="stylesheet" href="../../static/css/swiper.min.css">
 <link rel="stylesheet" href="../../static/css/homefitness.css">
 
-<script src="../../static/_script/jquery-3.3.1.min.js"></script>
-<script src="../../static/_script/jquery-ui.min.js"></script>
-<script src="../../static/_script/slick.js"></script>
-<script src="../../static/_script/slick-init.js"></script>
-<script src="../../static/_script/swiper.min.js"></script>
-<script src="../../static/_script/masonry.min.js"></script><!-- masonry js -->
-<script src="../../static/_script/jquery.blockUI.js"></script>
-<script src="../../static/_script/base.js"></script>
-<script src="../../static/_script/layerPop.js"></script>
+<script src="../../static/script/jquery-3.3.1.min.js"></script>
+<script src="../../static/script/jquery-ui.min.js"></script>
+<script src="../../static/script/slick.js"></script>
+<script src="../../static/script/slick-init.js"></script>
+<script src="../../static/script/swiper.min.js"></script>
+<script src="../../static/script/masonry.min.js"></script><!-- masonry js -->
+<script src="../../static/script/jquery.blockUI.js"></script>
+<script src="../../static/script/base.js"></script>
+<script src="../../static/script/layerPop.js"></script>
 <script type="text/javascript" src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" charset="utf-8"></script>
-<script src="../../static/_script/netfunnel.js" charset="UTF-8"></script>
-<script src="../../static/_script/netfunnel_skin.js" charset="UTF-8"></script>
-<script src="../../static/_script/common.js"></script>
-<script src="../../static/_script/custom.js"></script>
-<script src="../../static/_script/sticky.min.js"></script>
-<script src="../../static/_script/jquery.cookie.js"></script>
-<script src="../../static/_script/search.js"></script>
-<script src="../../static/_script/component.js"></script>
-<script src="../../static/_script/jquery.ui.touch-punch.min.js"></script>
-<script src="../../static/_script/event/event.js"></script>
-<script src="../../static/_script/clipboard.min.js"></script>
-<script src="../../static/_script/buynow.js"></script>
-<script src="../../static/_script/orderQooker.js"></script>
-<script type="text/javascript" src="../../static/_script/order/orderAdbrix.js"></script>
-<script type="text/javascript" src="../../static/_script/picturePolyfill.min.js"></script>
+<script src="../../static/script/netfunnel.js" charset="UTF-8"></script>
+<script src="../../static/script/netfunnel_skin.js" charset="UTF-8"></script>
+<script src="../../static/script/common.js"></script>
+<script src="../../static/script/custom.js"></script>
+<script src="../../static/script/sticky.min.js"></script>
+<script src="../../static/script/jquery.cookie.js"></script>
+<script src="../../static/script/search.js"></script>
+<script src="../../static/script/component.js"></script>
+<script src="../../static/script/jquery.ui.touch-punch.min.js"></script>
+<script src="../../static/script/event/event.js"></script>
+<script src="../../static/script/clipboard.min.js"></script>
+<script src="../../static/script/buynow.js"></script>
+<script src="../../static/script/orderQooker.js"></script>
+<script type="text/javascript" src="../../static/script/order/orderAdbrix.js"></script>
+<script type="text/javascript" src="../../static/script/picturePolyfill.min.js"></script>
 <script type="text/javascript">
 	var checkActionTimeOut;
 	$(document).ready(function () { 
@@ -307,11 +306,11 @@ function floating_open() {
 logger("prd");
 </script>
 
-<!-- <script src="/sec/static/_script/clipboard.min.js"></script> -->
+<!-- <script src="/sec/static/script/clipboard.min.js"></script> -->
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js"></script>
-<script src="../../static/_script/jsrender.min.js"></script>
-<script src="../../static/_script/jquery.form.min.js"></script>
-<!-- <script src="/sec/static/_script/swiper.min.js"></script> -->
+<script src="../../static/script/jsrender.min.js"></script>
+<script src="../../static/script/jquery.form.min.js"></script>
+<!-- <script src="/sec/static/script/swiper.min.js"></script> -->
 <script type="text/javascript" >
 
 // JS Render Helpers 재 정의
@@ -406,13 +405,84 @@ $.views.tags('script',{   // 스크립트
 });
 
 
-</script><script src="../../static/_script/snsShare.js"></script>
-        <script type="text/javascript">
+</script><script src="../../static/script/snsShare.js"></script>
+		<script type="text/javascript">
+			const pc           = '10';
+			const mobile       = '20';
+			var totalPageCount = parseInt('1');
+			var indexPerPage = 5;
+			var page = 1;
+			var self;
 
-            $(document).ready(function() {
-                shareInit('5880e4317936087f2764a5d340e6bca6', '');
+			$(document).ready(function() {
 
-                $('.board-header>.btn-sns-link, .btn-tooltop02').on('click', function (){
+				$(".pg-location").hide();
+
+				shareInit('5880e4317936087f2764a5d340e6bca6', '');
+
+                $(".pg-location").addClass("floatStyle");
+			});
+
+			$(function() {
+
+				var tagNo = $(".btn-categoty.active").data("tag")   ;
+				var stat  = $(".droplist-item.focused").data("stat");
+
+				// #전체 , #모바일 등 버튼 카테고리 클릭시
+				$(document).on('click' ,".btn-categoty",  function(){
+					tagNo = $(this).data("tag")
+					changeCategory(1 , tagNo , stat);
+				})
+
+				// 최신순 , 마감순 , 진행중 이벤트 등 노출조건 변경시
+				$(document).on("click" , ".droplist-item" , function(){
+					stat = $(this).data("stat");
+					changeCategory(1 , tagNo , stat);
+				})
+
+				// 웹 페이징 버튼 클릭시
+				$(document).on("click",".pageClass" , function(){
+					if($(this).hasClass("currentPage")){
+						return false;
+					}
+					page = $(this).data("page");
+					changePage(page , tagNo , stat, "10");
+				})
+
+				// 모바일 페이징 버튼 클릭시
+				$(document).on("click",".moreView", function(){
+					page++;
+					if(page == totalPageCount){
+					 	$(".moreView").hide();
+					 }
+					changePage(page , tagNo , stat, "20");
+				})
+
+				// 이전 , 다음 페이지
+				$(document).on("click",".btn_next , .btn_prev",function(){
+					var currentPage = parseInt($(".currentPage").text());
+					var page = $(this).hasClass("btn_next") ? currentPage + 1 : currentPage -1;
+					if(page > 0 && page <= totalPageCount){
+						changePage(page , tagNo , stat, "10");
+					}
+				});
+
+				//맨 처음 페이지, 맨 마지막 페이지
+				$(document).on("click",".btn_first , .btn_last",function(){
+					var currentPage = parseInt($(".currentPage").text());
+					var page = $(this).hasClass("btn_first") ? 1 : totalPageCount;
+					if(currentPage != page){
+						changePage(page , tagNo , stat, "10");
+					}
+				});
+
+				$(document).on("click" , ".event-img, .event-title" , function(){
+					location.href = "/sec/digitalplaza/eventDetail/?eventNo="+$(this).data("eventNo");
+				})
+
+				$(document).on("click", ".event-data>.btn-sns-link, .btn-tooltop02", function (){
+					self = $(this);
+
 					var eventNo = $(this).data("eventNo");
 					var eventNm = $(this).data("eventNm");
 					var imagePath = $(this).data("imagePath");
@@ -440,12 +510,12 @@ $.views.tags('script',{   // 스크립트
 								var alertData = {
 										 title: ""
 										,content : "링크가 복사되었습니다."
-										,callback : ""
+										,callback : fnSelfFocus
 										,btnText : "확인"
 									};
-									commonAlert(alertData);
-									openLayer('commonAlert');
-									$(".social-box .btn-sns-link").attr("data-popup-target","commonAlert");
+								commonAlert(alertData);
+								openLayer('commonAlert');
+								$(".social-box .btn-sns-link").attr("data-popup-target","commonAlert");
 
 							} else if ($(this).hasClass('pd-sns-facebook')){
 								var faceBookLinkVal = eventLinkVal;
@@ -472,13 +542,144 @@ $.views.tags('script',{   // 스크립트
 					});
 					tooltipCenterTop(this, 'pd-tooltip', 380);
 
-				});
+			});
 
-            });
+				//-- LayerPopup 을 관리한다.
+				var layerPopup = {
+                    openSocialMediaPopup : function(eventNo, eventNm, eventImagePath) {
+                    	//-- 초기화
+                        $("#socialMediaEventNo").val("");
+                        $("#socialMediaEventNm").val("");
+                        $("#socialMediaEventImagePath").val("");
+                        $("#socialMediaEventDetailUrl").val("");
 
-        </script>
-<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
-                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="VRZKC-5BSTD-4EWS3-R2J59-B8GYB",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"VRZKC-5BSTD-4EWS3-R2J59-B8GYB",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="cookiepresent",n="pf7u3ryxguseazbapmta-f-35b293687-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"34","ak.cp":"143520","ak.ai":parseInt("293013",10),"ak.ol":"0","ak.cr":20,"ak.ipv":4,"ak.proto":"h2","ak.rid":"b2f174c","ak.r":37315,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"121.127.77.0","ak.cport":49959,"ak.gh":"23.53.32.47","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1679850278","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==/rs/vEAZ2hU3Vw5HOJQtIo9O54eCZwY3xg/UPwxAV51RduL8mvk9dupV/Na0wrR0dl+wy+76F0JOjf0R3XHJgHzdwNRPBHjJ17FQnbrMgQ0Dy77DhoY6tyqAxXvLGtwwyn4Z/sCeLuDCsXyH1axrLmByus9yLqgiNDKMccWztXd3yriAwtzS+jMeLTcaoGYuBtMzQZ2su61sVhTGtXUF6/mO4INvup5kSemCnvfQ8HT/++qQGKBI6AZjjYgX+Q5P78lcSHvc6cyq8zZHrZRc2U4nMSov9fN+3g74bfqggVWKI67jtkkeLqjYpsXNXvh1Ib9nQBH5JMl1i1bjjEp2XEoUj00X+SXuQBwcKUpcNhi0aC3xrJqn7TGxQiR9NhtsisD2sy/4San+EXReJnx7As9sMsJHf9WFE3uxJ9mvpkQ=","ak.pv":"2900","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+                        //-- 행사 정보 작성
+                    	$("#socialMediaEventNo").val(eventNo);
+                        $("#socialMediaEventNm").val(eventNm);
+                        $("#socialMediaEventImagePath").val(eventImagePath);
+
+                        var originalUrl = "https://www.samsung.com/sec/digitalplaza/eventDetail/?eventNo=" + eventNo;
+                        $("#socialMediaEventDetailUrl").val(originalUrl);
+
+                        openLayer("socialMediaSharing");
+                    }
+				};
+
+				//-- 소셜 미디어 공유하기
+				var socialMedia = {
+                    url : {
+                    	copyShortUrl : function () {
+                            //-- 임시 영역을 만들어서 행사 url 을 복사한다.
+                            var tempTextArea = document.createElement("textarea");
+                            document.body.appendChild(tempTextArea);
+                            tempTextArea.value = $("#socialMediaEventDetailUrl").val();
+                            tempTextArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(tempTextArea);
+
+                            let alertData = {
+                                title     : "alert"
+                                , content : "링크를 복사했습니다."
+                                , btnText : "확인"
+                            };
+                            commonAlert(alertData);
+                            openLayer('commonAlert');
+                        } //-- copyShortUrl
+                    }
+                    , shareWithKakao     : function() {
+                        var eventUrl   = $("#socialMediaEventDetailUrl").val();
+                        var eventTitle = $("#socialMediaEventNm").val()       ;
+                        var imagePath  = $("#socialMediaEventImagePath").val();
+                        var eventDesc  = "";
+                        snsShare.kakaoTalk(eventUrl, eventTitle, imagePath, eventDesc);
+                    }
+                    , shareWithFacebook  : function() {
+                        snsShare.facebook( $("#socialMediaEventDetailUrl").val() );
+                    }
+				};
+
+                //-- 공유버튼 이벤트 핸들러
+//                 $(document).on("click" , ".btn-sns-link", function(e) {
+//                     e.stopPropagation();
+//                     layerPopup.openSocialMediaPopup( $(this).data("eventNo"), $(this).data("eventNm"), $(this).data("imagePath") );
+//                 })
+
+                //-- 공유팝업에 있는 버튼의 이벤트 핸들러 구현
+                $("#socialMediaSharing .pd-copylink").on("click"    , socialMedia.url.copyShortUrl );
+                $("#socialMediaSharing .pd-sns-kakao").on("click"   , socialMedia.shareWithKakao   );
+                $("#socialMediaSharing .pd-sns-facebook").on("click", socialMedia.shareWithFacebook);
+			}); // $(function() 의 끝
+
+			function fnSelfFocus () {
+				$(self).focus();
+			}
+			// 	페이징
+			function changePage(page , tagNo , stat, pcMobileDiv){
+				var options = {
+						url : '/sec/xhr/digitalplaza/event/listPaging'
+						, data : {
+							page : page ,
+							tagNo : tagNo ,
+							eventCtgCd : stat
+						}
+						, dataType : "html"
+						, done : function(data) {
+
+							if (pcMobileDiv == pc) {
+								$("#htmlAppend").html("");
+								$("#htmlAppend").html(data);
+							}
+
+							if (pcMobileDiv == mobile){
+								var appendEventList = $(data).find("li.eventList");
+								$(".eventList").last().append(appendEventList);
+							}
+
+							$("#droplistBtn01").html($(".droplist-item[data-stat=" + stat + "]").html())
+						}
+					}
+				ajax.call(options);
+				}
+
+			// 	카테고리 , 검색조건 변경
+			function changeCategory(ctgPage , tagNo , stat){
+				var options = {
+						url : '/sec/xhr/digitalplaza/event/listPaging'
+						, data : {
+							page : ctgPage ,
+							tagNo : tagNo ,
+							eventCtgCd : stat
+						}
+						, dataType : "html"
+						, async : false
+						, done : function(data){
+							$("#htmlAppend").html(data);
+
+							if(tagNo != null){
+								$(".btn-categoty").removeClass("active");
+								$(".btn-categoty[data-tag="+tagNo+"]").addClass("active");
+							}
+
+							if(stat != null){
+								$(".droplist-item").removeClass("focused");
+								$(".droplist-item[data-stat="+stat+"]").addClass("focused");
+								$(".droplist-item[data-stat="+stat+"]").attr("aria-selected","true");
+							}
+
+							var appendPageCount = $(data).find("input")["0"].value
+							totalPageCount = parseInt(appendPageCount);
+							page = ctgPage;
+							//$("#droplistBtn01").html($(".droplist-item[data-stat="+stat+"]").html())
+							$("#droplistBtn01").html($(".droplist-item[data-stat="+stat+"]").find("button").html()+" <span class='blind'>하위메뉴있음</span>")
+						}
+					}
+				ajax.call(options);
+				}
+
+
+		</script>
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"SJ-a74f0aac-5888-411f-8744-125b1ec005ec","rua.cook":"true","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
+                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="VRZKC-5BSTD-4EWS3-R2J59-B8GYB",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"VRZKC-5BSTD-4EWS3-R2J59-B8GYB",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e="false"=="true"?1:0,t="cookiepresent",n="pf7u3ryxguseazbapmta-f-35b293687-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"34","ak.cp":"143520","ak.ai":parseInt("293013",10),"ak.ol":"0","ak.cr":20,"ak.ipv":4,"ak.proto":"h2","ak.rid":"b2f1871","ak.r":37315,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"121.127.77.0","ak.cport":49962,"ak.gh":"23.53.32.47","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1679850278","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==h7MsHY5y/CahmL2McX3Y1ySt127Y4OZoZgeLs894bd8kfCXpwEeptcEO6kot0RqNkBtnwAGDyqQcKvdMVytiaOBMgYXAZxj44KsYsHjRBpOK1XG2okn5fzq5mYZjonMGJmga+IlIHKdw4lxI5RoDn1hTQqh7b3XP+yHGfbmUWgKIaIvDE0yM2fHswO25s5b8RCiGDj/7/0opZd4VROvsjFdbe0No0My5BOb0NAI8TAgHCb4VxeKfY9DbN3rS7NB18UhK8w2aRjItKDzaBD1gSd71pfGtZAtriuX+4egZuy4XyQQ5alihZFnXVCaXyns2IZHxj0dQoGpmpvqR/1wBCQjBRLsZs/7qSbdmFrrVDImdh7DmoAtSTrdElnn4XLo7wQmucuSYK8BO74wzVqoYcO8aJdxXOP6A88VE8gscqVU=","ak.pv":"2900","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVX3V74"
@@ -671,10 +872,10 @@ $.views.tags('script',{   // 스크립트
 			// mobile web
 			var htmlMoLoginBefore = '<ul class="mob-onlyMenu loginBefore">';
 			htmlMoLoginBefore += '<li class="mob-onlyMenu-login">';
-			htmlMoLoginBefore += '<a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/indexLogin/?returnUrl=/sec/digitalplaza/eventDetail/&keyword=eventNo=108/\');return false;\" data-omni=\'login\'>로그인</a></li>';
+			htmlMoLoginBefore += '<a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/indexLogin/?returnUrl=/sec/digitalplaza/eventList/\');return false;\" data-omni=\'login\'>로그인</a></li>';
 			htmlMoLoginBefore += '';
 			htmlMoLoginBefore += '<li class="mob-onlyMenu-join">';
-			htmlMoLoginBefore += '<a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/signUp/?returnUrl=/sec/digitalplaza/eventDetail/\');return false;\" data-omni=\"sign up\">회원가입</a></li>';
+			htmlMoLoginBefore += '<a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/signUp/?returnUrl=/sec/digitalplaza/eventList/\');return false;\" data-omni=\"sign up\">회원가입</a></li>';
 			htmlMoLoginBefore += '';
 			htmlMoLoginBefore += '<li class="mob-onlyMenu-tracking">';
 			htmlMoLoginBefore += '<a href="/sec/mypage/order/indexDeliveryList/" data-omni=\'orders\'>주문/배송 조회</a></li>';
@@ -693,9 +894,9 @@ $.views.tags('script',{   // 스크립트
 			//pc
 			var htmlLoginBefore = '<div class="gnbSubRound loginBefore"><div>';
 			htmlLoginBefore += '<dl>';
-			htmlLoginBefore += '<dt><a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/indexLogin/?returnUrl=/sec/digitalplaza/eventDetail/&keyword=eventNo=108/\');return false;\" data-omni=\'login\'>로그인</a></dt>';
+			htmlLoginBefore += '<dt><a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/indexLogin/?returnUrl=/sec/digitalplaza/eventList/\');return false;\" data-omni=\'login\'>로그인</a></dt>';
 			htmlLoginBefore += '';
-			htmlLoginBefore += '<dt><a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/signUp/?returnUrl=/sec/digitalplaza/eventDetail/\');return false;\" data-omni=\'sign up\'>회원가입</a></dt>';
+			htmlLoginBefore += '<dt><a href="" onclick="NetFunnel_Action({action_id:\'b2c_gnb_login\'},\'/sec/member/signUp/?returnUrl=/sec/digitalplaza/eventList/\');return false;\" data-omni=\'sign up\'>회원가입</a></dt>';
 			htmlLoginBefore += '';
 			htmlLoginBefore += '<dt><a href="/sec/mypage/order/indexDeliveryList/" data-omni=\'orders\'>주문/배송조회</a></dt>';
 			htmlLoginBefore += '<dt><a href="/sec/customer/myDigitalReservationSearch/" data-omni=\'store reservation\'>매장상담 예약 신청 조회</a></dt>';
@@ -5189,7 +5390,7 @@ var setSlide = {
 			function getDispPathByUrl() {
 				
 				let stId = "1";
-				let reqUri = "/sec/digitalplaza/eventDetail/";
+				let reqUri = "/sec/digitalplaza/eventList/";
 				reqUri = reqUri.replace("/sec/", "");
 				if (reqUri.length == 0) return;
 		    	
@@ -5250,238 +5451,392 @@ var setSlide = {
 			<div id="wrap">
 			<!-- s : 본문 영역 -->
 			<div id="container">
-				<div class="content board-content">
+
+		        <!-- s : b2c 컨텐츠 비주얼 헤더(화면 상단 광고) -->
+		        <div class="content-visual-header">
+		            <div class="visual-flex-box">
+		                <div class="visual-box visual-pc" style="background-image:url('https://images.samsung.com/kdp/event/1678202721476/1678202721476.jpg')"  ></div>
+		                <div class="visual-box visual-mo" style="background-image:url('https://images.samsung.com/kdp/event/1678202722024_MO/1678202722024.jpg')"></div>
+		                <div class="dim"></div>
+		                <div class="txt-box">
+		                    <strong class="tit">이벤트</strong>
+		                    <p class="txt">삼성스토어에서 준비한 다양한 이벤트를 확인해 보세요.</p>
+		                </div>
+		            </div>
+		        </div>
+		        <!-- e : b2c 컨텐츠 비주얼 헤더(화면 상단 광고) -->
+
+				<div class="content dpsContent">
 					<!-- s : conbox 영역 -->
-					<section class="conbox customer-center-conbox">
-						<div class="dps-board-event">
-							<div class="board-header">
-								<strong class="board-tit">[이달의 카드혜택] 삼성스토어 신용카드 혜택</strong> <span
-									class="event-date">이벤트 기간 : <em>2023-03-01 ~ 2023-03-31</em></span>
-								<button type="button" class="btn-sns-link" data-title="공유" data-content="" data-close="툴팁 닫기" data-event-no="108" data-event-nm="[이달의 카드혜택] 삼성스토어 신용카드 혜택" data-image-path="https://images.samsung.com/kdp/plaza_event/pc/108/15bdaec0-807d-4b93-9e6e-83e74d862c4c.png" >
-								<i class="icon ico-large ico-share">소셜공유</i>
-								</button>
-								<div class="tooltip-content" style="display:none;">
-							        <ol class="share-tooltip-box">
-							            <li>
-							                <a href="javascript:void(0);" class="pd-copylink" onkeydown="tabKeyCnt();">
-							                    <img src="../../static/_images/common/icon-copylink.svg" alt="링크복사 아이콘">
-							                    <span>링크복사</span>
-							                </a>
-							                <script>
-								                function tabKeyCnt() {
-								        			$('.pd-copylink').on('keydown', function(e) {
-								        		    	if(event.shiftKey && (event.keyCode || event.which) === 9) {
-								        		    		event.preventDefault();
-								        		    		$('#pd-tooltip-close').focus();
-								        		    	}
-								        		    });
-								        		}
-											</script>
-							            </li>
-							            <li>
-							                <a href="javascript:void(0);" class="pd-sns-kakao" title="새 창으로 열림">
-							                    <img src="../../static/_images/common/sns-kakao@3x.png" alt="카카오톡 아이콘">
-							                    <span>카카오톡</span>
-							                </a>
-							            </li>
-							            <li>
-							                <a href="javascript:void(0);" class="pd-sns-facebook" title="새 창으로 열림">
-							                	<img src="../../static/_images/common/sns-facebook@3x.png" alt="페이스북 아이콘">
-							                    <span>페이스북</span>
-							                </a>
-							            </li>
-							        </ol>
-							      </div>
+					<section id ="htmlAppend" class="conbox dpsConbox">
+						<!-- s : 매장상담 예약 -->
+						<div class="dps-eventWrap">
+							<div class="event-choice-box">
+								<span class="blind">event 카테고리 선택</span>
+								<div class="btn-group">
+									<!-- 활성화 되는 버튼에 active 추가 -->
+										<button type="button" class="btn-categoty active">#전체</button>
+									<button type="button" class="btn-categoty" data-tag ="67">#모바일</button>
+									<button type="button" class="btn-categoty" data-tag ="68">#가전</button>
+									<button type="button" class="btn-categoty" data-tag ="69">#IT</button>
+									<button type="button" class="btn-categoty" data-tag ="70">#매장</button>
+									</div>
 							</div>
-							<div class="board-detail-content b-edit-wrap">
-<!-- 								<div class="webImg"> -->
-<!-- 								</div> -->
-<!-- 								<div class="mobImg"> -->
-<!-- 								</div> -->
-								<style>figure, .ev-wrap>div{text-align:center;max-width:1280px;margin: 0 auto;}
-      .alternate {
-         position: absolute;
-         top: -9999px;
-         left: -9999px;
-         height: 0;
-         line-height: 0;
-         overflow: hidden;
-         font-size: 0;
-         text-align: left;
-      }
-      .ev-link-wrap {
-         position: relative;
-         max-width: 1280px;
-         margin: 0 auto;
-      }
-      .ev-link-wrap a {
-         position: absolute;
-         display: block;
-         font-size: 0;
-         background: rgba(0,0,0,0);
-         text-indent: -999px;
-      }
 
-      .map-wrap .video-container {margin: 0 auto;max-width: 87.5%; position: relative; overflow: hidden; background-color: #d3edee;border-radius: 6px 6px 0 0;}
+							<div class="board-top">
+								<!-- text 유형 -->
+								<p class="total-txt">
+									총 <em class="strong-blue">6</em>건
+								</p>
+								<!-- <div class="bd-h-drop">
+									<span id="droplistTitle01" class="blind">이벤트 카테고리 선택</span>
+									<div id="dropList01" class="wrap-droplist">
+										<button class="droplist-button selected"
+											aria-haspopup="listbox"
+											aria-labelledby="droplistTitle01 droplistBtn01"
+											id="droplistBtn01">진행중 이벤트</button>
+										<ul class="droplist" tabindex="-1" role="listbox"
+											aria-labelledby="droplistTitle01"
+											aria-activedescendant="type-All">
+											<li id="type-All" role="option" class="droplist-item">전체</li>
+											<li id="type-new" role="option" class="droplist-item" data-stat ="10">최신순</li>
+											<li id="type-last" role="option" class="droplist-item" data-stat ="20">마감순</li>
+											<li id="type-ing" role="option" class="droplist-item focused" data-stat ="30">진행중
+												이벤트</li> -->
+<!-- 											<li id="type-winner" role="option" class="droplist-item" data-stat = "40">당첨자 -->
+<!-- 												발표</li> -->
+											<!-- <li id="type-finish" role="option" class="droplist-item" data-stat ="50">종료
+												이벤트</li>
+										</ul>
+									</div>
+								</div>-->
+								<!-- S:20210525 웹접근성 -->
+								<div class="bd-h-drop">
+									<!-- <span id="droplistTitle01" class="blind">이벤트 카테고리 선택</span> -->
+									<div id="dropList01" class="wrap-droplist">
+										<button class="droplist-button selected" aria-haspopup="listbox" aria-labelledby="droplistTitle01 droplistBtn01" id="droplistBtn01" title="이벤트 카테고리 선택">진행중 이벤트 <span class="blind">하위메뉴있음</span></button>
+										<ul class="droplist" tabindex="-1" aria-labelledby="droplistTitle01" aria-activedescendant="type-All">
+											<li id="type-All" class="droplist-item" data-stat ="0"><button type="button">전체</button></li>
+											<li id="type-new" class="droplist-item" data-stat ="10"><button type="button">최신순</button></li>
+											<li id="type-last" class="droplist-item" data-stat ="20"><button type="button">마감순</button></li>
+											<li id="type-ing" class="droplist-item focused" data-stat ="30" aria-selected="true"><button type="button">진행중 이벤트</button></li>
+											<li id="type-finish" class="droplist-item" data-stat ="50"><button type="button">종료 이벤트</button></li>
+										</ul>
+									</div>
+								</div>
+								<!-- E:20210525 웹접근성 -->
+							</div>
 
-
-     .btn_01 {width: 24.3%;height: 1.7%;bottom: 9.5%;right: 37.8%;}
-     .btn_02 {width: 24.3%;height: 0.7%;bottom: 5.85%;right: 36.9%;}
-
-
-      /* 모바일 가로 */
-      @media all and (max-device-width:980px) and (orientation : landscape){
-      .btn_01 {width:43%;height:1.2%;bottom: 7.35%;right:28.5%}
-        .btn_02 {width:43%;height:0.7%;bottom: 6.5%;right:28.5%}
-        .video-container {width:88.88889vw;max-width:88.88889vw}
-      }
-
-      /* 태블릿 세로 */
-      @media all and (orientation : portrait){
-      .btn_01 {width:43%;height:1.2%;bottom: 7.35%;right:28.5%}
-        .btn_02 {width:43%;height:0.7%;bottom: 6.5%;right:28.5%}
-        .video-container {width:88.88889vw;max-width:88.88889vw}
-      }
-    </style>
-    <div class="ev-wrap ">
-
-     <div class="ev-link-wrap">
-      <div class="webImg"><img src="https://images.samsung.com/kdp/editor/plaza_event/202303/6e89198a-4e32-43b2-94a4-bd643a968a4c.jpg" alt="[가전을 나답게.결제도 나답게] 삼성 디지털프라자 신용카드 혜택"><br></div>
-      <div class="mobImg">
-       <img src="https://images.samsung.com/kdp/editor/plaza_event/202303/6e89198a-4e32-43b2-94a4-bd643a968a4c.jpg" alt="[가전을 나답게.결제도 나답게] 삼성 디지털프라자 신용카드 혜택">
-      </div>
-
-      <div class="alternate">
-							<h4>[가전을 나답게.결제도 나답게] 삼성스토어 신용카드 혜택</h4>
-							<p>2023-03-01 ~ 2023-03-31</p>
-
-							<div>
+							<div class="eventListWrap">
 								<ul>
-									<li>♧ 합리적인 가격으로 구매하길 원하는 나, 삼성카드 플러스페이로 나답게 결제!</li>
-									<li>♧ 렌탈처럼 월 납입 부담을 줄이고 싶은 나, 매월 일정 금액씩 신용카드 이용할 수 있다면, 디지털프라자 삼성카드 장기할부로 나답게 결제!</li>
-									<li>♧ 목돈이 부담되어 장기할부를 선호하는 나, 삼성카드 24/36/60개월 무이자로 나답게 결제!</li>
-								</ul>
-								<p>*상기 결제혜택의 세부 조건과 방법은 아래 상세페이지를 참고하시기 바랍니다</p>
-							</div>
-
-								<div>
-									<h5>삼성카드(제휴 신용카드 : 삼성스토어 BENEFIT 삼성카드) *아래 혜택은 삼성스토어 매장내 결제기준임</h5>
-									<p>플러스페이(*100만원이상 결제 가능) 6/12개월 할부(선택1)*할부이자 별도(1.5% ~ 3%)<br>
-											+ 결제금액대별 혜택<br>
-											*기본 : 최대9%<br>
-											*추가 이용 충족시 : 최대+3%<br>
-											*추가 이용 충족은 삼성스토어, 모바일스토어, 삼성닷컴, 무이자할부, 국세/지방세/공과금, 대학등록금, 대중교통, 택시, 아파트관리비, 선불카드 충전, 수수료, 연회비 등 일부 결제건 제외 50만원 이상 이용시 지급<br>
-											(혜택 : GMQDisplay포인트와 삼성카드 혜택으로 분할지급)
-									</p>
-									<p> 라이트 할부 24/36개월 장기할부 (선택1)<br>
-											*할부이자 별도 : 연 6.5%<br>
-											+할부금 청구할인 (월 최대 2만원)<br>
-											*청구전월 제휴카드를 30/70/150만↑ 이상 이용시 각 1/1.4/2만원 제공 (단, 삼성스토어, 모바일스토어, 삼성닷컴, 무이자할부, 국세/지방세/공과금, 대학등록금, 대중교통, 택시, 아파트관리비, 선불카드 충전, 수수료, 연회비 등 일부 결제건 제외)<br>
-											* 라이트할부 완납 시 다시 이용할 수 있으며, 월 1회에 한하여 제공<br>
-									</p>
-									<p>대명스마트라이프 가입시 최대 200만원 가전구매 지원<br>
-											*GOLD 상품 2구좌 만기 납입 시
-									</p>
-									<p>24/36/60개월 장기할부<br>
-											- 24/36개월 무이자 (50만원 이상 결제시)<br>
-											- 60개월 유이자 (50만원 이상 결제 시, *연리 6.5%<br>
-											*단, 할부이자 청구 전월 삼성스토어, 모바일스토어, 삼성닷컴, 무이자할부, 국세/지방세/공과금, 대학등록금, 대중교통, 택시, 아파트관리비, 선불카드 충전, 수수료, 연회비 등 제외 10~100만원 이상 추가 이용 시 이자 청구할인<br>
-											(청구할인은 월1회 한정 적용 *60개월 중복 결제 인정 안됨)
-									</p>
-									<p>웅진스마트올 투게더 가입시(*웅진씽크빅 초등 전과목  스마트러닝 상품)<br>
-										- 42만원 가전구매 지원 <br>
-										*2구좌 가입시 최대 84만원<br>
-										*웅진 스마트올 투게더 가입/회비완납시
-									</p>
-								</div>
-
-								<div>
-									<h5>삼성카드(제휴카드 외) *개인 신용카드 한정/법인,기업,체크,선불 카드등 제외</h5>
-									<p>플러스페이(*100만원이상 결제 가능) 6/12개월 할부(선택1)*할부이자 별도(1.5% ~ 3%)<br>
-											+ 결제금액대별 혜택<br>
-											*기본 : 최대9%
-									</p>
-									<p>대명스마트라이프 가입시 최대 200만원 가전구매 지원 *GOLD 상품 2구좌 만기 납입 시</p>
-									<p>웅진스마트올 투게더 가입시(*웅진씽크빅 초등 전과목  스마트러닝 상품)<br>
-										- 42만원 가전구매 지원 <br>
-										*2구좌 가입시 최대 84만원<br>
-										*웅진 스마트올 투게더 가입/회비완납시
-									</p>
-
- 								</div>
-
-								<div>
-									<h5>농협카드(NH농협카드) *개인 신용카드 한정 / 법인,기업,선불카드 등 제외</h5>
-									<p>결제혜택 300/500/700/1,000만원이상 결제시 10/20/30/50만 혜택 <br>
-											 *카드사 캐시백/전자포인트로 분할지급(50%씩)<br>
-											 *SMP 결제조건(삼성 멤버십 결제)
-									</p>
-								</div>
-								<div>
-									<h5>KB국민카드 *개인 신용카드 한정 / 법인,기업,선불카드 등 제외</h5>
-									<p>결제혜택 500/700/1,000만원이상 결제시 20/30/40만 혜택<br>
-											*카드사 캐시백/전자포인트로 분할지급(50%씩) <br>
-											*SMP 결제조건(삼성 멤버십 결제)
-									</p>
-								</div>
-								<div>
-									<h5>하나카드 *개인 신용카드 한정 / 법인,기업,선불카드 등 제외</h5>
-									<p>300/500/700/1,000만원 이상 결제 시 10만/20만/30만/50만 혜택<br>
-										*카드사 캐시백/전자포인트로 분할지급(50%씩)<br>
-										*SMP 결제조건(삼성 멤버십 결제)
-									</p>
-								</div>
-
-								<div>
-									<h5>카드사별 할부 혜택  *개인 신용카드 한정/법인,기업,선불카드 등 제외</h5>
-									<p>삼성카드 - 2~3개월 무이자(5만원↑ 결제시)<br>
-									 BC카드 - 2~5개월 무이자(5만원↑ 결제시)<br>
-									KB국민카드 - 2~3개월 무이자(5만원↑ 결제시)
-									 <!-- / 12개월 무이자(100만원↑ 결제시) -->
-									 <br>
-									신한카드 - 2~3개월 무이자(5만원↑ 결제시)<br>
-									 우리카드 - 2~5개월 무이자 (5만원 ↑ 결제시)<br>
-									NH농협카드 - 2~6개월 무이자(5만원↑ 결제시)<br>
-									현대카드 - 2~3개월 무이자 (5만원 이상 결제시)<br>
-									<!-- 씨티카드 - 2~6개월 무이자 (5만원 이상 결제시)<br> -->
-									하나카드 - 2~6개월 무이자(5만원↑ 결제시)<br>
-									※SMS 문자 결제시 일시불,무이자 등 혜택 적용이 불가합니다.
-									</p>
-								</div>
-
-								<div>
-									<h5>유의사항</h5>
-									<ul>
-											<li>상기 카드사 혜택은 행사조건에 한하며, 자세한 내용은 매장에 문의 바랍니다.</li>
-											<li>위 혜택은 개인 카드에 한합니다(법인,회사,기프트,선불,체크 카드 제외)</li>
-											<li>카드 취소시 지급된 혜택에 대해서는 환불요청 및 회입이 됩니다.</li>
-											<li>위 혜택은 금융감독원 및 카드사, 당사의 사정에 따라 예고 없이 변동 될 수 있습니다.</li>
-											<li>위 혜택은 삼성스토어 매장 구입 시 적용 됩니다.(홈플러스,백화점 제외)</li>
-											<li>결제 혜택 지급방식,일정은 카드사 및 고객별로 상이 할 수 있습니다.</li>
-											<li>KB국민/현대/NH농협/하나카드 결제혜택은 하루 최초 결제건(1회) 한정 적용됩니다.</li>
-											<li>대명 가입시 최대 200만원 지원은 골드상품 2구좌 가입후 스마트라이프 만기납입 기준입니다.</li>
-											<li>대명 혜택금액은 삼성카드를 통해 24개월간 분할 지급됩니다.</li>
-											<li>대명 골드상품은 총 594만원을 135개월간 분할 납입하는 상품입니다.</li>
-											<li>대명 상품 중도해지시 해지 수수료가 발생할 수 있습니다.</li>
-											<li>웅진 가입시 최대 42만원 지원은 웅진 상품 가입후 웅진상품 만기납입 기준입니다.</li>
-											<li>웅진 혜택금액은 삼성카드를 통해 6개월간 분할 지급됩니다.</li>
-											<li>웅진 상품은 총 285.6만을 24개월간 분할 납입하는 상품입니다.</li>
-											<li>웅진 상품 중도해지시 해지수수료가 발생하며 웅진씽크빅측 해약약관에 따릅니다.</li>
+									<li class ="eventList">
+										    <a href="../eventDetail/index%EF%B9%96eventNo=260.html" data-omni="260">
+												<p class="event-img" style="background-image:url(https://images.samsung.com/kdp/plaza_event/pc/260/e668317f-4f85-410a-8f34-90078df92f91.jpg)" data-event-no ="260"></p>
+											</a>
+											<div class="event-data" data-event-no ="260">
+												<a href="javascript:void(0);" class="event-title" data-event-no ="260" data-omni="260">GMQDisplay 에너지 세이빙 특별전</a>
+												<p class="event-date">
+													<span>2023-03-21 ~ 2023-05-31</span>
+													<strong>D-66</strong>
+													</p>
+<!-- 													<i class="icon ico-large ico-share">소셜공유</i> -->
+<!-- 												</button> -->
+												<button type="button" class="btn-sns-link" data-title="공유" data-content="" data-close="툴팁 닫기" data-event-no="260" data-event-nm="GMQDisplay 에너지 세이빙 특별전" data-image-path="https://images.samsung.com/kdp/plaza_event/pc/260/e668317f-4f85-410a-8f34-90078df92f91.jpg" >
+												<i class="icon ico-large ico-share">소셜공유</i>
+												</button>
+												<div class="tooltip-content" style="display:none;">
+										        <ol class="share-tooltip-box">
+										            <li>
+										                <a href="javascript:void(0);" class="pd-copylink" onkeydown="tabKeyCnt();">
+										                    <img src="../../static/_images/common/icon-copylink.svg" alt="링크복사 아이콘">
+										                    <span>링크복사</span>
+										                </a>
+										                <script>
+											                function tabKeyCnt() {
+											        			$('.pd-copylink').on('keydown', function(e) {
+											        		    	if(event.shiftKey && (event.keyCode || event.which) === 9) {
+											        		    		event.preventDefault();
+											        		    		$('#pd-tooltip-close').focus();
+											        		    	}
+											        		    });
+											        		}
+														</script>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-kakao" title="새 창으로 열림">
+										                    <img src="../../static/_images/common/sns-kakao@3x.png" alt="카카오톡 아이콘">
+										                    <span>카카오톡</span>
+										                </a>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-facebook" title="새 창으로 열림">
+										                	<img src="../../static/_images/common/sns-facebook@3x.png" alt="페이스북 아이콘">
+										                    <span>페이스북</span>
+										                </a>
+										            </li>
+										        </ol>
+										      </div>
+											</div>
+										</li>
+									<li class ="eventList">
+										    <a href="../eventDetail/index%EF%B9%96eventNo=258.html" data-omni="258">
+												<p class="event-img" style="background-image:url(https://images.samsung.com/kdp/plaza_event/pc/258/8e792dfd-deb8-4329-bb36-91ebf89328d2.jpg)" data-event-no ="258"></p>
+											</a>
+											<div class="event-data" data-event-no ="258">
+												<a href="javascript:void(0);" class="event-title" data-event-no ="258" data-omni="258">혼수이사 더블업페스타</a>
+												<p class="event-date">
+													<span>2023-02-13 ~ 2023-03-31</span>
+													<strong>D-5</strong>
+													</p>
+<!-- 													<i class="icon ico-large ico-share">소셜공유</i> -->
+<!-- 												</button> -->
+												<button type="button" class="btn-sns-link" data-title="공유" data-content="" data-close="툴팁 닫기" data-event-no="258" data-event-nm="혼수이사 더블업페스타" data-image-path="https://images.samsung.com/kdp/plaza_event/pc/258/8e792dfd-deb8-4329-bb36-91ebf89328d2.jpg" >
+												<i class="icon ico-large ico-share">소셜공유</i>
+												</button>
+												<div class="tooltip-content" style="display:none;">
+										        <ol class="share-tooltip-box">
+										            <li>
+										                <a href="javascript:void(0);" class="pd-copylink" onkeydown="tabKeyCnt();">
+										                    <img src="../../static/_images/common/icon-copylink.svg" alt="링크복사 아이콘">
+										                    <span>링크복사</span>
+										                </a>
+										                <script>
+											                function tabKeyCnt() {
+											        			$('.pd-copylink').on('keydown', function(e) {
+											        		    	if(event.shiftKey && (event.keyCode || event.which) === 9) {
+											        		    		event.preventDefault();
+											        		    		$('#pd-tooltip-close').focus();
+											        		    	}
+											        		    });
+											        		}
+														</script>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-kakao" title="새 창으로 열림">
+										                    <img src="../../static/_images/common/sns-kakao@3x.png" alt="카카오톡 아이콘">
+										                    <span>카카오톡</span>
+										                </a>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-facebook" title="새 창으로 열림">
+										                	<img src="../../static/_images/common/sns-facebook@3x.png" alt="페이스북 아이콘">
+										                    <span>페이스북</span>
+										                </a>
+										            </li>
+										        </ol>
+										      </div>
+											</div>
+										</li>
+									<li class ="eventList">
+										    <a href="../eventDetail/index%EF%B9%96eventNo=179.html" data-omni="179">
+												<p class="event-img" style="background-image:url(https://images.samsung.com/kdp/plaza_event/pc/179/69e17551-a40d-40d9-a0f9-f0e33882d6bc.jpg)" data-event-no ="179"></p>
+											</a>
+											<div class="event-data" data-event-no ="179">
+												<a href="javascript:void(0);" class="event-title" data-event-no ="179" data-omni="179">고효율 가전제품 환급 혜택</a>
+												<p class="event-date">
+													<span>2022-01-01 ~ 2023-12-31</span>
+													<strong>D-280</strong>
+													</p>
+<!-- 													<i class="icon ico-large ico-share">소셜공유</i> -->
+<!-- 												</button> -->
+												<button type="button" class="btn-sns-link" data-title="공유" data-content="" data-close="툴팁 닫기" data-event-no="179" data-event-nm="고효율 가전제품 환급 혜택" data-image-path="https://images.samsung.com/kdp/plaza_event/pc/179/69e17551-a40d-40d9-a0f9-f0e33882d6bc.jpg" >
+												<i class="icon ico-large ico-share">소셜공유</i>
+												</button>
+												<div class="tooltip-content" style="display:none;">
+										        <ol class="share-tooltip-box">
+										            <li>
+										                <a href="javascript:void(0);" class="pd-copylink" onkeydown="tabKeyCnt();">
+										                    <img src="../../static/_images/common/icon-copylink.svg" alt="링크복사 아이콘">
+										                    <span>링크복사</span>
+										                </a>
+										                <script>
+											                function tabKeyCnt() {
+											        			$('.pd-copylink').on('keydown', function(e) {
+											        		    	if(event.shiftKey && (event.keyCode || event.which) === 9) {
+											        		    		event.preventDefault();
+											        		    		$('#pd-tooltip-close').focus();
+											        		    	}
+											        		    });
+											        		}
+														</script>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-kakao" title="새 창으로 열림">
+										                    <img src="../../static/_images/common/sns-kakao@3x.png" alt="카카오톡 아이콘">
+										                    <span>카카오톡</span>
+										                </a>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-facebook" title="새 창으로 열림">
+										                	<img src="../../static/_images/common/sns-facebook@3x.png" alt="페이스북 아이콘">
+										                    <span>페이스북</span>
+										                </a>
+										            </li>
+										        </ol>
+										      </div>
+											</div>
+										</li>
+									<li class ="eventList">
+										    <a href="../eventDetail/index%EF%B9%96eventNo=108.html" data-omni="108">
+												<p class="event-img" style="background-image:url(https://images.samsung.com/kdp/plaza_event/pc/108/15bdaec0-807d-4b93-9e6e-83e74d862c4c.png)" data-event-no ="108"></p>
+											</a>
+											<div class="event-data" data-event-no ="108">
+												<a href="javascript:void(0);" class="event-title" data-event-no ="108" data-omni="108">[이달의 카드혜택] 삼성스토어 신용카드 혜택</a>
+												<p class="event-date">
+													<span>2023-03-01 ~ 2023-03-31</span>
+													<strong>D-5</strong>
+													</p>
+<!-- 													<i class="icon ico-large ico-share">소셜공유</i> -->
+<!-- 												</button> -->
+												<button type="button" class="btn-sns-link" data-title="공유" data-content="" data-close="툴팁 닫기" data-event-no="108" data-event-nm="[이달의 카드혜택] 삼성스토어 신용카드 혜택" data-image-path="https://images.samsung.com/kdp/plaza_event/pc/108/15bdaec0-807d-4b93-9e6e-83e74d862c4c.png" >
+												<i class="icon ico-large ico-share">소셜공유</i>
+												</button>
+												<div class="tooltip-content" style="display:none;">
+										        <ol class="share-tooltip-box">
+										            <li>
+										                <a href="javascript:void(0);" class="pd-copylink" onkeydown="tabKeyCnt();">
+										                    <img src="../../static/_images/common/icon-copylink.svg" alt="링크복사 아이콘">
+										                    <span>링크복사</span>
+										                </a>
+										                <script>
+											                function tabKeyCnt() {
+											        			$('.pd-copylink').on('keydown', function(e) {
+											        		    	if(event.shiftKey && (event.keyCode || event.which) === 9) {
+											        		    		event.preventDefault();
+											        		    		$('#pd-tooltip-close').focus();
+											        		    	}
+											        		    });
+											        		}
+														</script>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-kakao" title="새 창으로 열림">
+										                    <img src="../../static/_images/common/sns-kakao@3x.png" alt="카카오톡 아이콘">
+										                    <span>카카오톡</span>
+										                </a>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-facebook" title="새 창으로 열림">
+										                	<img src="../../static/_images/common/sns-facebook@3x.png" alt="페이스북 아이콘">
+										                    <span>페이스북</span>
+										                </a>
+										            </li>
+										        </ol>
+										      </div>
+											</div>
+										</li>
+									<li class ="eventList">
+										    <a href="../eventDetail/index%EF%B9%96eventNo=105.html" data-omni="105">
+												<p class="event-img" style="background-image:url(https://images.samsung.com/kdp/plaza_event/pc/105/ad874967-585c-48a2-ae94-2c115f7f3016.jpg)" data-event-no ="105"></p>
+											</a>
+											<div class="event-data" data-event-no ="105">
+												<a href="javascript:void(0);" class="event-title" data-event-no ="105" data-omni="105">[혼수 이벤트] 예비 신혼부부를 위한 눈부신 선물 & 혜택을 만나보세요</a>
+												<p class="event-date">
+													<span>2023-03-01 ~ 2023-03-31</span>
+													<strong>D-5</strong>
+													</p>
+<!-- 													<i class="icon ico-large ico-share">소셜공유</i> -->
+<!-- 												</button> -->
+												<button type="button" class="btn-sns-link" data-title="공유" data-content="" data-close="툴팁 닫기" data-event-no="105" data-event-nm="[혼수 이벤트] 예비 신혼부부를 위한 눈부신 선물 & 혜택을 만나보세요" data-image-path="https://images.samsung.com/kdp/plaza_event/pc/105/ad874967-585c-48a2-ae94-2c115f7f3016.jpg" >
+												<i class="icon ico-large ico-share">소셜공유</i>
+												</button>
+												<div class="tooltip-content" style="display:none;">
+										        <ol class="share-tooltip-box">
+										            <li>
+										                <a href="javascript:void(0);" class="pd-copylink" onkeydown="tabKeyCnt();">
+										                    <img src="../../static/_images/common/icon-copylink.svg" alt="링크복사 아이콘">
+										                    <span>링크복사</span>
+										                </a>
+										                <script>
+											                function tabKeyCnt() {
+											        			$('.pd-copylink').on('keydown', function(e) {
+											        		    	if(event.shiftKey && (event.keyCode || event.which) === 9) {
+											        		    		event.preventDefault();
+											        		    		$('#pd-tooltip-close').focus();
+											        		    	}
+											        		    });
+											        		}
+														</script>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-kakao" title="새 창으로 열림">
+										                    <img src="../../static/_images/common/sns-kakao@3x.png" alt="카카오톡 아이콘">
+										                    <span>카카오톡</span>
+										                </a>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-facebook" title="새 창으로 열림">
+										                	<img src="../../static/_images/common/sns-facebook@3x.png" alt="페이스북 아이콘">
+										                    <span>페이스북</span>
+										                </a>
+										            </li>
+										        </ol>
+										      </div>
+											</div>
+										</li>
+									<li class ="eventList">
+										    <a href="../eventDetail/index%EF%B9%96eventNo=104.html" data-omni="104">
+												<p class="event-img" style="background-image:url(https://images.samsung.com/kdp/plaza_event/pc/104/9f7d9d39-4f67-442d-84f0-24d654aa532c.png)" data-event-no ="104"></p>
+											</a>
+											<div class="event-data" data-event-no ="104">
+												<a href="javascript:void(0);" class="event-title" data-event-no ="104" data-omni="104">[입주 이벤트] 삼성스토어와 함께하는 입주 이벤트</a>
+												<p class="event-date">
+													<span>2023-03-01 ~ 2023-03-31</span>
+													<strong>D-5</strong>
+													</p>
+<!-- 													<i class="icon ico-large ico-share">소셜공유</i> -->
+<!-- 												</button> -->
+												<button type="button" class="btn-sns-link" data-title="공유" data-content="" data-close="툴팁 닫기" data-event-no="104" data-event-nm="[입주 이벤트] 삼성스토어와 함께하는 입주 이벤트" data-image-path="https://images.samsung.com/kdp/plaza_event/pc/104/9f7d9d39-4f67-442d-84f0-24d654aa532c.png" >
+												<i class="icon ico-large ico-share">소셜공유</i>
+												</button>
+												<div class="tooltip-content" style="display:none;">
+										        <ol class="share-tooltip-box">
+										            <li>
+										                <a href="javascript:void(0);" class="pd-copylink" onkeydown="tabKeyCnt();">
+										                    <img src="../../static/_images/common/icon-copylink.svg" alt="링크복사 아이콘">
+										                    <span>링크복사</span>
+										                </a>
+										                <script>
+											                function tabKeyCnt() {
+											        			$('.pd-copylink').on('keydown', function(e) {
+											        		    	if(event.shiftKey && (event.keyCode || event.which) === 9) {
+											        		    		event.preventDefault();
+											        		    		$('#pd-tooltip-close').focus();
+											        		    	}
+											        		    });
+											        		}
+														</script>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-kakao" title="새 창으로 열림">
+										                    <img src="../../static/_images/common/sns-kakao@3x.png" alt="카카오톡 아이콘">
+										                    <span>카카오톡</span>
+										                </a>
+										            </li>
+										            <li>
+										                <a href="javascript:void(0);" class="pd-sns-facebook" title="새 창으로 열림">
+										                	<img src="../../static/_images/common/sns-facebook@3x.png" alt="페이스북 아이콘">
+										                    <span>페이스북</span>
+										                </a>
+										            </li>
+										        </ol>
+										      </div>
+											</div>
+										</li>
 									</ul>
 								</div>
+							<!--
+							<div class="pageingWrap">
+							-->
+								<div class="pageingWrap"><div class="paging" id="plazaEventListPage"><span class="btn_first"><a class="btn_paging first" href="javascript:;" style="cursor: default;" >맨 처음 페이지로 가기</a></span><span class="btn_prev"><a href="javascript:;" style="cursor: default;"  >이전 페이지로 가기</a></span><ul><li class="active"><a href="javascript:;" class="pageClass currentPage" style="cursor: default;">1</a></li></ul><span class="btn_next"><a href="javascript:;" style="cursor: default;"  >다음 페이지로 가기</a></span><span class="btn_last"><a href="javascript:;" style="cursor: default;" >맨 마지막 페이지로 가기</a></span></div></div><!--
 							</div>
+							-->
 						</div>
-      </div>
-
- 
-     
-    </div>
-						</div>
+						<!-- e : 매장상담 예약 -->
 					</section>
 					<!-- e : conbox 영역 -->
 				</div>
 			</div>
-
 			<!-- e : 본문 영역 -->
 		</div><!-- 레이어 팝업 모음 -------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- s : 공통 팝업(alert)  -->
@@ -5846,7 +6201,7 @@ wcs_do();
 			<div class="copyrightBox">
 				<p class="copyright">Copyright &copy; 1995-2023 Samsung. All Rights Reserved.</p>
 				<div class="mark-box">
-					<a href="https://www.samsung.com/sec/digitalplaza/eventDetail/javascript;" title="웹접근성 우수사이트 인증서 : 새창으로 열기" class="btn-mark btn-wa" data-popup-target="popupWA" data-omni="local logo_wa" >
+					<a href="https://www.samsung.com/sec/digitalplaza/eventList/javascript;" title="웹접근성 우수사이트 인증서 : 새창으로 열기" class="btn-mark btn-wa" data-popup-target="popupWA" data-omni="local logo_wa" >
 						<img class="pc-ver" src="../../static/_images/common/icon-footer-wa.svg" alt="웹접근성 우수사이트">
                         <img class="mo-ver" src="../../static/_images/common/icon-footer-wa-mo.jpg" alt="웹접근성 우수사이트">
 							웹접근성 우수사이트
