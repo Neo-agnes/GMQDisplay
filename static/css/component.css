@@ -9808,7 +9808,6 @@ input:focus {
 		font-size: 4.444vw;
 	}
 
-	/* 2021-08-26 KDP-5468 ---- 22-02-08 KDP-9717 FIXED
 	.feature-full-bleed .component-contents .component-text .box-disc {display: none;} */
 
 	.feature-full-bleed .component-contents .component-text .box-btns {
