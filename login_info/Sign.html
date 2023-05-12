@@ -14,7 +14,7 @@
     <!-- Place favicon.ico in the root directory -->
     <link href="./G5/css/plugInAll.css" rel="stylesheet" type="text/css" />
     <link href="./G5/css/icon_fonts/style.css" rel="stylesheet" type="text/css" />
-    <link href="./G5/css/all.css" rel="stylesheet" type="text/css" />
+        <link href="./G5/css/all.css" rel="stylesheet" type="text/css" />
 
     <link href="./G5/css/loading.css" rel="stylesheet" type="text/css" />
     <link href="./G5/css/select2.css" rel="stylesheet" type="text/css" />
@@ -38,6 +38,7 @@
     <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
 
     <script type="text/javascript">
+        //处理Cross-Frame Scripting问题
         if (top.location != self.location) {
             top.location = self.location;
         }
@@ -56,11 +57,11 @@
         <aside class="line-2">
             <aside class="container">
                 <h1 class="logo">
-                    <a href="https://www.GMQDisplay.com/ko-kr">
-                        <img class="hidden-xs" src="../../static/images/login_logo.png" alt="GMQDisplay" />
+                    <a href="../index.html">
+                        <img class="hidden-xs" src="../static/images/login_logo.png" alt="GMQDisplay" />
                     </a>
-                    <a href="https://www.GMQDisplay.com/ko-kr">
-                        <img class="visible-xs" src="../../static/images/login_logo.png" alt="GMQDisplay" />
+                    <a href="../index.html">
+                        <img class="visible-xs" src="../static/images/login_logo.png" alt="GMQDisplay" />
                     </a>
                 </h1>
             </aside>
@@ -70,6 +71,7 @@
 
     </header>
     <!-- 헤더의 끝 -->
+
     <style type="text/css">.visible {
         display: block;
     }
@@ -98,16 +100,14 @@
     }
 </style>
 <div class="block log_in ">
+
+   
+
         <div class="com_container   v_align_top bg_white log_content">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="login_title">회원가입</div>
-                    <form id="Sign" name="Sign" action="GMQDisplaySign.html">
-                        <input type="text" name="systemid" class="hide" value="G5">
-                        <input type="hidden" id="lang" name="lang" value="ko-kr" />
-                        <input type="hidden" id="siteid" name="siteid" value="ko-kr" />
-                        <input type="hidden" id="returnurl" name="returnurl" value="https://www.GMQDisplay.com/ko-kr/index.login.html" />
-                        <input type="hidden" id="lineid" name="lineid" value="" />
+                    <form id="Sign" name="Sign" action="./login_congrats.jsp" method="post">
 
                         <div class="row">
                             <div class="col-sm-6 col-xs-6">
@@ -117,12 +117,17 @@
                                     <div>개인회원 </div>
                                 </label>
                             </div>
+
                         </div>
+
+                        <div class="sub_line"></div>
                         <div class="form_wrap" id="PersonalBlock">
                             <div class="row">
                                 <div class="col-sm-3 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                        <div class="form_item_text_warn">이름은 필수 기재사항입니다 .</div>
+                                        <div class="form_item_text_warn">
+                                            이름은 필수 기재사항입니다 .
+                                        </div>
                                         <div class="form_item_text_default" data-itemtextdefault="">
                                         </div>
                                         <input type="text" placeholder="*이름 " name="firstname" class="com_input">
@@ -130,8 +135,11 @@
                                 </div>
                                 <div class="col-sm-3 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                        <div class="form_item_text_warn">성은 필수 기재사항입니다 .</div>
+                                        <div class="form_item_text_warn">
+                                            성은 필수 기재사항입니다 .
+                                        </div>
                                         <div class="form_item_text_default" data-itemtextdefault="">
+                                            <!-- default顯示的文字 -->
                                         </div>
                                         <input type="text" placeholder="*성" name="lastname" class="com_input">
                                     </div>
@@ -145,10 +153,13 @@
                                 <input type="text" placeholder="* 이메일 주소" name="email" class="com_input" onkeyup="this.value=this.value.toLowerCase()">
                             </div>
                             
+                            <!-- 3 column (1:1:1)-->
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="password">
-                                        <div class="form_item_text_warn">오류</div>
+                                        <div class="form_item_text_warn">
+                                            오류
+                                        </div>
                                         <div class="form_item_text_default" data-itemtextdefault=""></div>
                                         <input id="pwd" type="password" placeholder="* 비밀번호 입력" name="password" class="com_input">
                                     </div>
@@ -156,6 +167,7 @@
                                 <div class="col-sm-6 col-xs-12">
                                 </div>
                             </div>
+                            <!-- 3 column (1:1:1)-->
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form_item_wrap" data-required="true" data-validatetype="comfirm_password">
@@ -204,351 +216,16 @@
                                         </label>
                                   </div>
                             </div>
+                            
+
                             <div class="text-right">
                                 <a href="javascript:;" style="text-decoration: none;" class="form_clear_btn com_btn f_purple mobile_full com_btn_mg">초기화</a>
                                 <button class="form_btn com_btn bg_purple mobile_full com_btn_mg">제출</button>
                             </div>
+
                         </div>
+
                     </form>
-                    <form id="SignByBusiness" name="SignByBusiness"  action="GMQDisplaySignByBusiness.html">
-                    <div class="form_wrap hidden hiddenblock" id="BusinessBlock">
-                        <div class="row">
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                    <div class="form_item_text_warn">이름은 필수 기재사항입니다 .</div>
-                                    <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                    <input type="text" placeholder="*이름 " name="firstname" class="com_input">
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form_item_wrap" data-required="true" data-validatetype="name">
-                                    <div class="form_item_text_warn">성은 필수 기재사항입니다.</div>
-                                    <div class="form_item_text_default" data-itemtextdefault="">
-                                    </div>
-                                    <input type="text" placeholder="*성" name="lastname" class="com_input">
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-xs-12"></div>
-                            <div class="col-sm-3 col-xs-12"></div>
-                        </div>
-                        <div class="form_item_wrap" data-required="true" data-validatetype="email">
-                            <div class="form_item_text_warn">유효한 이메일 주소를 입력하세요. </div>
-                            <div class="form_item_text_default" data-itemTextDefault="이메일 주소는 GMQDisplay 계정으로 사용됩니다.">이메일 주소는 GMQDisplay 계정으로 사용됩니다.</div>
-                            <input type="text" placeholder="** 회사 이메일" name="email" class="com_input" onkeyup="this.value=this.value.toLowerCase()">
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form_item_wrap" data-required="true" data-validatetype="password">
-                                <div class="form_item_text_warn"> 오류</div>
-                                <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                <input type="password"   placeholder="** 비밀번호 입력" name="password" class="com_input">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form_item_wrap" data-required="true" data-validatetype="comfirm_password">
-                                <div class="form_item_text_warn"> 비밀번호가 일치하지 않습니다</div>
-                                <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                <input type="password" placeholder="** 비밀번호 재입력" class="com_input">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pure_text list_rules">비밀번호는 다음과 같아야합니다
-                            <br>
-                            <ul class="pw_rule">
-                                <li class="rule_1">최소 8자 이상이어야 합니다</li>
-                                <li class="rule_2">1개 이상의 소문자(a-z)와 대문자(A-Z)를 포함해야 합니다.</li>
-                                <li class="rule_3">하나 이상의 숫자 (0-9) 포함</li>
-                            </ul>
-                        </div>
-                   
-                        <!-- cellphone phone-->
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form_item_wrap" data-required="true">
-                                <div class="form_item_text_warn">휴대전화는 필수 기재사항입니다. </div>
-                                <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                <input type="text" placeholder="*휴대전화" name="cellphone" class="com_input">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form_item_wrap" data-required="true">
-                                <div class="form_item_text_warn">전화번호는 필수 기재사항입니다. </div>
-                                <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                <input type="text" placeholder="*일반전화" name="phone" class="com_input">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- jobTitle  Organization Name-->
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form_item_wrap" data-required="false">
-                                <div class="form_item_text_warn"></div>
-                                <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                <input type="text" placeholder="직위" name="jobTitle" class="com_input">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form_item_wrap" data-required="true">
-                                <div class="form_item_text_warn">기관 이름은 필수 기재사항입니다. </div>
-                                <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                <input type="text" placeholder="*기관 이름" name="organizationName" class="com_input">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Industry, Number of employees-->
-                        <div class="row" id="SelectIndustryNum">
-
-                                    <div class="col-sm-6 col-xs-12 ">
-                                        <div class="form_item_wrap" data-required="true">
-                                            <div class="form_item_text_warn">업종은 필수 기재사항입니다 .</div>
-                                            <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                            <!-- select area -->
-                                          
-                                            <div class="com_select_wrap" data-selectType="Industry" data-sourceUrl="/ICDS/Home/SelectIndustry">
-                                                <div class="com_select">
-                                                    <ul>
-                                                        <div class="tab_cover"></div>
-                                                        <div class="li_wrap" data-defaulttext="*업종"></div>
-                                                    </ul>
-                                                    <input type="hidden" name="industry">
-                                                </div>
-                                            </div>
-                                            <!-- /select area -->
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-12 ">
-                                        <div class="form_item_wrap" data-required="true">
-                                            <div class="form_item_text_warn">직원 수는 필수 기재사항입니다 .</div>
-                                            <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                            <!-- select area -->
-                                            <div class="com_select_wrap"  data-selectType="NumOfEmp" data-sourceUrl="/ICDS/Home/SelectNumOfEmp">
-                                                <div class="com_select">
-                                                    <ul>
-                                                        <div class="tab_cover"></div>
-                                                        <div class="li_wrap" data-defaulttext="*직원 수"></div>
-                                                    </ul>
-                                                    <input type="hidden" name="numOfEmp" >
-                                                </div>
-                                            </div>
-                                            <!-- /select area -->
-                                        </div>
-                                    </div>
-                                </div>
-
-                        <!-- Organization Address-->
-                        <div class="row">
-                        <div class="col-sm-12 col-xs-12 ">
-                        <div class="form_item_wrap" data-required="true">
-                            <div class="form_item_text_warn">기관 주소는 필수 기재사항입니다. </div>
-                            <div class="form_item_text_default" data-itemtextdefault=""></div>
-                            <input type="text" placeholder="*기관 주소" name="organizationAddress" class="com_input">
-                        </div>
-                        </div>
-                        </div>
-
-                        <!-- Postcode, CityTown, Country-->
-                        <div class="row">
-                            <div class="col-sm-2 col-xs-12 ">
-                                <div class="form_item_wrap" data-required="true">
-                                    <div class="form_item_text_warn">우편번호는 필수 기재사항입니다. </div>
-                                    <div class="form_item_text_default"></div>
-                                    <input type="text" placeholder="*우편 번호" class="com_input" name="postcode">
-                                </div>
-                            </div>
-
-                            
-                                <div class="col-sm-2 col-xs-12 hide" id="selectDist">
-                                    <div class="form_item_wrap" data-required="true">
-                                        <div class="form_item_text_warn">주소는 필수 기재사항입니다. </div>
-                                        <div class="form_item_text_default"></div>
-                                        <!-- select area -->
-                                        <div class="com_select_wrap">
-                                            <div class="com_select" id="DistSetting">
-                                                <ul>
-                                                    <div class="tab_cover "></div>
-                                                    <div class="li_wrap" data-defaulttext=""></div>
-                                                </ul>
-                                                <input type="hidden" name="Dist" id="selDist">
-                                            </div>
-                                        </div>
-                                        <!-- /select area -->
-                                    </div>
-                                </div>
-                          
-                            <div class="col-sm-4 col-xs-12" id="inputCity">
-                                <div class="form_item_wrap" data-required="true">
-                                    <div class="form_item_text_warn">시/군은 필수 기재사항입니다.</div>
-                                    <div class="form_item_text_default"></div>
-                                    <input type="text" placeholder="*시/군" class="com_input" name="CityTown" id="inpCityTown">
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-xs-12 hide" id="selectCity">
-                                <div class="form_item_wrap" data-required="true">
-                                    <div class="form_item_text_warn">시/군은 필수 기재사항입니다.</div>
-                                    <div class="form_item_text_default"></div>
-                                    <!-- select area -->
-                                    <div class="com_select_wrap">
-                                        <div class="com_select" id="CitySetting">
-                                            <ul>
-                                                <div class="tab_cover CityTown"></div>
-                                                <div class="li_wrap" data-defaulttext="시/군"></div>
-                                            </ul>
-                                            <input type="hidden" name="CityTown" id="selCityTown">
-                                        </div>
-                                    </div>
-                                    <!-- /select area -->
-                                </div>
-                            </div>
-                            <div class="col-sm-2 col-xs-12 hide" id="selectState">
-                                <div class="form_item_wrap" data-required="true">
-                                    <div class="form_item_text_warn">시/도는 필수 기재사항입니다. </div>
-                                    <div class="form_item_text_default"></div>
-                                    <!-- select area -->
-                                    <div class="com_select_wrap">
-                                        <div class="com_select" id="StateSetting">
-                                            <ul>
-                                                <div class="tab_cover"></div>
-                                                <div class="li_wrap" data-defaulttext="도/시구"></div>
-                                            </ul>
-                                            <input type="hidden" name="StateProvince" id="StateProvince">
-                                        </div>
-                                    </div>
-                                    <!-- /select area -->
-                                </div>
-                            </div>
-                            <div class="com_2Level_select_areaCountry" data-search-url="">
-
-                                <div class="col-sm-4 col-xs-12 ">
-                                    <div class="form_item_wrap" data-required="true">
-                                        <div class="form_item_text_warn">국가는 필수 기재사항입니다 .</div>
-                                        <div class="form_item_text_default"></div>
-                                        <!-- select area -->
-                                        <div class="com_select_wrap" data-selecttype="country">
-                                            <div class="com_select" id="CountrySetting">
-                                                <ul>
-                                                    <div class="tab_cover" id="Country"></div>
-                                                    <div class="li_wrap" data-defaulttext="국가/지역">
-                                                        <li data-val="" class="default_text">국가/지역</li>
-
-                                                    </div>
-                                                </ul>
-                                                <input type="hidden" name="Country">
-                                            </div>
-                                        </div>
-                                        <!-- /select area -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     
-
-                    
-                        <!-- Type of Organization-->
-                        <div class="row">
-                            <div class="col-sm-12 col-xs-12" style="font-size: 20px;">
-                                회사명 입력
-                            </div>
-                        </div>
-                        <div class=" ">
-                            <div class="col-sm-12 col-xs-12">
-                                <label class="radio_area">
-                                    <input type="radio" name="Organization" value="NORMAL" checked>
-                                    <div class="radio_cover"></div>
-                                    <div>비즈니스 구매</div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class=" ">
-                            <div class="col-sm-12 col-xs-12">
-                                <label class="radio_area">
-                                    <input type="radio" name="Organization" value="TAX_EXEMPT">
-                                    <div class="radio_cover"></div>
-                                    <div>비영리 / 면세사업자</div>
-                                </label>
-                            </div>
-                        </div>
-
-                           
-                        <!-- UploadFiles-->
-                        <div class="row  disableblock" style="margin-left: 50px;color: #eeeeee !important;" >
-                            <div class="col-sm-12 col-xs-12 ">
-                                <div class="form_item_wrap">
-                                    <div class="pure_text   f_bold">면세 증명서</div>
-                                </div>
-                                <div class="form_item_wrap">
-                                    <div class="pure_text    ">더 빠른 접근을 위해 공제 증명서를 첨부해주세요. 귀하의 권리(면세)를 보호하기 위해 48시간 이내에 귀하에게 연락하여 신원을 확인할 것입니다. 홈페이지를 통해 제품을 계속 둘러보실 수 있습니다.</div>
-                                </div>
-                                <div class="form_item_wrap">
-                                    <div class="pure_text   f_bold">세금 정보 첨부</div>
-                                </div>
-                                <div class="form_item_wrap" data-required="false" data-validatetype='uploadFile'>
-                                    <div class="form_item_text_default" data-itemtextdefault=""></div>
-                                    <span class="icon-upload"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
-                                    <div class="file_input_wrap">
-                                        <input type="file" id='upload_file_input' data-filenum="0" data-type="pdf" disabled="disabled">
-                                        <a href="javascript:;" class="text_underline f_light_black btn_upload1" >업로드 파일</a>
-                                    </div>
-                                    <div class="uploaded_file_area"></div>
-                                    <hr class="hr_adj mobile_show">
-
-                                    <div class=" ">
-                                        <div class="col-sm-6 col-xs-12 ">
-                                            <div class="form_item_wrap" data-required="false">
-                                                <div class="pure_text file_upload_exp">
-                                                    <span>참고: PDF 파일만 사용할 수 있습니다. </span>
-                                                    <span class="f_bold">판매세는 배송지역에 따라 결정되는 운송 요금입니다.</span>
-                                                    <span class="f_bold">* 판매세 면제는 배송지 주소를 기준으로 합니다.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form_item_text_warn">
-                                        <span class="icon-sent-error"></span>
-                                        <div class="not_null">연관된 파일 업로드가 필요합니다</div>
-                                        <div class="upload_failed hide">업로드 실패</div>
-                                        <div class="format_err hide">파일 형식이 잘못되었습니다</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                       
-                        <div class="row">
-                            <div class="col-sm-12 col-xs-12" style="text-align:Justify">
-                                GMQDisplay는 귀하의 개인 정보를 보호하고 존중하기 위해 최선을 다하고 있으며 국내 개인정보 보호법을 준수하고 있습니다. 당사는 귀하의 개인 정보 및 계정을 관리하고 귀하가 저희에게 요청한 제품과 서비스 제공과 서비스 품질 개선 및 분석을 위해서만 사용할 것입니다. 귀하의 동의하에 당사 제품 및 서비스뿐만 아니라 귀하가 관심을 가질 수 있는 기타 컨텐츠에 대해 연락드릴 수 있으며 원하시는 경우 언제든지 이러한 커뮤니케이션의 구독을 취소할 수 있습니다. 필요한 경우 귀하의 개인 데이터가 제3국의 GMQDisplay 그룹 회사로 공유 될 수 있으며 이는 위의 제품과 서비스, 서비스 품질 개선의 목적으로만 이루어집니다. 이 경우에도 귀하의 개인 정보 보호 및 데이터 보안을 위해 필요한 모든 조치를 시행할 것입니다. 언제든지 개인정보를 조회, 정정 또는 삭제할 수 있습니다. 그렇게 하고 싶거나 개인 정보 보호 권리에 대해 궁금한 점이 있으면 당사에 문의하십시오. 개인 정보 보호 관행에 대한 자세한 내용은 개인 정보 보호 정책을 검토하십시오.
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-xs-12">
-                                <label class="check_area">
-                                    <input type="checkbox" name="chkterms" !disabled="disabled">
-                                    <div class="checkbox_cover"></div>
-
-                                        <div>개인 정보 보호 정책, 약관을 읽었으며 GMQDisplay가 위의 목적을 위해 개인 정보를 처리할 수 있도록 하는 데 동의합니다.  <a href="https://www.GMQDisplay.com/ko-kr/policy/user-terms.html" target="_blank" class="text_btn text_underline">약관</a>  <a href="https://www.GMQDisplay.com/ko-kr/policy/privacy-policy.html" target="_blank" class="text_btn text_underline">개인정보 보호 정책</a></div>
-                                </label>
-                            </div>
-                        </div>
-			    
-                        <div class="row">
-                                <div class="col-sm-12 col-xs-12">
-                                    <label class="check_area w_no_100">
-                                        <input type="checkbox"  name="chkmemepaper">
-                                        <div class="checkbox_cover"></div>
-                                        <div>GMQDisplay로부터 마케팅 제안과 업데이트를 받고 싶습니다.</div>
-                                    </label>
-                                </div>
-                           </div>
-                       
-
-                        <div class="text-right">
-                            <a href="javascript:;" style="text-decoration: none;" class="form_clear_btn com_btn f_purple mobile_full com_btn_mg">초기화</a>
-                            <button class="form_btn com_btn bg_purple mobile_full com_btn_mg">제출</button>
-                        </div>
-                     </div>
-                     </form>
                  
                 </div>
             </div>
@@ -560,621 +237,6 @@
 
 <script type="text/javascript">
     var lang = "ko-kr";
-    //var data = [];
-    //$("#selIndustry").select2({
-    //    data: data,
-    //    minimumResultsForSearch: -1,
-    //    width: '150px'
-    //});
-    $("input[type='radio']").on("click", function () {
-        //alert($(this).val());
-
-        if ($(this).val() == "PersonalMember") {
-         
-            $("#BusinessBlock").addClass("hidden");
-            $("#PersonalBlock").removeClass("hidden");
-        }
-        if ($(this).val() == "BusinessMember") {
-            $("#BusinessBlock").removeClass("hidden");
-            
-            $("#PersonalBlock").addClass("hidden");
-        }
-
-        if ($(this).val() == "NORMAL") {
-            $(".disableblock").css("color", "#eeeeee !important");
-            $(".btn_upload1").css("color", "#eeeeee !important");
-            $("input[type='file']").attr("disabled", "disabled");
-            $("[data-validatetype='uploadFile']").attr("data-required", false);
-            $("[data-validatetype='uploadFile']").find('.form_item_text_warn').hide();
-        }
-        if ($(this).val() == "TAX_EXEMPT") {
-            $(".disableblock").css("color", "black");
-            $(".btn_upload1").css("color", "black");
-            $("input[type='file']").attr("disabled", false);
-            $("[data-validatetype='uploadFile']").attr("data-required", true);
-        }
-    })
-
-
-    var j_com_select_wrap = $(".com_select_wrap");
-
-    j_com_select_wrap.each(function () {
-
-        if ($(this).attr("data-selectType") && $(this).attr("data-selectType").match(/(Industry)/i)) {
-
-            var select_wrap = $(this);
-            var data_url = $(this).attr("data-sourceUrl");
-            if (data_url == "" || data_url == undefined || data_url.match(/\s+/)) {
-                do_select_new(select_wrap.find(".com_select"));
-            } else {
-                $.ajax({
-                    url: data_url,
-                    dataType: "json",
-                    type: "GET",
-                    data: "lang=" + lang,
-                    success: function success(data) {
-                        do_ini(data, select_wrap);
-                    },
-                    error: function error(err, status) {
-                        console.log(err, status);
-                    }
-                });
-            }
-        }
-
-        if ($(this).attr("data-selectType") && $(this).attr("data-selectType").match(/(NumOfEmp)/i)) {
-
-            var select_wrap = $(this);
-            var data_url = $(this).attr("data-sourceUrl");
-            if (data_url == "" || data_url == undefined || data_url.match(/\s+/)) {
-                do_select_new(select_wrap.find(".com_select"));
-            } else {
-                $.ajax({
-                    url: data_url,
-                    dataType: "json",
-                    type: "GET",
-                    data: "lang=" + lang,
-                    success: function success(data) {
-                        do_ini(data, select_wrap);
-                    },
-                    error: function error(err, status) {
-                        console.log(err, status);
-                    }
-                });
-            }
-        }
-
-        function do_ini(pData, pTarget_select) {
-
-            var data = pData;
-            var select = pTarget_select;
-            var select_default_text = select.find(".li_wrap").attr("data-defaultText");
-
-            var html = "";
-            html += '<li data-val="" class="default_text selected">' + select_default_text + '</li>';
-
-            for (var i = 0; i < data.length; i++) {
-                html += '<li data-val="' + data[i].code + '">' + data[i].value + '</li>';
-            }
-
-            select.find(".li_wrap").html(html).promise().done(function () {
-                do_select_new(select.find(".com_select"));
-            });
-        }
-    });
-
-
-    $.ajax({
-        url: "/ICDS/Home/SelectCountry",
-        dataType: "json",
-        type: "GET",
-        data: "lang=" + lang,
-        async: true,
-        success: function success(data) {
-
-            var first_area = $("#CountrySetting").find(".li_wrap");
-            var default_first_select_text = first_area.attr("data-defaultText");
-
-            var first_html = "";
-            //first_html += '<li data-val="" class="default_text selected">' + default_first_select_text + '</li>';
-            for (var j = 0; j < data.length; j++) {
-                first_html += '<li data-val="' + data[j].CountryID + '">' + data[j].DisplayName + '</li>';
-            }
-
-            first_area.html(first_html).promise().done(function () {
-                var first_area = $("#CountrySetting");
-                do_select_new(first_area);
-
-                first_area.find("li").each(function () {
-                    $(this).on("click", function () {
-                        var value = $(this).attr("data-val");
-                        if (value != "") {
-
-                            for (var m = 0; m < data.length; m++) {
-                                if (data[m].CountryID == value) {
-
-                                    var Dists = data[m].Dists;
-                                    var cityID = data[m].CityID;
-                                    var cityDisplayName = data[m].CityDisplayName;
-                                    if (cityID.length > 0 && cityID[0] != "") {
-
-                                        $("#inputCity").addClass("hide");
-                                        $("#selectCity").removeClass("hide");
-                                        $("#inpCityTown").val("");
-
-                                        $("#selectDist").removeClass("hide");
-
-                                        var second_area = $("#CitySetting").find(".li_wrap");
-                                        var default_second_select_text = second_area.attr("data-defaultText");
-
-                                        var html = "";
-                                        html += '<li data-val="" class="default_text selected">' + default_second_select_text + '</li>';
-                                        for (var j = 0; j < cityID.length; j++) {
-                                            html += '<li data-val="' + cityID[j] + '">' + cityDisplayName[j] + '</li>';
-                                        }
-
-                                        second_area.html(html).promise().done(function () {
-                                            var second_area = $("#CitySetting");
-                                            do_select_new(second_area);
-
-                                            second_area.find("li").each(function () {
-                                                $(this).on("click", function () {
-
-                                                    $("input[name=postcode]").val("");
-
-                                                    var SelcityID = $(this).attr("data-val").trim();
-
-                                                    var third_area = $("#DistSetting").find(".li_wrap");
-                                                    var default_third_select_text = third_area.attr("data-defaultText");
-
-                                                    var html = "";
-                                                    html += '<li data-val="" class="default_text selected">' + default_third_select_text + '</li>';
-
-
-                                                    for (var k = 0; k < Dists.length; k++) {
-                                                        if (Dists[k].CityID == SelcityID) {
-                                                            html += '<li data-val="' + Dists[k].ZipCode + '">' + Dists[k].DistName + '</li>';
-                                                        }
-                                                    }
-
-
-                                                    third_area.html(html).promise().done(function () {
-                                                        var third_area = $("#DistSetting");
-                                                        do_select_new(third_area);
-
-                                                        third_area.find("li").each(function () {
-                                                            $(this).on("click", function () {
-                                                                $("input[name=postcode]").val($(this).attr("data-val").trim());
-                                                                    
-                                                            });
-                                                        });
-                                                    });
-
-                                                });
-                                            });
-
-                                        });
-                                        var area = $("#DistSetting").find(".li_wrap");
-                                        var default_third_select_text = area.attr("data-defaultText");
-                                        var html = '<li data-val="" class="default_text selected">' + default_third_select_text + '</li>';
-                                        area.html(html).promise().done(function () {
-                                            var area = $("#DistSetting");
-                                            do_select_new(area);
-                                        });
-
-                                    }
-                                    else {
-                                        $("#inputCity").removeClass("hide");
-
-                                        $("#selectCity").addClass("hide");
-                                        $("#selCityTown").val("");
-
-                                        $("#selectDist").addClass("hide");
-                                    }
-
-                                    var stateProvinceID = data[m].StateProvinceID;
-                                    var stateProvinceDisplayName = data[m].StateProvinceDisplayName;
-                                    if (stateProvinceID.length > 0 && stateProvinceID[0] != "") {
-                                        $("#selectState").removeClass("hide");
-
-
-                                        var second_area = $("#StateSetting").find(".li_wrap");
-                                        var default_second_text = second_area.attr("data-defaultText");
-
-                                        var html = "";
-                                        html += '<li data-val="" class="default_text selected">' + default_second_text + '</li>';
-                                        for (var j = 0; j < stateProvinceID.length; j++) {
-                                            html += '<li data-val="' + stateProvinceID[j] + '">' + stateProvinceDisplayName[j] + '</li>';
-                                        }
-                                        second_area.html(html).promise().done(function () {
-                                            var second_area = $("#StateSetting");
-                                            do_select_new(second_area);
-
-                                        });
-                                    }
-                                    else {
-                                        $("#selectState").addClass("hide");
-                                        $("#StateProvince").val("");
-                                    }
-                                }
-                            }
-                        }
-                    });
-                });
-            });
-
-            var first_area = $("#CountrySetting");
-            var li_wrap = first_area.find(".li_wrap");
-            var liCountry = li_wrap.find("li");
-            var cnt = 1;
-            if (liCountry.length > 0) {
-                liCountry.eq(0).trigger("click");
-            }
-
-
-        },
-        error: function error(err, status) {
-            console.log(err, status);
-        }
-    });
-
-
-    function do_select_new(pTab_wrap) {
-        if (pTab_wrap) {
-            var wrap = pTab_wrap;
-            wrap.each(function () {
-                var cover = $(this).find(".tab_cover");
-                var ul = $(this).find("ul");
-                var input = $(this).find("input:not(.extra_info)");
-                var url_input = $(this).find("input[data-infotype='url']");
-                var li_wrap = $(this).find(".li_wrap");
-                var li = li_wrap.find("li");
-                var cover_bg_class;
-                var other_wrap = $(".com_select").not($(this));
-                cover.off("click").on("click", function () {
-                    ul.addClass("open");
-                    cover.hide();
-                    if (li_wrap.find("li").length > 6) {
-                        li_wrap.slimScroll({
-                            height: "308px",
-                            alwaysVisible: true,
-                            size: '5px',
-                            touchScrollStep: 10
-                        });
-                    }
-                    other_wrap.each(function () {
-                        if ($(this).find("ul").hasClass("open")) {
-                            $(this).find("li.selected").trigger("click");
-                        }
-                    });
-                    if ($(this).parents(".form_item_wrap")) {
-                        input.trigger("keyup.form_keyup");
-                    }
-                });
-                ul.find("li").each(function () {
-                    $(this).off("click").on("click", function () {
-                        ul.find("li").removeClass("selected");
-                        var text = $(this).text();
-                        if ($(this).attr("data-val").trim() == "") {
-                            cover_bg_class = "bg_g";
-                        } else {
-                            cover_bg_class = "bg_w";
-                        }
-                        $(this).addClass("selected");
-                        input.val($(this).attr("data-val").trim());
-                        if (url_input && $(this).attr("data-url")) {
-                            url_input.val($(this).attr("data-url").trim());
-                        } else if (url_input) {
-                            url_input.val("");
-                        }
-
-                        // console.log(input.val());
-                        if (li_wrap.find("li").length > 6) {
-                            li_wrap.slimScroll({ destroy: true });
-                        }
-                        li_wrap.css({
-                            "height": "100%"
-                        });
-                        ul.removeClass("open");
-                        cover.removeClass("bg_w").removeClass("bg_g").addClass(cover_bg_class).html(text).show();
-                        if ($(this).parents(".form_item_wrap")) {
-                            input.trigger("keyup.form_keyup");
-                        }
-                    });
-                });
-                if (li.length == 2) {
-                    li.eq(1).trigger("click");
-                } else {
-                    li.eq(0).trigger("click");
-                }
-            });
-        }
-    }
-
-    function undo_select_new(pTab_wrap) {
-        if (pTab_wrap) {
-            var wrap = pTab_wrap;
-            wrap.each(function () {
-                var cover = $(this).find(".tab_cover");
-                var ul = $(this).find("ul");
-                var input = $(this).find("input:not(.extra_info)");
-                var url_input = $(this).find("input[data-infotype='url']");
-                var li_wrap = $(this).find(".li_wrap");
-                var li = li_wrap.find("li");
-                var cover_bg_class;
-                var other_wrap = $(".com_select").not($(this));
-                cover.off("click");
-                ul.find("li").each(function () {
-                    $(this).off("click");
-                });
-
-            });
-        }
-    }
-
-    //js获取url参数值
-    function getQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
-    }
-
-    $("#Sign").submit(function (e) {
-
-
-        e.preventDefault();
-        //namechk($("#Sign"));
-
-        var styleStr = $("#Sign").find(".form_item_text_warn");
-        for (var i = 0; i < styleStr.length ; i++) {
-            var css = styleStr[i].style.display;
-            if (css == "block" || css == "") {
-                return;
-            }
-        }
-
-        $("#Sign").find('.form_btn').attr("disabled", "disabled"); //设置变灰按钮
-        $("#Sign").find('.form_btn').addClass("bg_gray");
-        $("#Sign").find('.form_btn').removeClass("bg_purple");
-        //var langs = ["en", "en-eu", "en-gb", "fr", "nl", "de", "it", "de"];
-        var lang = getQueryString("lang");
-        var systemid = getQueryString("system_id");
-        var email = $("input[name=email]").val();
-        
-            $.ajax({
-                url: "/ICDS/Home/GMQDisplaySign",
-                type: "Post",
-                data: $("#Sign").serialize(),
-                dataType: "json",
-                success: function (data) {
-                    if (data.type == 1) {
-                        $.alertMessage({
-                            message: data.message
-                        });
-                        window.location.href = "/ICDS/Home/Activation" + "?str=" + data.value + "&lang=" + lang + "&system_id=" + systemid;
-                        
-                        //window.location.href = "/ICDS/Home/Activation";
-                        //window.location.href = "signup_success?system_id=" + "G5" + "&lang=" + lang + "&backurl=" + data.value
-                     } else {
-                         $.alertMessage({
-                             message: data.message
-                         });
-
-                     }
-
-                     $('.form_btn').removeAttr("disabled", "disabled"); //设置变灰按钮
-                     $('.form_btn').addClass("bg_purple");
-                     $('.form_btn').removeClass("bg_gray");
-                 },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert("System Error(" + xhr.status + "):" + xhr.responseText);
-                }
-            });
-         //}
-    });
-
-
-
-     $("#SignByBusiness").submit(function (e) {
-
-
-         e.preventDefault();
-         //namechk($("#SignByBusiness"));
-
-         var form_item_wrap = $("#SignByBusiness").find(".form_item_wrap");
-
-         for (var i = 0; i < form_item_wrap.length; i++) {
-
-             if (!form_item_wrap.eq(i).parent('.col-xs-12').hasClass('hide')) {
-                 var warn_text = form_item_wrap.eq(i).find(".form_item_text_warn");
-                 if (form_item_wrap.eq(i).attr("data-required") == "true") {
-                     var css = warn_text.css('display');
-                     if (css == "block" || css == "") {
-                         return;
-                     }
-                 }
-             }
-         }
-
-         //var styleStr = $("#SignByBusiness").find(".form_item_text_warn");
-         //for (var i = 0; i < styleStr.length ; i++) {
-         //    var css = styleStr[i].style.display;
-         //    if (css == "block" || css == "") {
-         //        return;
-         //    }
-         //}
-
-         //return;
-
-         $("#SignByBusiness").find('.form_btn').attr("disabled", "disabled"); //设置变灰按钮
-         $("#SignByBusiness").find('.form_btn').addClass("bg_gray");
-         $("#SignByBusiness").find('.form_btn').removeClass("bg_purple");
-         //var langs = ["en", "en-eu", "en-gb", "fr", "nl", "de", "it", "de"];
-         var lang = getQueryString("lang");
-         var systemid = getQueryString("system_id");
-
-         var form = $("#SignByBusiness");
-
-         var firstName = form.find("input[name=firstname]").val();
-         var lastName = form.find("input[name=lastname]").val();
-         var email = form.find("input[name=email]").val();
-
-         var secpwd = form.find("input[name=password]").val();
-
-
-         var mcellphone = form.find("input[name=cellphone]").val();
-         var mphone1 = form.find("input[name=phone]").val();
-
-         var mjobtitle = form.find("input[name=jobTitle]").val();
-         var orgname = form.find("input[name=organizationName]").val();
-
-         var orgbiztype = form.find("input[name=industry]").val();
-         var orgscale = form.find("input[name=numOfEmp]").val();
-
-
-         var orgtype = form.find("input[name=Organization]:checked").val();
-
-         var mzip = form.find("input[name=postcode]").val();
-         var stateProvince = form.find("input[name=StateProvince]").val();
-
-         var mcity = "";
-         if (form.find("#selCityTown").val() != "") {
-             mcity = form.find("#selCityTown").val();
-         }
-         else {
-             mcity = form.find("#inpCityTown").val();
-         }
-         var madd1 = form.find("input[name=organizationAddress]").val();
-         var mcountry = form.find("input[name=Country]").val();
-
-
-
-         //var mgender = form.find("input[name=Gender]").val();
-
-         var mdist = "";
-         if (mcountry == "Taiwan") {
-             if (form.find("#selDist").val() != "") {
-                 mdist = form.find("#DistSetting").find(".li_wrap").find("li.selected").text();
-             }
-             else {
-                 mdist = form.find("#selDist").val();
-             }
-         }
-
-         var systemid = $("input[name=systemid]").val();
-         var lang = $("input[name=lang]").val();
-         var siteid = $("input[name=siteid]").val();
-         var returnurl = $("input[name=returnurl]").val();
-         var lineid = $("input[name=lineid]").val();
-
-         var chkterms = "off";
-         if (form.find("input[name=chkterms]").is(":checked")) {
-             chkterms = "on";
-         }
-
-         var chkmemepaper = "off";
-         if (form.find("input[name=chkmemepaper]").is(":checked")) {
-             chkmemepaper = "on";
-         }
-
-         var filename = [];
-         var filedata = [];
-         var filepath = [];
-         if (form.find("input[name=Organization]:checked").val() == "TAX_EXEMPT") {
-             var file_box = $("#SignByBusiness").find(".uploaded_file_area").find(".file_box");
-             if (file_box.length > 0) {
-                 for (var i = 0; i < file_box.length; i++) {
-                     var fileName = file_box.eq(i).find(".FileName").val();
-                     filename.push(fileName);
-                     var fileData = file_box.eq(i).find(".FileData").val();
-                     filedata[i] = fileData;
-                 }
-             }
-         }
-
-
-         //var birthday = form.find("input[name=Birthday]").val();
-         //return;
-
-         
-
-            //Mgender: mgender,
-            //birthday: birthday
-            $.ajax({
-                url: "/ICDS/Home/GMQDisplaySignByBusiness",
-                type: "Post",
-                data: {
-                    FirstName: firstName,
-                    LastName: lastName,
-                    GMQDisplayID: email,
-                    secpwd: secpwd,
-                    Mcellphone: mcellphone,
-                    Mphone1: mphone1,
-                    Memtype: "B2B",
-                    MJobTitle: mjobtitle,
-                    OrgName: orgname,
-                    OrgBizType: orgbiztype,
-                    OrgScale: orgscale,
-                    OrgType: orgtype,
-                    StateProvince: stateProvince,
-                    Mzip: mzip,
-                    Mcity: mcity,
-                    Madd1: madd1,
-                    Mcountry: mcountry,
-                    Mdist: mdist,
-                    systemid: systemid,
-                    lang: lang,
-                    siteid: siteid,
-                    returnurl: returnurl,
-
-                    chkterms: chkterms,
-                    chkmemepaper: chkmemepaper,
-
-                    FileName: filename,
-                    FileData: filedata,
-                    FilePath: filepath,
-                    lineid: lineid
-
-                },
-                dataType: "json",
-                traditional: true,
-                success: function (data) {
-                    if (data.type == 1) {
-                         $.alertMessage({
-                            message: data.message
-                        });
-                        window.location.href = "/ICDS/Home/Activation" + "?str=" + data.value + "&lang=" + lang + "&system_id=" + systemid;
-                        
-                        //window.location.href = "signup_success?system_id=" + "G5" + "&lang=" + lang + "&backurl=" + data.value
-                    } else {
-                        $.alertMessage({
-                            message: data.message
-                        });
-
-                    }
-
-                    $('.form_btn').removeAttr("disabled", "disabled"); //设置变灰按钮
-                    $('.form_btn').addClass("bg_purple");
-                    $('.form_btn').removeClass("bg_gray");
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert("System Error(" + xhr.status + "):" + xhr.responseText);
-                }
-            });
-        //}
-    });
-
-    $(document).ready(function () {
-
-        //alert(getQueryString("memType"));
-
-        if (getQueryString("memType") != null && getQueryString("memType").toLowerCase() == "b2b") {
-            //$('#BusinessMember').prop('checked', true);
-            $('#BusinessMember').click();
-        }
-
-
-    });
 
     function namechk(from) {
         var form_wrap = from.find(".form_wrap");
@@ -1217,15 +279,30 @@
         }
     }
 
-    var isCommitted = false;//表单是否已经提交标识，默认为false
+    var isCommitted = false;
     function dosubmit() {
         if (isCommitted == false) {
-            isCommitted = true;//提交表单后，将表单是否已经提交标识设置为true
-            return true;//返回true让表单正常提交
+            isCommitted = true;
+            return true;
         } else {
-            return false;//返回false那么表单将不提交
+            return false;
         }
     }
+
+    $(".form_btn").click(function (e) {
+
+        e.preventDefault();
+        //namechk($("#Sign"));
+
+        var styleStr = $("#Sign").find(".form_item_text_warn");
+        for (var i = 0; i < styleStr.length ; i++) {
+            var css = styleStr[i].style.display;
+            if (css == "block" || css == "") {
+                return;
+            }
+        }
+		document.Sign.submit();
+    });
 </script>
 
 

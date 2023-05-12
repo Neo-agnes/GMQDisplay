@@ -23,10 +23,6 @@ td { vertical-align:middle;}
 /*common*/
 .btn { border:none; padding-left:0; padding-right:0; background:none;}
 .btn-box {margin-top:0;}
-input:focus {
-    outline: none;
-  }
-
 
 @media all and (max-width:1440px) and (min-width:1101px){
 

@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-input:focus {
-  outline: none;
-}
-
 .br-mo {display: none;}
 .br-pc {display: block;}
 .btn-more-wrap {display: none !important;} /* 20201113 추가 */

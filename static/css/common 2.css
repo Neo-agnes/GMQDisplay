@@ -79,10 +79,6 @@
     src:url('../font/samsungIcon.woff') format("woff");
 }
 
-input:focus {
-    outline: none;
-  }
-
 /* Skip Content */
 #skip_content a { overflow:hidden;display:block;position:absolute;top:0;left:0;width:1px;height:1px;background:#000;color:#fff;text-align:center;}
 #skip_content a:focus { position:relative;width:100%;height:auto;padding:10px;}

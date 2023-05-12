@@ -19,9 +19,7 @@
         touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
-input:focus {
-    outline: none;
-  }
+
 .slick-list
 {
     position: relative;

@@ -19,9 +19,7 @@ input[name="step3_model"]:focus-within { outline: -webkit-focus-ring-color auto 
 .radio-box:focus-within { outline: -webkit-focus-ring-color auto 1px }
 .swiper-button-next:focus,
 .swiper-button-prev:focus { outline: -webkit-focus-ring-color auto 1px }
-input:focus {
-  outline: none;
-}
+
 .ref-bespoke span {
   display: inline-block;
   font-size: inherit;
