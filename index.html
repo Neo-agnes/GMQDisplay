@@ -310,7 +310,8 @@
 
 <body>
 	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVX3V74" height="0" width="0"
+	<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVX3V74" height="0" width="0"
 			style="display:none;visibility:hidden"></iframe>
 	</noscript>
 	<!-- End Google Tag Manager (noscript) -->
@@ -898,7 +899,7 @@
 													<div class="gnbBanner type2">
 														<a href="./expert-monitor.html">
 															<div class="img">
-																<img src="https://images.samsung.com/kdp/cms_contents/131599/d0f0bd10-1dab-40a0-ad9a-b4475dfc7827.jpg?$ORIGIN_JPG$"
+																<img src="./static/images/main/main_14.jpg"
 																	alt="전문가용 모니터의 모든 것" class="lozad">
 															</div>
 															<p class="txt">전문가용 모니터의 모든 것</p>
@@ -1052,20 +1053,7 @@
 				$("#header").hide();
 				$(".string-banner-wrap").hide();
 			}
-
-			//앱설치 유도 토스트 팝업 AA 태깅
-			function appToastPopupTag(obj) {
-				if (obj !== undefined) {
-					tpTrack('click', $(obj).attr('data-omni'));
-				}
-			}
-
-			function setCookieA(name, value, exp) {
-				var date = new Date();
-				date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
-				document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-			}
-
+			
 			function getCookieA(key) {
 				var result = null;
 				var cookie = document.cookie.split(';');
@@ -1685,53 +1673,17 @@
 				headerSearch.eventListener.uinifiedSearchOpen();
 			}
 
-			/* APP용 함수 */
-
-			/* 닷컴 웹 검색시 챗봇 검색 연계 구현  */
-			function chat_open4(chatbotKeyword) {
-				var isMobile = false; // 모바일 여부
-				var filter = "win16|win32|win64|mac|macintel"; // PC 환경
-
-				// 모바일,태블릿 / PC 환경 구분 
-				if (navigator.platform) {
-					isMobile = filter.indexOf(navigator.platform.toLowerCase()) < 0
-				}
-
-				if (!isMobile) {
-					var birthAge = null;
-					var birthDate = $.cookie("birthDate_1_");
-
-					if (birthDate != 0 && birthDate != null) {
-						birthAge = checkAge(birthDate);
-					}
-
-					if (birthAge >= 14 || birthAge == 0 || birthAge == null) {
-						var agepass = checkAgepass(birthAge);
-						fcTrack('click', 'floating chat:chat online');
-
-						var keyword = encodeURIComponent(chatbotKeyword);
-						var popupX = (window.screen.width / 2) - (356 / 2);
-						var popupY = (window.screen.height / 2) - (750 / 2);
-
-						window.open('/chatbot/?keyword=' + keyword + '&agepass=' + agepass, '_chatbot4', 'status=no, height=750, width=356, left=' + popupX + ', top=' + popupY + ', screenX=' + popupX + ', screenY= ' + popupY);
-					}
-				}
-			}
 		</script>
 		<!-- s : 통합검색 -->
 		<div class="unified-search-input-wrap">
 			<div class="unified-search-input-inner">
 				<div class="search-box">
 					<label for="unifiedInputSearch" class="blind">통합 검색</label><!--  for 값 변경 -->
-					<input type="text" id="unifiedInputSearch" class="inp"
-						onfocus="headerSearch.eventListener.uinifiedSearchInp()"
-						onkeydown="headerSearch.eventListener.uinifiedSearchChange()">
+					<input type="text" id="unifiedInputSearch" class="inp" onfocus="headerSearch.eventListener.uinifiedSearchInp()" onkeydown="headerSearch.eventListener.uinifiedSearchChange()">
 					<span class="inp-placeholder"></span><!--  추천검색어 추가 -->
-					<button type="button" class="btn-inp-clear" title="삭제"><span
-							class="blind">삭제</span></button><!--  삭제 버튼 추가-->
+					<button type="button" class="btn-inp-clear" title="삭제"><span class="blind">삭제</span></button><!--  삭제 버튼 추가-->
 					<button type="button" class="btn-search" title="검색" id="unifiedSearchButton"
-						onclick="javascript:searchInputManager.getSearchResult($('#unifiedInputSearch').val(), '#unifiedInputSearch')"><span
-							class="blind">검색</span></button>
+						onclick="javascript:searchInputManager.getSearchResult($('#unifiedInputSearch').val(), '#unifiedInputSearch')"><span class="blind">검색</span></button>
 				</div>
 			</div>
 
@@ -1757,18 +1709,18 @@
 							</div>
 						</div>
 					</div>
-				</div><!--  감싸는 태그 unified-search-layer-inner의 닫는 태그 추가 -->
+				</div>
 				<button type="button" class="btn-close-search"><span class="blind">검색 레이어
-						닫기</span></button><!--  닫는 태그 추가--><!--  button type 변경-->
+						닫기</span></button>
 			</div>
 			<div class="unified-search-layer type-auto" style="display:none">
-				<div class="unified-search-layer-inner"><!--  감싸는 태그 unified-search-layer-inner 추가 -->
+				<div class="unified-search-layer-inner">
 					<div class="layer-cont" id="searchAuto">
 						<ul class="list">
 						</ul>
 					</div>
 				</div>
-				<button type="button" class="btn-close-search"><span class="blind">검색 레이어 닫기</span></button><!--  닫는 태그 추가--><!--  button type 변경-->
+				<button type="button" class="btn-close-search"><span class="blind">검색 레이어 닫기</span></button>
 			</div>
 			<button type="button" class="btn-close-search"><span class="blind">검색 레이어 닫기</span></button>
 		</div>
@@ -3033,7 +2985,6 @@
 												}
 											}
 
-											/* 웹접근성 2205 */
 											#mask[data-mask-target="odysseyViedoA"] {
 												display: none !important;
 											}
@@ -3072,8 +3023,7 @@
 											}
 										</style>
 
-										<!-- s : html -->
-										<div class="wrap-html-content a11y-guide"><!-- a11y: a11y-guide 클래스 추가 -->
+										<div class="wrap-html-content a11y-guide">
 											<div class="wrap-component">
 												<section class="img-cloumn-section">
 													<h2 class="title">
@@ -3086,7 +3036,7 @@
 																data-omni="pcd:it:monitor:gaming:all_about:support">
 																<div>
 																	<span class="img">
-																	<img src="https://images.samsung.com/kdp/cms_contents/151628/2d7d4eca-867d-4502-b02b-c1e4992d2065.jpg?$ORIGIN_JPG$"
+																	<img src="./static/images/main/main_15.jpg"
 																			alt="GMQDisplay 게임용 모니터페이지 사진" style="height:420px;"></span>
 																	<span class="sub">For games</span>
 																	<strong class="tit">게임용 모니터 구매를 더 쉽게 <br>Easy to buy</strong>
@@ -3313,90 +3263,6 @@
 											</div>
 										</div>
 										<!-- e : Feature full-bleed -->
-										<style>
-											.emoji-btn {
-												overflow: hidden;
-												position: absolute;
-												top: 0;
-												left: 100px;
-												z-index: 2;
-												transform: translateY(-100%);
-											}
-
-											.emoji-btn img {
-												width: 64px;
-												height: 64px;
-												transform: translateY(50%);
-												transition: transform 300ms;
-												will-change: transform;
-											}
-
-											.emoji-btn:hover img {
-												transform: translateY(20%);
-											}
-
-											.emoji-toggle-btn {
-												position: absolute;
-												top: -10px;
-												right: 50px;
-												z-index: 1;
-												width: 84px;
-												height: 36px;
-												background: url(https://images.samsung.com/kdp/static/pcd/common/easter_egg/emoji/switch-off.png) no-repeat center / contain;
-												transform: translateY(-100%);
-											}
-
-											.emoji-toggle-btn.active {
-												background-image: url(https://images.samsung.com/kdp/static/pcd/common/easter_egg/emoji/switch-on.png);
-											}
-
-											.emoji-canvas {
-												position: fixed;
-												top: 0;
-												left: 0;
-												z-index: 10000;
-												width: 100%;
-												height: 100%;
-												pointer-events: none;
-											}
-
-											@media (max-width: 1440px) {
-												.emoji-btn {
-													left: 6.9444vw;
-												}
-
-												.emoji-btn img {
-													width: 4.4444vw;
-													height: 4.4444vw;
-												}
-
-												.emoji-toggle-btn {
-													top: -0.6944vw;
-													right: 3.4722vw;
-													width: 5.8333vw;
-													height: 2.5000vw;
-												}
-											}
-
-											@media (max-width: 800px) {
-												.emoji-btn {
-													left: 6.9444vw;
-												}
-
-												.emoji-btn img {
-													width: 8.8889vw;
-													height: 8.8889vw;
-												}
-
-												.emoji-toggle-btn {
-													top: -1.3888vw;
-													right: 6.9444vw;
-													width: 11.6667vw;
-													height: 5.0000vw;
-												}
-											}
-										</style>
-
 										<script>
 											$('[data-cptnm="pcd:motinors:gaming_monitors"]').eq(1).css('overflow', 'inherit');
 											let emojiWrap = $('[data-cptnm="pcd:motinors:gaming_monitors"]').eq(1).find('.slider-carousel-visual');
@@ -3826,8 +3692,6 @@
 										$("#floatingSticky").find(".menuAr").remove();
 									}
 								</script>
-								<!-- //플로팅 메뉴 -->
-								<!-- s : 바닥글 영역 - b2c -->
 								<script type="text/javascript">
 									function showSafety() {
 										$(".dropDown-content .subDesc").hide();

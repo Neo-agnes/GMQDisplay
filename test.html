@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>상품 비교</title>
+  <style>
+    /* CSS 스타일을 추가해주세요 */
+  </style>
+</head>
+<body>
+  <h1>상품 비교</h1>
+
+  <!-- 상품 목록 -->
+  <div id="productContainer">
+    <!-- 상품들을 동적으로 추가할 수 있도록 구성해주세요 -->
+  </div>
+
+  <!-- 선택한 상품들 -->
+  <h2>선택한 상품들</h2>
+  <div id="selectedProducts">
+    <!-- 선택한 상품들을 동적으로 추가할 수 있도록 구성해주세요 -->
+  </div>
+
+  <!-- 비교 결과 -->
+  <h2>비교 결과</h2>
+  <table id="comparisonTable">
+    <thead>
+      <tr>
+        <th>속성</th>
+        <!-- 선택한 상품들의 제목 열을 동적으로 추가할 수 있도록 구성해주세요 -->
+      </tr>
+    </thead>
+    <tbody id="comparisonResult">
+      <!-- 선택한 상품들의 속성 값 열을 동적으로 추가할 수 있도록 구성해주세요 -->
+    </tbody>
+  </table>
+
+  <script>
+    // 상품 데이터
+var products = [
+  {
+    name: "상품 1",
+    price: "$100",
+    color: "빨강",
+    size: "중"
+  },
+  {
+    name: "상품 2",
+    price: "$120",
+    color: "파랑",
+    size: "대"
+  },
+  {
+    name: "상품 3",
+    price: "$80",
+    color: "노랑",
+    size: "소"
+  }
+];
+
+// 선택한 상품들을 저장할 배열
+var selectedProducts = [];
+
+// 상품 목록 컨테이너
+var productContainer = document.getElementById("productContainer");
+
+// 선택한 상품들 컨테이너
+var selectedProductsContainer = document.getElementById("selectedProducts");
+
+// 비교 결과 테이블
+var comparisonTable = document.getElementById("comparisonTable");
+var comparisonResult = document.getElementById("comparisonResult");
+
+// 상품 목록을 동적으로 생성
+products.forEach(function(product) {
+var productDiv = document.createElement("div");
+productDiv.classList.add("product");
+
+var productName = document.createElement("h2");
+productName.textContent = product.name;
+productDiv.appendChild(productName);
+
+var price = document.createElement("p");
+price.textContent = "가격: " + product.price;
+productDiv.appendChild(price);
+
+var color = document.createElement("p");
+color.textContent = "색상: " + product.color;
+productDiv.appendChild(color);
+
+var size = document.createElement("p");
+size.textContent = "사이즈: " + product.size;
+productDiv.appendChild(size);
+
+var compareButton = document.createElement("button");
+compareButton.textContent = "비교 추가";
+compareButton.addEventListener("click", function() {
+addToComparison(product);
+});
+productDiv.appendChild(compareButton);
+
+productContainer.appendChild(productDiv);
+});
+
+// 선택한 상품을 비교 결과에 추가하는 함수
+function addToComparison(product) {
+// 선택한 상품이 이미 비교 목록에 있는지 확인
+if (selectedProducts.includes(product)) {
+alert("이미 선택된 상품입니다.");
+return;
+}
+
+// 선택한 상품 추가
+selectedProducts.push(product);
+
+// 선택한 상품 컨테이너에 상품 추가
+var selectedProductDiv = document.createElement("div");
+selectedProductDiv.textContent = product.name;
+selectedProductsContainer.appendChild(selectedProductDiv);
+
+// 비교 결과 업데이트
+updateComparisonResult();
+}
+
+// 비교 결과 업데이트 함수
+function updateComparisonResult() {
+// 비교 결과 테이블 초기화
+comparisonResult.innerHTML = "";
+
+// 선택한 상품들의 속성을 비교 결과에 추가
+for (var attribute in selectedProducts[0]) {
+var row = document.createElement("tr");
+
+var attributeCell = document.createElement("td");
+attributeCell.textContent = attribute;
+row.appendChild(attributeCell);
+
+selectedProducts.forEach(function(product) {
+  var valueCell = document.createElement("td");
+  valueCell.textContent = product[attribute];
+  row.appendChild(valueCell);
+});
+
+comparisonResult.appendChild(row);
+}
+}
+  </script>
+</body>
+</html>
