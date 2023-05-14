@@ -2758,7 +2758,7 @@ function checkPdDropOption(e) {
 					<div class="itm-pd-picture" data-margin-top="50">
 						<div id="slickView">
 		<div class="prod-image">
-			<div class="prod-image-view" style="width:660px; height:660px;">
+			<div class="prod-image-view" style="width:760px; height:560px;">
 				<div>
 							<img src="./../static/images/product/2460G_1.png" alt="한성컴퓨터 ULTRON PLUS 리얼 144 게이밍 정면" data-img-tp="10" data-seq="1">
 				</div>

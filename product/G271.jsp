@@ -2711,9 +2711,6 @@ function checkPdDropOption(e) {
 					<div>
 							<img src="./../static/images/product/G271_4.png" data-lazy="./../static/images/product/G271_4.png" alt="오디세이 게이밍 모니터 60.4 cm 블랙 모서리 디테일" data-img-tp="10" data-seq="4">
 								</div>
-					<div>
-							<img src="./../static/images/product/G271_5.png" data-lazy="./../static/images/product/G271_5.png" alt="오디세이 게이밍 모니터 60.4 cm 블랙 피봇" data-img-tp="10" data-seq="5">
-								</div>
 					</div>
 			<div class="prod-image-navi-wrap">
 				<ol class="prod-image-navi">
@@ -2721,7 +2718,6 @@ function checkPdDropOption(e) {
 						<li><span><a href="javascript:;"><img src="./../static/images/product/G271_2.png" alt="오디세이 게이밍 모니터 60.4 cm 블랙 좌측 30도"></a></span></li>
 						<li><span><a href="javascript:;"><img src="./../static/images/product/G271_3.png" alt="오디세이 게이밍 모니터 60.4 cm 블랙 우측 30도"></a></span></li>
 						<li><span><a href="javascript:;"><img src="./../static/images/product/G271_4.png" alt="오디세이 게이밍 모니터 60.4 cm 블랙 모서리 디테일"></a></span></li>
-						<li><span><a href="javascript:;"><img src="./../static/images/product/G271_5.png" alt="오디세이 게이밍 모니터 60.4 cm 블랙 피봇"></a></span></li>
 						</ol>
 			</div>
 			<div class="opt-btn">
